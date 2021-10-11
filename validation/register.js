@@ -51,9 +51,9 @@ module.exports = function validateRegisterInput(data) {
     errors.password2 = 'Passwords must match';
   }
 
-  if (Validator.isEmpty(data.profileType)) {
-      errors.profileType = 'Profile type field is required'
-  }
+  // if (Validator.isEmpty(data.profileType)) {
+  //     errors.profileType = 'Profile type field is required'
+  // }
 
   return {
     errors,

@@ -32,7 +32,7 @@ const UserSchema = new Schema({
   },
   profileType: {
     type: Boolean,
-    required: true
+    // required: true
   }
 }, {
   timestamps: true
