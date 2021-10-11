@@ -1,0 +1,41 @@
+Users
+    -first_name
+    -last_name
+    -email
+    -handle
+
+Stylist
+    -phone_number
+    -address
+    -average_rating
+
+Reviews
+    -reviewer_id
+    -stylist_id
+    -title
+    -body
+    -rating
+    -timestamps
+
+        reviewer_id references users
+        stylist_id references stylist
+
+
+Appointment
+    -appointment_id
+    -client_id
+    -stylist_id
+    -time_frame
+    -appointment_type
+
+
+Haircut
+    -haircut_id
+    -haircut_type
+    -image
+    -price
+    -description
+
+
+
+

@@ -2,11 +2,16 @@ const mongoose = require('mongoose');
 const express = require("express");
 const app = express();
 const users = require("./routes/api/users");
+const cuts = require("./routes/api/cuts");
+const bodyParser = require('body-parser');
+const passport = require('passport');
 
-
-app.get("/", (req, res) => res.send("Hello World"));
+require('./config/passport')(passport);
 
 const db = require('./config/keys').mongoURI;
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/cuts", cuts);
