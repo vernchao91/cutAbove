@@ -22,36 +22,36 @@ Stylists will be able to upload pictures of their best work to their profiles, c
 Stylists will be able to upload pictures of their best work to their profile
 
 `appointments` - Client can schedule an appointment, upload photos for that appointment
-messaging - Client can message the stylist about the upcoming appointment (someone else will need to fill this in - Diego's idea but not sure of the intent)
+messaging - Client can message the stylist about the upcoming appointment  
 `reviews` - Clients can give a review of the stylist, ideally only once the appointment with the hairstylist has occurred. 
 readme
 
 ## Technologies and Technical Challenge
-MongoDB/Express to store user-profiles and appointments.
-React for frontend
-Technical Challenges
-`Base`
-Create user profiles, search bar for stylists, system for booking appointments, photo upload for stylists
-`Lock`
-Create different types of profiles, attach pictures to specific appointments, leave reviews for stylists
-`Reach`
-Messaging feature, map for stylists in close proximities
+MongoDB/Express to store user-profiles and appointments.  
+React for frontend  
+Technical Challenges  
+`Base`  
+Create user profiles, search bar for stylists, system for booking appointments, photo upload for stylists  
+`Lock`  
+Create different types of profiles, attach pictures to specific appointments, leave reviews for stylists  
+`Reach`  
+Messaging feature, map for stylists in close proximities  
 Creating appointments and then attaching data to that specific appointment
 
 ## Group Members and Work Breakdown
 
 #### Vern/Hitch - 
-`User Auth` - 10/11 - 10/12
-`Building out the different profiles` - 10/13
-`Reviews` - 10/15-10/16
-`Messaging` - 10/16-10/17
+`User Auth` - 10/11 - 10/12  
+`Building out the different profiles` - 10/13  
+`Reviews` - 10/15-10/16  
+`Messaging` - 10/16-10/17  
 
 #### Alex/Connor -
-`Create design scheme/landing page` - 10/11 - 10/12
-`Build user profile page` - 10/13
-`Booking appointment` - 10/14 - 10/15
-`Build out photo upload feature` - 10/15 - 10/16
-`Build project showcase profiling team members` - 10/17
+`Create design scheme/landing page` - 10/11 - 10/12  
+`Build user profile page` - 10/13  
+`Booking appointment` - 10/14 - 10/15  
+`Build out photo upload feature` - 10/15 - 10/16  
+`Build project showcase profiling team members` - 10/17  
 
-[Concept Reference - realself](https://www.realself.com/)
+[Concept Reference - realself](https://www.realself.com/)  
 [Style Reference - hims](https://www.forhims.com/)
