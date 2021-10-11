@@ -1,7 +1,5 @@
 # cutAbove
 
-Welcome to the cutAbove wiki!
-
 [Live Link](https://www.google.com/)
 Background and Overview
 As the COVID 19 pandemic starts to alleviate, people are entering a new normal. A big part of this normal? The lack of proper hair styling that people have had to endure during that time. 
@@ -54,7 +52,7 @@ Create design scheme/landing page - 10/11 - 10/12
 Build user profile page - 10/13
 Booking appointment - 10/14 - 10/15
 Build out photo upload feature - 10/15 - 10/16
-Build project showcase profiling team members
+Build project showcase profiling team members - 10/17
 
 [Concept Reference - realself](https://www.realself.com/)
 [Style Reference - hims](https://www.forhims.com/)
