@@ -26,5 +26,54 @@ router.get(
   }
 )
 
-// need router.post
+router.post(
+  "/new",
+  // passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const newStyle = new Style({
+      styleType: req.body.styleType,
+      description: req.body.description,
+      price: req.body.price,
+      stylistId: req.body.stylistId
+    });
+    newStyle.save()
+      .then(style => res.json(style));
+  }
+)
+
+router.patch(
+  "/:styleId",
+  // passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Style.findByIdAndUpdate(req.params.styleId, req.body, {new: true})
+      .then((style) => res.json(style))
+      .catch(err => res.status(404).json({ nostylefound: "No style found by taht Id" }))
+  }
+)
+
+router.delete(
+  "/:styleId",
+  // passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Style.deleteOne({_id: req.params.styleId})
+      .then(() => res.status(200).json({ msg: "delete successful" }))
+      .catch(err => res.status(404).json({ nostylefound: "No style found by that Id" }))
+  }
+)
+
+// app.delete('/api/stuff/:id', (req, res, next) => {
+  // Thing.deleteOne({_id: req.params.id}).then(
+  //   () => {
+  //     res.status(200).json({
+  //       message: 'Deleted!'
+  //     });
+  //   }
+  // ).catch(
+  //   (error) => {
+  //     res.status(400).json({
+  //       error: error
+  //     });
+  //   }
+  // );
+
 module.exports = router;
