@@ -5,7 +5,7 @@ const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
-const validateRegisterInput = require('../../validation/register');
+const validateRegisterInput = require('../../validation/registerUser');
 const validateLoginInput = require('../../validation/login');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));

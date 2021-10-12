@@ -3,4 +3,6 @@ const router = express.Router();
 
 router.get("/test", (req, res) => res.json({ msg: "This is the cuts route 1" }));
 
+router.update()
+
 module.exports = router;

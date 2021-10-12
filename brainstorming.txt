@@ -8,6 +8,10 @@ Stylist
     -phone_number
     -address
     -average_rating
+    -
+
+
+    
 
 Reviews
     -reviewer_id
@@ -22,16 +26,14 @@ Reviews
 
 
 Appointment
-    -appointment_id
     -client_id
     -stylist_id
     -time_frame
-    -appointment_type
+    -style_id
 
 
-Haircut
-    -haircut_id
-    -haircut_type
+Style
+    -style_type
     -image
     -price
     -description
