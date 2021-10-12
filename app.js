@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const users = require("./routes/api/users");
 const stylists = require("./routes/api/stylists")
-const cuts = require("./routes/api/cuts");
+const styles = require("./routes/api/styles");
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
@@ -16,8 +16,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/users", users);
-app.use("/api/cuts", cuts);
 app.use("/api/stylists", stylists);
+app.use("/api/styles", styles);
 
 mongoose
   .connect(db, { useNewUrlParser: true })
