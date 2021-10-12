@@ -5,6 +5,7 @@
 body {
     text-align: center;
     height: 100vh;
+    border: 1px solid gray;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -13,8 +14,14 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    height: 100px;
+    height: 125px;
     border: 1px solid green;
+    background-color: #7097A8;
+}
+
+.nav-bar > a {
+    color:white;
+    text-decoration: none;
 }
 
 .logo {
@@ -24,5 +31,35 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
+    filter: invert(99%) sepia(1%) saturate(2%) hue-rotate(306deg) brightness(111%) contrast(100%);
+}
+
+.signup-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 100px;
+    height: 10vh;
+}
+
+.signup-buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.buttonforsignupform {
+    border: 1px solid white;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    background-color: #7097A8;
+    border-radius: 5px;
 }
