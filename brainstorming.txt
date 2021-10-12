@@ -8,6 +8,10 @@ Stylist
     -phone_number
     -address
     -average_rating
+    -
+
+
+    
 
 Reviews
     -reviewer_id
