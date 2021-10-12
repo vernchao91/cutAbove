@@ -20,10 +20,11 @@ router.get(
 router.get(
   "/:id",
   (req, res) => {
-    Style.find({style: req.params.id})
+    Style.findById(req.params.id)
       .then(style => res.json(style))
       .catch(err => res.status(404).json({ nostylesfound: "No styles found by that Id" }))
   }
 )
 
+// need router.post
 module.exports = router;
