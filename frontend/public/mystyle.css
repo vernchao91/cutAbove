@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+body {
+    text-align: center;
+    height: 100vh;
+    border: 1px solid grey;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    border: 1px solid green;
+}
+
+.logo {
+    background-image: url("https://raw.githubusercontent.com/acrks/cutAbove/main/frontend/public/cutAboveLogoBold.png");
+    width: 200px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border: 1px solid blue;
+}
