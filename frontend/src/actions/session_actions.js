@@ -33,7 +33,7 @@ export const signup = user => dispatch => (
 );
 
 export const signupStylist = user => dispatch => (
-    APIUtil.signup(user).then(() => (
+    APIUtil.signupstylist(user).then(() => (
         dispatch(receiveUserSignIn())
     ), err => (
         dispatch(receiveErrors(err.response.data))

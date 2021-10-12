@@ -47,7 +47,7 @@ class SignupForm extends React.Component {
       address: this.state.address
     };
 
-    this.props.signup(user, this.props.history); 
+    this.props.signupStylist(user, this.props.history); 
   }
 
   renderErrors() {
