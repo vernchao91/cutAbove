@@ -2,6 +2,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
     text-align: center;
     height: 100vh;
@@ -47,7 +51,6 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-
 }
 
 .buttonforsignupform {
@@ -62,4 +65,60 @@ body {
     color: white;
     background-color: #7097A8;
     border-radius: 5px;
+}
+
+.session-form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.session-form-title {
+  padding: 20px;
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid #7097A8;
+  align-items: center;
+  width: 75%;
+  height: 100%;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px #476a79;
+}
+
+.session-form form {
+  height: 100%;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.session-form input[type='text'], input[type='password'] {
+  padding: 15px;
+  width: 90%;
+}  
+
+.session-form input[type='submit'] {
+  width: 25%;
+  height: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  background-color: #ABD1DC;
+  border-radius: 5px;
+  border: solid #7097A8 ;
+  color: white;
+  text-shadow: 2px 2px 2px #7097A8;
+}
+
+.errors {
+  color: red;
+  padding: 10px;
 }

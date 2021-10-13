@@ -10,9 +10,6 @@ Stylist
     -average_rating
     -
 
-
-    
-
 Reviews
     -reviewer_id
     -stylist_id
