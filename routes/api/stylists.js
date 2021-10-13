@@ -46,9 +46,15 @@ router.post("/register", (req, res) => {
 
   Stylist.findOne({ email: req.body.email }).then(stylist => {
     if (stylist) {
-      errors.email = "Stylist already exists";
+      errors.email = "Email has already been registered";
       return res.status(400).json(errors);
     } else {
+      Stylist.findOne({ handle: req.body.handle }).then(stylist => {
+        if (stylist) {
+          errors.handle = "Handle has already been taken";
+          return res.status(400).json(errors);
+        }
+      })
       const newStylist = new Stylist({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
