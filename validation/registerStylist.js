@@ -12,6 +12,7 @@ module.exports = function validateRegisterInput(data) {
   data.password2 = validText(data.password2) ? data.password2 : '';
   data.phoneNumber = validText(data.phoneNumber) ? data.phoneNumber : '';
   data.address = validText(data.address) ? data.address : '';
+  // data.phoneNumber = validNum(data.phoneNumber) ? data.phoneNumber : '';
 
   if (!Validator.isLength(data.handle, { min: 2, max: 30 })) {
     errors.handle = 'Handle must be between 2 and 30 characters';
@@ -53,21 +54,17 @@ module.exports = function validateRegisterInput(data) {
     errors.password2 = 'Passwords must match';
   }
 
-  // if (Validator.isEmpty(data.profileType)) {
-  //     errors.profileType = 'Profile type field is required'
+  // if (Validator.isEmpty(data.phoneNumber)) {
+  //   errors.phoneNumber = "Phone Number field is required"
   // }
 
-  if (Validator.isEmpty(data.phoneNumber)) {
-    errors.phoneNumber = "Phone Number field is required"
-  }
+  // if (!Validator.isLength(data.phoneNumber, { min: 10, max: 10 })) {
+  //   errors.phoneNumber = 'Phone Number is invalid';
+  // }
 
-  if (!Validator.isLength(data.phoneNumber, { min: 10, max: 10 })) {
-    errors.phoneNumber = 'Phone Number is invalid';
-  }
-
-  if (Validator.isEmpty(data.address)) {
-    errors.address = "Address field is required"
-  }
+  // if (Validator.isEmpty(data.address)) {
+  //   errors.address = "Address field is required"
+  // }
 
   return {
     errors,

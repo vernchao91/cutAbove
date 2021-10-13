@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require('passport');
 const Review = require("../../models/Review");
+const validateReview = require("../../validation/review")
 
 // all reviews
 router.get(
@@ -28,6 +29,12 @@ router.post(
   "/new/:stylistId",
   // passport.authenticate('jwt', { session: false }),
   (req, res) => {
+
+    const { errors, isValid } = validateReview(req.body)
+    if (!isValid) {
+      return res.status(400).json(errors)
+    }
+
     const newReview = new Review({
       reviewer_id: req.body.reviewer_id,
       stylist_id: req.params.stylistId,
@@ -37,6 +44,21 @@ router.post(
     })
     newReview.save()
       .then(review => res.json(review))
+  }
+)
+
+router.patch(
+  "/:reviewId",
+  (req, res) => {
+
+    const { errors, isValid } = validateReview(req.body)
+    if (!isValid) {
+      return res.status(400).json(errors)
+    }
+
+    Review.findByIdAndUpdate(req.params.reviewId, req.body, { new: true })
+      .then(review => res.json(review))
+      .catch(err => res.status(404).json({ noreviewfound: "No review found by that Id" }))
   }
 )
 

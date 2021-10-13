@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const Stylist = require('../../models/User');
-const Review = require("../../models/Review")
+const Stylist = require('../../models/Stylist');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
@@ -19,6 +18,15 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   });
 })
 
+// fetch all stylists for testing
+router.get(
+  "/",
+  (req, res) => {
+    Stylist.find()
+      .then(stylists => res.json(stylists))
+  }
+)
+
 router.post("/register", (req, res) => {
 
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -27,9 +35,9 @@ router.post("/register", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  Stylist.findOne({ handle: req.body.handle }).then(stylist => {
+  Stylist.findOne({ email: req.body.email }).then(stylist => {
     if (stylist) {
-      errors.handle = "Stylist already exists";
+      errors.email = "Stylist already exists";
       return res.status(400).json(errors);
     } else {
       const newStylist = new Stylist({
@@ -67,40 +75,40 @@ router.post("/register", (req, res) => {
   });
 });
 
-// router.post("/login", (req, res) => {
+router.post("/login", (req, res) => {
 
-//   const { errors, isValid } = validateLoginInput(req.body);
+  const { errors, isValid } = validateLoginInput(req.body);
 
-//   if (!isValid) {
-//     return res.status(400).json(errors);
-//   }
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
 
-//   const email = req.body.email;
-//   const password = req.body.password;
+  const email = req.body.email;
+  const password = req.body.password;
 
-//   Stylist.findOne({ email }).then(stylist => {
-//     if (!stylist) {
-//       errors.email = "This stylist does not exist";
-//       return res.status(400).json(errors);
-//     }
+  Stylist.findOne({ email }).then(stylist => {
+    if (!stylist) {
+      errors.email = "This stylist does not exist";
+      return res.status(400).json(errors);
+    }
 
-//     bcrypt.compare(password, stylist.password).then(isMatch => {
-//       if (isMatch) {
-//         const payload = { id: stylist.id, email: stylist.email };
+    bcrypt.compare(password, stylist.password).then(isMatch => {
+      if (isMatch) {
+        const payload = { id: stylist.id, email: stylist.email };
 
-//         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
-//           res.json({
-//             success: true,
-//             token: "Bearer " + token
-//           });
-//         });
-//       } else {
-//         errors.password = "Incorrect password";
-//         return res.status(400).json(errors);
-//       }
-//     });
-//   });
-// });
+        jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+          res.json({
+            success: true,
+            token: "Bearer " + token
+          });
+        });
+      } else {
+        errors.password = "Incorrect password";
+        return res.status(400).json(errors);
+      }
+    });
+  });
+});
 
 
 module.exports = router;

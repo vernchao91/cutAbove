@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
+const Stylist = require("../../models/Stylist")
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
@@ -18,6 +19,15 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   });
 })
 
+// fetch all users for testing
+router.get(
+  "/",
+  (req, res) => {
+    User.find()
+      .then(users => res.json(users))
+  }
+)
+
 router.post("/register", (req, res) => {
 
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -26,9 +36,9 @@ router.post("/register", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  User.findOne({ handle: req.body.handle }).then(user => {
+  User.findOne({ email: req.body.email }).then(user => {
     if (user) {
-      errors.handle = "User already exists";
+      errors.email = "User already exists";
       return res.status(400).json(errors);
     } else {
       const newUser = new User({
@@ -79,7 +89,7 @@ router.post("/login", (req, res) => {
     if (!user) {
       errors.email = "This user does not exist";
       return res.status(400).json(errors);
-    }
+    } else 
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
