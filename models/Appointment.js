@@ -5,17 +5,17 @@ const AppointmentSchema = new Schema({
     clientId: {
         type: Schema.Types.ObjectId,
         ref: "users",
-        required: false 
+        // required: false 
     },
     stylistId: {
         type: Schema.Types.ObjectId,
         ref: "stylists",
-        required: false 
+        // required: false 
     },
     styleId: {
         type: Schema.Types.ObjectId,
         ref: "styles",
-        required: false 
+        // required: false 
     },
     timeFrame: {
         type: String,

@@ -8,7 +8,7 @@ module.exports = function validateStyle(data) {
   // data.stylistId = validText(data.stylistId) ? data.stylistId : "";
   data.styleType = validText(data.styleType) ? data.styleType : "";
   data.description = validText(data.description) ? data.description : "";
-  // data.price = validText(data.price) ? data.price : "";
+  data.price = validText(data.price) ? data.price : "";
 
   if (Validator.isEmpty(data.styleType)) {
     errors.styleType = "Style type field required"

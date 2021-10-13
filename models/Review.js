@@ -5,12 +5,12 @@ const ReviewSchema = new Schema({
     reviewerId: {
         type: Schema.Types.ObjectId,
         ref: "users",
-        required: false 
+        // required: false 
     },
     stylistId: {
         type: Schema.Types.ObjectId,
         ref: "stylists",
-        required: false 
+        // required: false 
     },
     title: {
         type: String,

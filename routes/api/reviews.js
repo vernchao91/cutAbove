@@ -28,16 +28,25 @@ router.get(
 
 // all reviews on stylist
 router.get(
-  "/:stylistId",
+  "/stylist/:stylistId",
   (req, res) => {
-    Review.find({stylist_id: req.params.stylistId})
+    Review.find({stylistId: req.params.stylistId})
+      .then(reviews => res.json(reviews))
+      .catch(err => res.status(404).json({ noreviewsfound: "No reviews found" }));
+  }
+)
+
+router.get(
+  "/reviewer/:reviewerId",
+  (req, res) => {
+    Review.find({reviewerId: req.params.reviewerId})
       .then(reviews => res.json(reviews))
       .catch(err => res.status(404).json({ noreviewsfound: "No reviews found" }));
   }
 )
 
 router.post(
-  "/new/:stylistId",
+  "/:stylistId",
   // passport.authenticate('jwt', { session: false }),
   (req, res) => {
 
@@ -62,10 +71,10 @@ router.patch(
   "/:reviewId",
   (req, res) => {
 
-    const { errors, isValid } = validateReview(req.body)
-    if (!isValid) {
-      return res.status(400).json(errors)
-    }
+    // const { errors, isValid } = validateReview(req.body)
+    // if (!isValid) {
+    //   return res.status(400).json(errors)
+    // }
 
     Review.findByIdAndUpdate(req.params.reviewId, req.body, { new: true })
       .then(review => res.json(review))

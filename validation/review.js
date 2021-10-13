@@ -4,8 +4,8 @@ const validText = require('./valid-text');
 module.exports = function validateReview(data) {
   let errors = {};
 
-  data.reviewerId = validText(data.reviewer) ? data.reviewerId : "";
-  data.stylistId = validText(data.stylistId) ? data.stylistId : "";
+  // data.reviewerId = validText(data.reviewer) ? data.reviewerId : "";
+  // data.stylistId = validText(data.stylistId) ? data.stylistId : "";
   data.title = validText(data.title) ? data.title : "";
   data.body = validText(data.body) ? data.body : "";
   data.rating = validText(data.rating) ? data.rating : "";

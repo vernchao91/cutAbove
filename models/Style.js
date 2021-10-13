@@ -5,7 +5,7 @@ const StyleSchema = new Schema ({
     stylistId: {
         type: Schema.Types.ObjectId,
         ref: "stylists",
-        require: false
+        // require: false
     },
     styleType: {
         type: String,

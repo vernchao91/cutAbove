@@ -20,9 +20,9 @@ router.get(
 // fetch all appointments for current user
 
 router.get(
-  "/user/:userId",
+  "/client/:clientId",
   (req, res) => {
-    Appointment.find({clientId: req.params.userId})
+    Appointment.find({clientId: req.params.clientId})
       .then(appointments => res.json(appointments))
       .catch(err => res.status(404).json({ noappointmentsfound: "No appointments found" }));
   }
@@ -51,9 +51,15 @@ router.get(
 )
 
 router.post(
-  "/new/:stylistId",
+  "/:stylistId",
   // passport.authenticate('jwt', { session: false }),
   (req, res) => {
+
+    const { errors, isValid } = validateAppointment(req.body)
+    if (!isValid) {
+      return res.status(400).json(errors)
+    }
+
     const newAppointment = new Appointment({
       clientId: req.body.clientId,
       stylistId: req.params.stylistId,
@@ -66,7 +72,19 @@ router.post(
 )
 
 router.patch(
-  "/"
+  "/:appointmentId",
+  // passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+
+    // const { errors, isValid } = validateAppointment(req.body)
+    // if (!isValid) {
+    //   return res.status(400).json(errors)
+    // }
+
+    Appointment.findByIdAndUpdate(req.params.appointmentId, req.body, { new: true })
+      .then(appointment => res.json(appointment))
+      .catch(err => res.status(404).json({ noappointmentfound: "No appointment found by that Id" }))
+  }
 )
 
 router.delete(

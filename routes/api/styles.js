@@ -27,8 +27,18 @@ router.get(
   }
 )
 
+// fetch all styles stylist created
+router.get(
+  "/stylist/:stylistId",
+  (req, res) => {
+    Style.find({stylistId: req.params.stylistId})
+      .then(styles => res.json(styles))
+      .catch(err => res.status(404).json({ nostylesfound: "No styles found by that Id"}))
+  }
+)
+
 router.post(
-  "/new",
+  "/",
   // passport.authenticate('jwt', { session: false }),
   (req, res) => {
 
@@ -49,7 +59,7 @@ router.post(
 )
 
 router.patch(
-  "/edit/:id",
+  "/:id",
   // passport.authenticate('jwt', { session: false }),
   (req, res) => {
 

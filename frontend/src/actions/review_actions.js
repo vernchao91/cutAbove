@@ -36,13 +36,21 @@ export const removeErrors = () => {
   }
 }
 // fetches all reviews from stylist
-export const fetchReviews = stylistId => dispatch => {
-  return ReviewApiUtil.fetchReviews(stylistId)
+export const fetchReviewsFromStylist = stylistId => dispatch => {
+  return ReviewApiUtil.fetchReviewsFromStylist(stylistId)
     .then(
       reviews => dispatch(receiveReviews(reviews)),
       err => dispatch(receiveReviewErrors(err.response.data))
     )
     // .catch(err => dispatch(receiveReviewErrors(err.response.data)))
+}
+
+export const fetechReviewsFromUser = reviewerId => dispatch => {
+  return ReviewApiUtil.fetechReviewsFromUser(reviewerId)
+    .then(
+      reviews => dispatch(receiveReviews(reviews)),
+      err => dispatch(receiveReviewErrors(err.response.data))
+    )
 }
 
 // fetch review
