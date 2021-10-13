@@ -1,3 +1,11 @@
+Colors -
+    brown -  #C6A477
+    tan - #ECD59F
+    light blue - #D3E7EE
+    baby blie - #ABD1DC
+    darker blue - #7097A8
+
+
 Users
     -first_name
     -last_name
@@ -9,8 +17,6 @@ Stylist
     -address
     -average_rating
     -
-
-
     
 
 Reviews
