@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require('passport');
 const Style = require("../../models/Style");
+const validateStyle = require("../../validation/style");
 
 router.get("/test", (req, res) => res.json({ msg: "This is the cuts route 1" }));
 
@@ -30,6 +31,12 @@ router.post(
   "/new",
   // passport.authenticate('jwt', { session: false }),
   (req, res) => {
+
+    const { errors, isValid } = validateStyle(req.body);
+    if (!isValid) {
+      return res.status(400).json(errors)
+    }
+
     const newStyle = new Style({
       styleType: req.body.styleType,
       description: req.body.description,
@@ -42,12 +49,18 @@ router.post(
 )
 
 router.patch(
-  "/:styleId",
+  "/:id",
   // passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Style.findByIdAndUpdate(req.params.styleId, req.body, {new: true})
-      .then((style) => res.json(style))
-      .catch(err => res.status(404).json({ nostylefound: "No style found by taht Id" }))
+
+    // const { errors, isValid } = validateStyle(req.body);
+    // if (!isValid) {
+    //   return res.status(400).json(errors)
+    // }
+
+    Style.findOneAndUpdate((req.params.id === req.body.id), req.body, { new: true })
+      .then(style => res.json(style))
+      .catch(err => res.status(404).json({ nostylefound: "No style found by that Id" }))
   }
 )
 

@@ -18,6 +18,15 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   });
 })
 
+// fetch all users for testing
+router.get(
+  "/",
+  (req, res) => {
+    User.find()
+      .then(users => res.json(users))
+  }
+)
+
 router.post("/register", (req, res) => {
 
   const { errors, isValid } = validateRegisterInput(req.body);

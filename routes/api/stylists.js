@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
 const validateRegisterInput = require('../../validation/registerStylist');
-// const validateLoginInput = require('../../validation/login');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
@@ -17,6 +16,15 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
     email: req.stylist.email
   });
 })
+
+// fetch all stylists for testing
+router.get(
+  "/",
+  (req, res) => {
+    Stylist.find()
+      .then(stylists => res.json(stylists))
+  }
+)
 
 router.post("/register", (req, res) => {
 

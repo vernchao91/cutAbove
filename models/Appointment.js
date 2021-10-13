@@ -12,14 +12,14 @@ const AppointmentSchema = new Schema({
         ref: "stylists",
         required: false 
     },
-    timeFrame: {
-        type: String,
-        required: false
-    },
     styleId: {
         type: Schema.Types.ObjectId,
         ref: "styles",
         required: false 
+    },
+    timeFrame: {
+        type: String,
+        required: true
     }
 })
 
