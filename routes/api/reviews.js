@@ -11,7 +11,18 @@ router.get(
   (req, res) => {
     Review.find()
       .then(reviews => res.json(reviews))
-      .catch(err => res.status(404).json({ noreviewfound: "No review found" }));
+      .catch(err => res.status(404).json({ noreviewsfound: "No review found" }));
+  }
+)
+
+// fetch one review
+
+router.get(
+  "/:reviewId",
+  (req, res) => {
+    Review.findById(req.body.id)
+      .then(review => res.json(review))
+      .catch(err => res.status(404).json({ noreviewsfound: "No review found by that ID" }));
   }
 )
 
@@ -21,7 +32,7 @@ router.get(
   (req, res) => {
     Review.find({stylist_id: req.params.stylistId})
       .then(reviews => res.json(reviews))
-      .catch(err => res.status(404).json({ nostylesfound: "No reviews found" }));
+      .catch(err => res.status(404).json({ noreviewsfound: "No reviews found" }));
   }
 )
 

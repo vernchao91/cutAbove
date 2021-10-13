@@ -1,6 +1,14 @@
 import { combineReducers } from 'redux';
-import SessionErrorsReducer from '../errors/session_errors_reducer';
+import sessionErrorsReducer from './session_errors_reducer';
+// import styleErrorsReducer from "./style_errors_reducer";
+import reviewErrorsReducer from "./review_errors_reducer";
+// import appointmentErrorsReducer from "./appointment_errors_reducer";
+// import messageErrorsReducer from "./message_errors_reducer";
 
 export default combineReducers({
-  session: SessionErrorsReducer
+  // style: styleErrorsReducer,
+  review: reviewErrorsReducer,
+  // appointment: appointmentErrorsReducer,
+  // message: messageErrorsReducer,
+  session: sessionErrorsReducer
 });
