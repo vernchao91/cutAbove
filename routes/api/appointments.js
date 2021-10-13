@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const passport = require('passport');
 const Appointment = require("../../models/Appointment");
 
-// all appointments
+// all appointments for testing
 router.get(
   "/",
   (req, res) => {
@@ -17,7 +17,7 @@ router.get(
 // all appointments for current user
 
 router.get(
-    "/:userId",
+    "/user/:userId",
     (req, res) => {
         Appointment.find({clientId: req.params.userId})
             .then(appointments => res.json(appointments))
@@ -28,7 +28,7 @@ router.get(
 // all appointments for current stylist
 
 router.get(
-    "/:stylistId",
+    "/stylist/:stylistId",
     (req, res) => {
         Appointment.find({stylistId: req.params.stylistId})
             .then(appointments => res.json(appointments))
