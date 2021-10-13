@@ -57,14 +57,12 @@ class StylistLoginForm extends React.Component {
     return (
       <div className='session-form login'>
         <form onSubmit={this.handleSubmit}>
-          {this.renderErrors()}
         <h3 className='session-form-title'>
-        Are you a new User?
-        <Link to='/signup'>Sign Up</Link> 
         <br />
         <br />
         Log In
         </h3>
+          {this.renderErrors()}
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}

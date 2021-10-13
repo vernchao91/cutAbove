@@ -71,18 +71,18 @@ class LoginForm extends React.Component {
         <div className='session-form login'>
         <form onSubmit={this.handleSubmit}>
         <h3 className='session-form-title'>
-        {this.renderErrors()}
-        Are you a new User?
-        <Link to='/signup'>Sign Up</Link> 
         <br />
         <br />
         Log In
         </h3>
+        {this.renderErrors()}
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
                 placeholder="Email"
               />
+              {usernameErrorLabel}
+              {usernameTakenLabel}
             <br/>
               <input type="password"
                 value={this.state.password}
