@@ -54,17 +54,17 @@ module.exports = function validateRegisterInput(data) {
     errors.password2 = 'Passwords must match';
   }
 
-  if (Validator.isEmpty(data.phoneNumber)) {
-    errors.phoneNumber = "Phone Number field is required"
-  }
+  // if (Validator.isEmpty(data.phoneNumber)) {
+  //   errors.phoneNumber = "Phone Number field is required"
+  // }
 
-  if (!Validator.isLength(data.phoneNumber, { min: 10, max: 10 })) {
-    errors.phoneNumber = 'Phone Number is invalid';
-  }
+  // if (!Validator.isLength(data.phoneNumber, { min: 10, max: 10 })) {
+  //   errors.phoneNumber = 'Phone Number is invalid';
+  // }
 
-  if (Validator.isEmpty(data.address)) {
-    errors.address = "Address field is required"
-  }
+  // if (Validator.isEmpty(data.address)) {
+  //   errors.address = "Address field is required"
+  // }
 
   return {
     errors,
