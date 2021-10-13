@@ -129,6 +129,10 @@ body {
   z-index: 9;
 }
 
+.signup-form {
+  height: 75vh;
+}
+
 .session-form form {
   height: 100%;
   width: 75%;
