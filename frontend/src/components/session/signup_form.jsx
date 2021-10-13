@@ -105,10 +105,10 @@ class SignupForm extends React.Component {
 
     return (
         <div className="session-form signup-form">
-        <img className="client-sign-up-model" src={gronk}/>
+        
         {/* {this.renderErrors()} */}
         <form onSubmit={this.handleSubmit}>
-        <h3 className='session-form-title'>Stylist Sign Up</h3>
+        <h3 className='session-form-title'>Client Sign Up</h3>
               <input type="text"
                 value={this.state.firstName}
                 onChange={this.update('firstName')}
@@ -158,6 +158,7 @@ class SignupForm extends React.Component {
               <br/>
             <input type="submit" value="Submit" className = "submit-button"/>
         </form>
+        <img className="client-sign-up-model" src={gronk}/>
           </div>
     );
   }
