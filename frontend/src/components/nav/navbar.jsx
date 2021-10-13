@@ -28,9 +28,9 @@ class NavBar extends React.Component {
   render() {
       return (
         <div className = "nav-bar">
+          <Link className = "logo-main" to ="/"></Link>
           <a href= "https://www.target.com/c/hair-care-beauty/-/N-5xu0k">Buy styling/<br/>care products!</a>
           <Link to={'/cuts'}>Refer a friend</Link>
-          <Link className = "logo-main" to ="/"></Link>
           <Link to={'/appointment'}>Your appointments</Link>
             { this.getLinks() }
         </div>

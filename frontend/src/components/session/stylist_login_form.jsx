@@ -52,11 +52,12 @@ class StylistLoginForm extends React.Component {
       </ul>
     );
   }
-
+  
   render() {
     return (
-        <div className='session-form login'>
+      <div className='session-form login'>
         <form onSubmit={this.handleSubmit}>
+          {this.renderErrors()}
         <h3 className='session-form-title'>
         Are you a new User? <nbsp />
         <Link to='/signup'>Sign Up</Link> 
@@ -77,7 +78,6 @@ class StylistLoginForm extends React.Component {
               />
             <br/>
             <input type="submit" value="Log In" />
-            {this.renderErrors()}
         </form>
         </div>
 

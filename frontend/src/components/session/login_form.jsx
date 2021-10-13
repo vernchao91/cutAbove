@@ -58,6 +58,7 @@ class LoginForm extends React.Component {
         <div className='session-form login'>
         <form onSubmit={this.handleSubmit}>
         <h3 className='session-form-title'>
+        {this.renderErrors()}
         Are you a new User? <nbsp />
         <Link to='/signup'>Sign Up</Link> 
         <br />
@@ -77,7 +78,6 @@ class LoginForm extends React.Component {
               />
             <br/>
             <input type="submit" value="Log In" />
-            {this.renderErrors()}
         </form>
         </div>
 
