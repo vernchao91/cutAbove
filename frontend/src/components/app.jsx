@@ -11,6 +11,7 @@ import SignupButtons from './session/sign_up_button';
 const App = () => (
   <div>
     <NavBarContainer />
+    <div className = "body">
     <Switch>
         <AuthRoute exact path="/" component={MainPage} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
@@ -18,6 +19,10 @@ const App = () => (
         <AuthRoute exact path="/users/signup" component={SignupFormContainer} />
         <AuthRoute exact path="/stylists/signup" component={StylistSignupFormContainer} />
     </Switch>
+    </div>
+    <footer>
+      
+    </footer>
   </div>
 );
 

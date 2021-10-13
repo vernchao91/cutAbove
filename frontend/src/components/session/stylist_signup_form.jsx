@@ -64,9 +64,8 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="session-form-container">
+        <div className="session-form">
         <h3 className='session-form-title'>Stylist Sign Up</h3>
-          <div className="session-form">
         <form onSubmit={this.handleSubmit}>
             <br/>
               <input type="text"
@@ -121,7 +120,6 @@ class SignupForm extends React.Component {
             {this.renderErrors()}
         </form>
           </div>
-      </div>
     );
   }
 }

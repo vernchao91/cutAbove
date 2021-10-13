@@ -6,6 +6,7 @@ export default function signupbuttons() {
     return(
         <div className = "signup-buttons">
         <span>Are you a:</span>
+        <br/>
             <div className = "signup-buttons-container">
             <Link className = "buttonforsignupform" to = "/users/signup">
                 Client?
