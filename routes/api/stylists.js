@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const Stylist = require('../../models/User');
+const Review = require("../../models/Review")
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
@@ -17,6 +18,11 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
     email: req.stylist.email
   });
 })
+
+router.get(
+  "/reviews",
+  
+)
 
 router.post("/register", (req, res) => {
 
