@@ -20,8 +20,6 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* height: a */
-    /* border: 1px dashed black; */
     border-bottom: 1px dashed black;
 }
 
@@ -30,13 +28,18 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    height: 80px;
-    border: 1px solid green;
-    background-image: linear-gradient(#2B4F60, #244757);
+    height: 100px;
+    border-bottom: solid green;
+    border-left: solid green;
+    padding: 10px;
+    /* background-image: linear-gradient(#2B4F60, #244757); */
+    -webkit-border-bottom-left-radius: 40px;
+    -moz-border-radius-bottomleft: 40px;
+    border-bottom-left-radius: 40px;
 }
 
 .nav-bar > a {
-    color:white;
+    color:black;
     text-decoration: none;
 }
 
@@ -48,7 +51,7 @@ body {
     background-size: contain;
     background-position: center;
     /* border: 1px solid blue; */
-    filter: invert(99%) sepia(1%) saturate(2%) hue-rotate(306deg) brightness(111%) contrast(100%);
+    /* filter: invert(99%) sepia(1%) saturate(2%) hue-rotate(306deg) brightness(111%) contrast(100%); */
 }
 
 .signup-buttons {
@@ -67,6 +70,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    margin-top: 20px;
 }
 
 .buttonforsignupform {
@@ -79,19 +83,10 @@ body {
     text-decoration: none;
     color: white;
     background-image: linear-gradient(#889EAF, #889EAF);
-    border-radius: 5px;
+    border-radius: 50px;
     text-shadow: 0px 0px 2px #778fa1;
     /* -webkit-text-stroke: 1px #D3E7EE; */
 }
-
-/* .session-form-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-    font-size: 25px;
-
-} */
 
 .form-container {
   width: 56%;
@@ -99,7 +94,7 @@ body {
   display: flex;
   flex-direction: row;
   margin: 30px;
-  box-shadow: 5px 5px 15px 0px #476a79;
+  box-shadow: 2px 2px 5px 0px #476a79;
 }
 
 .client-sign-up-model {
@@ -128,7 +123,7 @@ body {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   font-size: 25px;
-
+  box-shadow: 2px 2px 5px 0px #476a79;
   background-color: #FDF6F0;
 }
 
@@ -151,7 +146,7 @@ input[type='password'] {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   background-color: #fffcf9;
-  border-radius: 20px;
+  border-radius: 50px;
   border: 1px solid;
   border-color: #ABD1DC;
 }  
@@ -169,66 +164,70 @@ input[type='password'] {
   font-size: 17px;
   text-decoration: none;
   /* background-image: linear-gradient(#889EAF, #889EAF); */
-  border-radius: 9px;
+  border-radius: 50px;
 }
 
 .errors {
   color: red;
   padding: 10px;
+  font-size: 15px;
 }
 
 .splashPage {
   border: 1px solid salmon;
   width: 100%;
   height: 100%;
-  padding: 10px;
-}
-
-.book-appointment {
-  height: 15%;
-  width: 100%;
-  border: 1px solid gray;
+  padding: 25px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: left;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  background-image: url('https://previews.123rf.com/images/jpldesigns/jpldesigns1110/jpldesigns111000064/11021495-stone-lantern-and-pruned-bonsai-tree-at-japanese-garden-in-san-francisco.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 25%;
-  padding: 20px;
 }
 
-.book-appointment-button {
-  height: 100%;
-  background-color: #AB6D23;
-  text-decoration: none;
-  color: white;
-  padding: 20px;
-  border-radius: 5px;
+.splashPage > div {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+
 
 .search-bar-container {
-  height: 30%;
-  width: 100%;
-  padding: 65px;
+  margin-top: 5%;
+  height: 250px;
+  width: 90%;
+  padding: 30px;
   border: 1px solid hotpink;
   display: flex;
   background-image: url('https://cyties.com/wp-content/uploads/2019/11/HB7-1500x1000.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 50%;
-  flex-direction: row;
+  background-position: 50% 60%;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
+}
+
+.book-appointment-button {
+  height: 33%;
+  width: 33%;
+  background-color: #AB6D23;
+  text-decoration: none;
+  color: white;
+  padding: 2%;
+  border-radius: 50px;
+  font-size: 25px;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 .search-bar {
-  height: 100%;
+  height: 25%;
   background-color: white;
   padding: 20px;
   width: 65%;
-  border-radius: 5px;
+  border-radius: 50px;
 }
 
 .featured-stylist-container {
@@ -265,6 +264,7 @@ input[type='password'] {
 
 .popular-elements-container {
   height: 500px;
+  width: 100%;
   border: 1px solid magenta;
   display: flex;
   flex-direction: row;
@@ -284,9 +284,32 @@ input[type='password'] {
 
 .popular-styles {
   height: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.style-item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border: 1px solid saddlebrown;
+  height: 90%;
+}
+
+.style-item {
+  height: 48%;
+  width: 30%;
+}
+
+.style-item-picture {
+  border-radius: 50px;
+  height: 75%;
+  border: 1px solid green;
 }
 
 .footer {
   padding: 24px;
-  /* overflow: hidden; */
 }

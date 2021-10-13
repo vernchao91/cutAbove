@@ -58,13 +58,14 @@ class SignupForm extends React.Component {
       </ul>
     );
   }
-
+  
   render() {
     return (
       <div className="form-container">
           <div className="session-form">
         <form onSubmit={this.handleSubmit}>
         <h3 className='session-form-title'>Client Sign Up</h3>
+        {this.renderErrors()}
               <input type="text"
                 value={this.state.firstName}
                 onChange={this.update('firstName')}
@@ -103,7 +104,6 @@ class SignupForm extends React.Component {
               />
             <br/>
             <input type="submit" value="Sign Up" />
-            {this.renderErrors()}
         </form>
         </div>
           <img className="client-sign-up-model" src={gronk}/>
