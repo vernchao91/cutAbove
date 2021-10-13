@@ -30,7 +30,7 @@ class NavBar extends React.Component {
         <div className = "nav-bar">
           <a href= "https://www.target.com/c/hair-care-beauty/-/N-5xu0k">Buy styling/<br/>care products!</a>
           <Link to={'/cuts'}>Refer a friend</Link>
-          <div className = "logo main"><Link to ="/"></Link></div>
+          <Link className = "logo-main" to ="/"></Link>
           <Link to={'/appointment'}>Your appointments</Link>
             { this.getLinks() }
         </div>
