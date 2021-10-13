@@ -2,21 +2,21 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const AppointmentSchema = new Schema({
-    client_id: {
+    clientId: {
         type: Schema.Types.ObjectId,
         ref: "users",
         required: false 
     },
-    stylist_id: {
+    stylistId: {
         type: Schema.Types.ObjectId,
         ref: "stylists",
         required: false 
     },
-    time_frame: {
+    timeFrame: {
         type: String,
         required: false
     },
-    style_id: {
+    styleId: {
         type: Schema.Types.ObjectId,
         ref: "styles",
         required: false 

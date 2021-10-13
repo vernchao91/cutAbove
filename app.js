@@ -6,6 +6,7 @@ const users = require("./routes/api/users");
 const stylists = require("./routes/api/stylists")
 const styles = require("./routes/api/styles");
 const reviews = require("./routes/api/reviews");
+const appointments = require("./routes/api/appointments")
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
@@ -20,6 +21,7 @@ app.use("/api/users", users);
 app.use("/api/stylists", stylists);
 app.use("/api/styles", styles);
 app.use("/api/reviews", reviews);
+app.use("/api/appointments", appointments)
 
 mongoose
   .connect(db, { useNewUrlParser: true })
