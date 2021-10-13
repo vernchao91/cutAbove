@@ -1,13 +1,18 @@
-import { connect } from 'react-redux';
-import ReviewIndex from './review_index';
-import { fetchReviewsFromStylist } from '../../actions/review_actions';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const mapStateToProps = (state) => {
-    return {reviews: Object.values(state.entities.reviews)}
-};
-const mapDispatchToProps = dispatch => ({
-    fetchReviewsFromStylist:(stylistId) => dispatch(fetchReviewsFromStylist(stylistId))
-});
+const ReviewItem = (props) => {
+    return (
+        <div>
+            <div className="review-item-container">
+            <h2 className="review-heading">
+                <div className="review-title">{props.review.heading}</div>
+                    <div className="review-rating"> <span className="star">★</span> {props.review.rating} / 10</div>
+            </h2>
+            <p className="review-body">{props.review.review}</p>
+            </div>
+        </div>
+    )
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewIndex);
-
+export default ReviewItem

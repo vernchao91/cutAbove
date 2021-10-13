@@ -7,10 +7,12 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import StylistSignupFormContainer from './session/stylist_sign_form_container';
 import StylistLoginFormContainer from './session/stylist_login_form_container';
+import StylistProfileContainer from './stylist_profile/stylist_profile_container';
 import SignupButtons from './session/sign_up_button';
 import LoginButtons from './session/log_in_buttons';
 import BookAppointmentContainer from './book_appointment/book_appointment_container'
 import Footer from '../components/footer/footer';
+
 
 const App = () => (
   <div>
@@ -25,6 +27,7 @@ const App = () => (
         <AuthRoute exact path="/signup" component={SignupButtons}/>
         <AuthRoute exact path="/users/signup" component={SignupFormContainer} />
         <AuthRoute exact path="/stylists/signup" component={StylistSignupFormContainer} />
+        <AuthRoute exact path="/stylists/:stylistId" component={StylistProfileContainer} />
     </Switch>
     </div>
     <Footer />
