@@ -1,4 +1,4 @@
-import axios from "axiox";
+import axios from "axios";
 
 // fetch all stylists
 export const fetchStylists = () => {

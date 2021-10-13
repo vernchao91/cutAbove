@@ -3,9 +3,11 @@ import sessionErrorsReducer from './session_errors_reducer';
 import styleErrorsReducer from "./style_errors_reducer";
 import reviewErrorsReducer from "./review_errors_reducer";
 import appointmentErrorsReducer from "./appointment_errors_reducer";
+import stylistErrorsReducer from "./stylist_errors_reducer"
 // import messageErrorsReducer from "./message_errors_reducer";
 
 export default combineReducers({
+  stylist: stylistErrorsReducer,
   style: styleErrorsReducer,
   review: reviewErrorsReducer,
   appointment: appointmentErrorsReducer,
