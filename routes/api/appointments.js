@@ -3,6 +3,8 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require('passport');
 const Appointment = require("../../models/Appointment");
+const validateAppointment = require("../../validation/appointment")
+
 
 // fetch all appointments for testing
 
@@ -61,6 +63,10 @@ router.post(
     newAppointment.save()
       .then(appointment => res.json(appointment))
   }
+)
+
+router.patch(
+  "/"
 )
 
 router.delete(

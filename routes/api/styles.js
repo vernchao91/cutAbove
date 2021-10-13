@@ -49,7 +49,7 @@ router.post(
 )
 
 router.patch(
-  "/:id",
+  "/edit/:id",
   // passport.authenticate('jwt', { session: false }),
   (req, res) => {
 
@@ -58,7 +58,7 @@ router.patch(
     //   return res.status(400).json(errors)
     // }
 
-    Style.findOneAndUpdate((req.params.id === req.body.id), req.body, { new: true })
+    Style.findByIdAndUpdate((req.params.id === req.body.id), req.body, { new: true })
       .then(style => res.json(style))
       .catch(err => res.status(404).json({ nostylefound: "No style found by that Id" }))
   }
