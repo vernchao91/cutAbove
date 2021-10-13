@@ -18,12 +18,21 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   });
 })
 
-// fetch all stylists for testing
+// fetch all stylists
 router.get(
   "/",
   (req, res) => {
     Stylist.find()
       .then(stylists => res.json(stylists))
+  }
+)
+
+router.get(
+  "/:id",
+  (req, res) => {
+    Stylist.findById(req.params.id)
+      .then(stylist => res.json(stylist))
+      .catch(err => res.status(404).json({ nostylistfound: 'No stylist found with that ID' }));
   }
 )
 
