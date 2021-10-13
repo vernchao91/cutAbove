@@ -36,4 +36,43 @@ export const removeErrors = () => {
   }
 }
 
-export const fetch 
+// fetches all styles the stylist has created
+export const fetchStylesFromStylist = stylistId => {
+  return StyleApiUtil.fetchStylesFromStylist(stylistId)
+    .then(
+      styles => dispatch(receiveStyles(styles)),
+      err => dispatch(receiveStyleErrors(err.response.data))
+    )
+} 
+
+export const fetchStyle = styleId => {
+  return StyleApiUtil.fetchStyle(styleId)
+    .then(
+      style => dispatch(receiveStyle(style)),
+      err => dispatch(receiveStyleErrors(err.response.data))
+    )
+}
+
+export const createStyle = style => {
+  return StyleApiUtil.createStyle(style)
+  .then(
+    style => dispatch(receiveStyle(style)),
+    err => dispatch(receiveStyleErrors(err.response.data))
+  )
+}
+
+export const updateStyle = style => {
+  return StyleApiUtil.updateStyle(style)
+  .then(
+    style => dispatch(receiveStyle(style)),
+    err => dispatch(receiveStyleErrors(err.response.data))
+  )
+}
+
+export const deleteStyle = styleId => {
+  return StyleApiUtil.deleteStyle(styleId)
+  .then(
+    style => dispatch(removeStyle(styleId)),
+    err => dispatch(receiveStyleErrors(err.response.data))
+  )
+}
