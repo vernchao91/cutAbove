@@ -19,3 +19,7 @@ export const signupstylist = (stylistData) => {
 export const login = (userData) => {
   return axios.post('/api/users/login', userData);
 };
+
+export const loginStylist = (stylistData) => {
+  return axios.post('/api/stylists/login', stylistData);
+};
