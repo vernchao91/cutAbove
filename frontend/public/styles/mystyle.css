@@ -1,6 +1,6 @@
 @import url(./css_reset.css);
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
 
 * {
   box-sizing: border-box;
@@ -21,7 +21,8 @@ body {
     justify-content: center;
     align-items: center;
     /* height: a */
-    border: 1px dashed black;
+    /* border: 1px dashed black; */
+    border-bottom: 1px dashed black;
 }
 
 .nav-bar {
@@ -29,7 +30,7 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    height: 125px;
+    height: 80px;
     border: 1px solid green;
     background-image: linear-gradient(#2B4F60, #244757);
 }
@@ -39,10 +40,10 @@ body {
     text-decoration: none;
 }
 
-.logo {
+.logo-main {
     background-image: url("https://raw.githubusercontent.com/acrks/cutAbove/main/frontend/public/cutAboveLogoBold.png");
     width: 200px;
-    height: 100%;
+    height: 80%;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -91,67 +92,84 @@ body {
     font-size: 25px;
 
 } */
+
+.form-container {
+  width: 56%;
+  height: 580px;
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+  box-shadow: 5px 5px 15px 0px #476a79;
+}
+
+.client-sign-up-model {
+  width: 50%;
+  height: auto;
+
+}
+
 .session-form-title {
   font-family: 'Montserrat', sans-serif;
   padding: 20px;
+  padding-bottom: 40px;
+  font-size: 25px;
 }
 
 
 .session-form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
-  border: solid #7097A8;
   align-items: center;
-  width: 75%;
-  padding: 15px;
-  border-radius: 5px;
+  width: 50%;
+  height: auto;
+  max-width: 750px;
+  /* padding: 15px; */
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   font-size: 25px;
-  box-shadow: 5px 5px 15px 0px #476a79;
+
   background-color: #FDF6F0;
 }
 
 .session-form form {
-  height: 100%;
+  height: 80%;
   width: 75%;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   padding: 10px;
 }
 
+
 .session-form input[type='text'], 
 input[type='password'] {
-  height: 50px;
+  height: 38px;
   padding: 15px;
-  width: 90%;
+  width: 100%;
   font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    background-color: #fffcf9;
+  font-size: 14px;
+  background-color: #fffcf9;
+  border-radius: 20px;
+  border: 1px solid;
+  border-color: #ABD1DC;
 }  
 
 .session-form input[type='submit'] {
-  width: 25%;
-  height: 75px;
+  width: 100%;
+  height: 40px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  background-color: #ABD1DC;
-  border-radius: 5px;
-  border: solid #7097A8 ;
+  background-color: #7ab5c5;
+  border: none;
+  padding: 8px;
   color: white;
-  text-shadow: 2px 2px 2px #7097A8;
-  width: 300px;
-  font-size: 25px;
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  /* text-shadow: 2px 2px 2px #7097A8; */
+  font-size: 17px;
   text-decoration: none;
-  color: white;
-  background-image: linear-gradient(#889EAF, #889EAF);
-  border-radius: 5px;
-  text-shadow: 0px 0px 2px #778fa1;
+  /* background-image: linear-gradient(#889EAF, #889EAF); */
+  border-radius: 9px;
 }
 
 .errors {
@@ -266,4 +284,9 @@ input[type='password'] {
 
 .popular-styles {
   height: 100%;
+}
+
+.footer {
+  padding: 24px;
+  /* overflow: hidden; */
 }

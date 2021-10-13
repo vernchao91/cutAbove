@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import gronk from './gronk.jpeg'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -60,6 +61,7 @@ class SignupForm extends React.Component {
 
   render() {
     return (
+      <div className="form-container">
           <div className="session-form">
         <form onSubmit={this.handleSubmit}>
         <h3 className='session-form-title'>Client Sign Up</h3>
@@ -73,6 +75,7 @@ class SignupForm extends React.Component {
                   value={this.state.lastName}
                   onChange={this.update('lastName')}
                   placeholder="Last Name"
+
                 />
             <br/>
               <input type="text"
@@ -102,6 +105,8 @@ class SignupForm extends React.Component {
             <input type="submit" value="Sign Up" />
             {this.renderErrors()}
         </form>
+        </div>
+          <img className="client-sign-up-model" src={gronk}/>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import model from './girlModel.jpeg'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -64,6 +65,8 @@ class SignupForm extends React.Component {
 
   render() {
     return (
+      <div className="form-container">
+        <img className="client-sign-up-model" src={model}/>
         <div className="session-form">
         <h3 className='session-form-title'>Stylist Sign Up</h3>
         <form onSubmit={this.handleSubmit}>
@@ -120,6 +123,7 @@ class SignupForm extends React.Component {
             {this.renderErrors()}
         </form>
           </div>
+      </div>
     );
   }
 }
