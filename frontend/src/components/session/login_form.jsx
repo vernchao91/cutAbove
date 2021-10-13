@@ -24,6 +24,10 @@ class LoginForm extends React.Component {
     this.setState({errors: nextProps.errors})
   }
 
+  // componentWillUnmount() {
+  //   this.props.clearErrors();
+  // }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -54,12 +58,21 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    let fields;
+        let required;
+        let emailErrorLabel, 
+        usernameErrorLabel, 
+        passwordErrorLabel, 
+        loginErrorsLabel,
+        usernameTakenLabel,
+        emailTakenLabel = <label></label>;
+
     return (
         <div className='session-form login'>
         <form onSubmit={this.handleSubmit}>
         <h3 className='session-form-title'>
         {this.renderErrors()}
-        Are you a new User? <nbsp />
+        Are you a new User?
         <Link to='/signup'>Sign Up</Link> 
         <br />
         <br />

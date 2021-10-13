@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import FeaturedStylist from '../featured_stylist/featured_stylist_container';
 import PopularContainer from '../popular_items/popular_components/popular_items'
-import SearchBarContainer from '../search_bar/search_bar_container'
+// import SearchBarContainer from '../search_bar/search_bar_container'
 
 class MainPage extends React.Component {
 
@@ -10,7 +10,7 @@ class MainPage extends React.Component {
     return (
       <div className = "splashPage">
         <div className = "book-appointment"></div>
-        <div className = "search-bar-container"><Link to = "/appointments" className = "book-appointment-button">Book Appointment</Link><SearchBarContainer /></div>
+        <div className = "search-bar-container"><Link to = "/appointments" className = "book-appointment-button">Book Appointment</Link></div>
         <FeaturedStylist />
         <div className = "popular-elements-container">
         <PopularContainer />
