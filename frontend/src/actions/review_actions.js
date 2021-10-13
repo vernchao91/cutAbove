@@ -35,6 +35,7 @@ export const removeErrors = () => {
     type: REMOVE_ERRORS,
   }
 }
+
 // fetches all reviews from stylist
 export const fetchReviewsFromStylist = stylistId => dispatch => {
   return ReviewApiUtil.fetchReviewsFromStylist(stylistId)
@@ -45,6 +46,7 @@ export const fetchReviewsFromStylist = stylistId => dispatch => {
     // .catch(err => dispatch(receiveReviewErrors(err.response.data)))
 }
 
+// fetches all reviews from user
 export const fetechReviewsFromUser = reviewerId => dispatch => {
   return ReviewApiUtil.fetechReviewsFromUser(reviewerId)
     .then(
