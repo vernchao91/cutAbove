@@ -7,6 +7,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import StylistSignupFormContainer from './session/stylist_sign_form_container'
 import SignupButtons from './session/sign_up_button';
+import Footer from '../components/footer/footer'
 
 const App = () => (
   <div>
@@ -20,9 +21,7 @@ const App = () => (
         <AuthRoute exact path="/stylists/signup" component={StylistSignupFormContainer} />
     </Switch>
     </div>
-    <footer>
-      
-    </footer>
+    <Footer />
   </div>
 );
 

@@ -8,8 +8,7 @@
 
 body {
     text-align: center;
-    height: 100vh;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     font-family: 'Montserrat', sans-serif;
     color: rgb(21, 21, 21);
     background-color: #fffbf8;
@@ -21,7 +20,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 75vh;
+    /* height: a */
     border: 1px dashed black;
 }
 
@@ -112,10 +111,6 @@ body {
   background-color: #FDF6F0;
 }
 
-.session-form-login {
-    
-}
-
 .session-form form {
   height: 100%;
   width: 75%;
@@ -162,4 +157,113 @@ input[type='password'] {
 .errors {
   color: red;
   padding: 10px;
+}
+
+.splashPage {
+  border: 1px solid salmon;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+.book-appointment {
+  height: 15%;
+  width: 100%;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://previews.123rf.com/images/jpldesigns/jpldesigns1110/jpldesigns111000064/11021495-stone-lantern-and-pruned-bonsai-tree-at-japanese-garden-in-san-francisco.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 25%;
+  padding: 20px;
+}
+
+.book-appointment-button {
+  height: 100%;
+  background-color: #AB6D23;
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.search-bar-container {
+  height: 30%;
+  width: 100%;
+  padding: 65px;
+  border: 1px solid hotpink;
+  display: flex;
+  background-image: url('https://cyties.com/wp-content/uploads/2019/11/HB7-1500x1000.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar {
+  height: 100%;
+  background-color: white;
+  padding: 20px;
+  width: 65%;
+  border-radius: 5px;
+}
+
+.featured-stylist-container {
+  height: 300px;
+  border: 1px solid greenyellow;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: white;
+}
+
+.background-carousel {
+  background-color: white;
+}
+
+.profile-picture {
+  border: solid gold;
+  width: 25%;
+  height: 75%;
+  margin-left: 3%;
+  align-self: flex-end;
+}
+
+.featured-stylist-description {
+  align-self: flex-end;
+  border: 1px solid gold;
+  width: 50%;
+  height: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.popular-elements-container {
+  height: 500px;
+  border: 1px solid magenta;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.popular-cuts, .popular-styles, .trending-haircuts {
+  width: 30%;
+  border: 1px solid firebrick;
+  height: auto;
+}
+
+.trending-haircuts {
+  height: auto;
+}
+
+.popular-styles {
+  height: 100%;
 }
