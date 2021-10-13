@@ -2,17 +2,22 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const StyleSchema = new Schema ({
-    style_type: {
+    styleType: {
         type: String,
-        require: true
-    },
-    price: {
-        type: Number,
         require: true
     },
     description: {
         type: String,
         require: true
+    },
+    price: {
+        type: Number,
+        require: false
+    },
+    stylistId: {
+        type: Schema.Types.ObjectId,
+        ref: "stylists",
+        require: false
     }
 
 })

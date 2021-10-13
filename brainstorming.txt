@@ -37,3 +37,8 @@ Style
     -image
     -price
     -description
+
+Message
+    -client_id
+    -stylist_id
+    -body
