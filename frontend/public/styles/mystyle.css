@@ -509,3 +509,80 @@ input[type='password'] {
 .review-body {
   font-weight: lighter;
 }
+
+.stylists-index-container { 
+  width: 80%;
+  border: solid greenyellow;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+} 
+
+.stylist-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%
+}
+
+.stylist-index-item {
+  border: solid blue;
+  display: flex;
+  padding: 10px;
+  height: 175px;
+  width: 50%;
+}
+
+.stylist-index-photo {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.stylist-index-info-container {
+  display: flex;
+  border: solid gold;
+  width: 100%;
+}
+
+.stylist-index-item-info {
+  padding-left: 10px;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  justify-content: center;
+  border: solid pink
+}
+
+.stylist-index-link-profile{
+  display: flex;
+  flex-direction: column;
+}
+
+.stylist-index-link {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  border: solid green;
+  padding-right: 10px;
+}
+
+.stylist-index-link a {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  font-weight: 700;
+  text-align: center;
+  background-color: cadetblue;
+  margin-left: 15%;
+  padding: 20px;
+}
+
+.stylist-index-link :hover {
+  background-color: red;
+}
+
