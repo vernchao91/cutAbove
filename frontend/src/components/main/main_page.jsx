@@ -12,9 +12,9 @@ class MainPage extends React.Component {
         <div className = "search-bar-container"><Link to = "/appointments" className = "book-appointment-button">Find Stylists</Link></div>
         <FeaturedStylist />
         <div className = "popular-elements-container">
-        <PopularContainer />
+        <PopularContainer type = {'Popular Cuts'} />
         <div className = "trending-haircuts">Trending Hairstyles</div>
-        <PopularContainer />
+        <PopularContainer type = {'Popular Styles'}/>
         </div>
       </div>
     );

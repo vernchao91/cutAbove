@@ -10,7 +10,7 @@ body {
     text-align: center;
     /* border: 1px solid gray; */
     font-family: 'Montserrat', sans-serif;
-    color: rgb(21, 21, 21);
+    color: rgb(35, 35, 35);
     background-color: #fffbf8;
     align-items: center;
 }
@@ -29,25 +29,26 @@ body {
     justify-content: space-around;
     align-items: center;
     height: 100px;
-    border-bottom: solid green;
-    border-left: solid green;
+    border-bottom: solid rgb(35, 35, 35);
+    border-left: solid rgb(35, 35, 35);
     padding: 10px;
-    /* background-image: linear-gradient(#2B4F60, #244757); */
     -webkit-border-bottom-left-radius: 40px;
     -moz-border-radius-bottomleft: 40px;
     border-bottom-left-radius: 40px;
+    font-weight: 900;
 }
 
 .nav-bar > a {
-    color:black;
+    color:inherit;
     text-decoration: none;
+    font-weight: inherit;
 }
 
 .nav-bar > button {
   border: 0;
-  /* background-color: ; */
   font-family: 'Montserrat', sans-serif;
   font-size: inherit;
+  font-weight: inherit;
   background-color: inherit;
 }
 
@@ -256,6 +257,8 @@ input[type='password'] {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 0px 5px 2px #946935;
+  text-shadow: 1px 1px #8d5613;
 }
 
 .search-bar {

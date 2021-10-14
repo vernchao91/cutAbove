@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { login } from '../../actions/session_actions'
 import DemoLogin from './demo_login_container'
 
 

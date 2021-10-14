@@ -4,7 +4,7 @@ class PopularItems extends React.Component {
     render() {
         return (
             <div className = "popular-styles">
-                Popular Styles
+                {this.props.type}
                 <div className = "style-item-container">
                <div className = "style-item">
                 <div className = "style-item-picture">Picture <br/> will <br/> go <br/> here <br/></div>
