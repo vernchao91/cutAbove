@@ -9,7 +9,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <div className = "splashPage">
-        <div className = "search-bar-container"><Link to = "/appointments" className = "book-appointment-button">Find Stylists</Link></div>
+        <div className = "search-bar-container"><Link to = "/stylists/index" className = "book-appointment-button">Find Stylists</Link></div>
         <FeaturedStylist />
         <div className = "popular-elements-container">
         <PopularContainer type = {'Popular Cuts'} />
