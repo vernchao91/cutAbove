@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import ReviewIndexContainer from '../reviews/review_index_container'
 
 class StylistProfile extends React.Component {
+
     constructor(props) {
         super(props)
     }

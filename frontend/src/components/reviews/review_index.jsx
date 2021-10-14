@@ -3,9 +3,10 @@ import ReviewItem from './review_item'
 // import ReviewForm from './review_form'
 
 class ReviewIndex extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+
+    // constructor(props) {
+    //     super(props)
+    // }
 
     render() {
         return (
