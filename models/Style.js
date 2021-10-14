@@ -19,6 +19,8 @@ const StyleSchema = new Schema ({
         type: Number,
         require: false
     }
-})
+}, {
+    timestamps: true
+});
 
 module.exports = Style = mongoose.model('Style', StyleSchema);
