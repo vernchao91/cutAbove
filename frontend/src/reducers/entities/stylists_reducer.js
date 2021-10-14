@@ -10,8 +10,8 @@ const stylistsReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_STYLISTS:
-      return Object.assign({}, oldState, action.stylists.data)
-
+      // return Object.assign({}, oldState, action.stylists.data)
+      return action.stylists.data
     case RECEIVE_STYLIST:
       // newState[action.stylist._id] = action.stylist.data
       // return Object.assign({}, oldState, newState)
