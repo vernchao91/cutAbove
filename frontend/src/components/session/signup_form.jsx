@@ -48,8 +48,6 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    let fields;
-    let required;
     let emailErrorLabel, 
     handleErrorLabel, 
     passwordErrorLabel,
@@ -60,44 +58,37 @@ class SignupForm extends React.Component {
     handleTakenLabel,
     passwordConfirmEmptyErrorLabel,
     emailTakenLabel = <label></label>;
-
-    let failedLogin
     
     let errorsArr = Object.values(this.state.errors)
 
     if (errorsArr.length) {
-        required = 'required';
         errorsArr.forEach(error => {
-            if (error === 'Handle field is required') {
-                handleErrorLabel = <label forHtml='username' className="error-message">Handle can't be blank</label>
-            }
-            if (error === 'Handle has already been taken') {
-                handleTakenLabel = <label forHtml='username' className="error-message">That username has already been taken</label>
-            }
+          if (error === 'Handle field is required') {
+            handleErrorLabel = <label  className="error-message">Handle can't be blank</label>
+        }
+        if (error === 'Handle has already been taken') {
+            handleTakenLabel = <label  className="error-message">That username has already been taken</label>
+        }
 
-            if (error === 'Email is invalid') {
-                emailErrorLabel = <label forHtml='email' className="error-message">You sign up with a valid email address</label>
-            }
+        if (error === 'Email is invalid') {
+            emailErrorLabel = <label  className="error-message">You sign up with a valid email address</label>
+        }
 
-            if (error === 'First Name field is required') {
-              firstNameErrorLabel = <label forHtml='firstName' className="error-message">We have to know your first name!</label>
-            }
+        if (error === 'Email has already been registered') {
+          emailTakenLabel = <label  className="error-message">This email is already attached to a user</label>
+      }
             if (error === 'Last Name field is required') {
-              lastNameErrorLabel = <label forHtml='firstName' className="error-message">We have to know your last name!</label>
-            }
-
-            if (error === 'Email has already been taken') {
-                emailTakenLabel = <label forHtml='email' className="error-message">That email has already been used</label>
+              lastNameErrorLabel = <label  className="error-message">We have to know your last name!</label>
             }
 
             if (error === 'Password must be at least 6 characters') {
-                passwordErrorLabel = <label forHtml='password' className="error-message">Your password must be at least 6 characters long</label>
+                passwordErrorLabel = <label  className="error-message">Your password must be at least 6 characters long</label>
             }
             if (error === 'Confirm Password field is required') {
-              passwordConfirmEmptyErrorLabel = <label forHtml='password' className="error-message">You must retype your password again to register</label>
+              passwordConfirmEmptyErrorLabel = <label  className="error-message">You must retype your password again to register</label>
           }
             if (error === 'Password field is required') {
-              passwordConfirmErrorLabel = <label forHtml='password' className="error-message">You must enter the same password twice</label>
+              passwordConfirmErrorLabel = <label className="error-message">You must enter the same password twice</label>
             }
 
         })
@@ -158,7 +149,7 @@ class SignupForm extends React.Component {
               <br/>
             <input type="submit" value="Submit" className = "submit-button"/>
         </form>
-        <img className="client-sign-up-model" src={gronk}/>
+        <img className="client-sign-up-model" src={gronk} alt = "gronkilicous"/>
           </div>
     );
   }

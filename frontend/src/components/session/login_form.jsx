@@ -57,34 +57,32 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    let fields;
-        let required;
+
+
         let emailErrorLabel, 
         emailNotExistLabel, 
         passwordErrorLabel, 
         loginErrorsLabel = <label></label>;
 
-        let failedLogin
 
         let errorsArr = Object.values(this.state.errors)
         if (errorsArr.length) {
-            required = 'required';
+
             errorsArr.forEach(error => {
                 if (error === 'Email field is required') {
-                    emailErrorLabel = <label forHtml='email' className="error-message">Email can't be blank</label>
+                    emailErrorLabel = <label className="error-message">Email can't be blank</label>
                 }
 
                 if(error === 'This user does not exist') {
-                    emailNotExistLabel = <label forHtml='password' className="error-message">This user does not exist in our user database. Did you mean to log into your stylist page?</label>
+                    emailNotExistLabel = <label className="error-message">This user does not exist in our user database. Did you mean to log into your stylist page?</label>
                 }
 
                 if (error === 'Password field is required') {
-                    passwordErrorLabel = <label forHtml='password' className="error-message">Password can't be blank</label>
+                    passwordErrorLabel = <label  className="error-message">Password can't be blank</label>
                 }
 
                 if (error === 'Incorrect password') {
-                    loginErrorsLabel = <label forHtml='password' className="error-message">Enter a valid username and password combination</label>
-                    failedLogin = 'failed-login'
+                    loginErrorsLabel = <label  className="error-message">Enter a valid username and password combination</label>
                 }
             })
         }
