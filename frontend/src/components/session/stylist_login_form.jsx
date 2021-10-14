@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom'
 
 class StylistLoginForm extends React.Component {
   constructor(props) {
@@ -18,7 +17,7 @@ class StylistLoginForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push('/tweets');
+      this.props.history.push('/');
     }
 
     this.setState({errors: nextProps.errors})
@@ -54,30 +53,65 @@ class StylistLoginForm extends React.Component {
   }
   
   render() {
+    let fields;
+        let required;
+        let emailErrorLabel, 
+        emailNotExistLabel, 
+        passwordErrorLabel, 
+        loginErrorsLabel = <label></label>;
+
+        let failedLogin
+
+        let errorsArr = Object.values(this.state.errors)
+        if (errorsArr.length) {
+            required = 'required';
+            errorsArr.forEach(error => {
+                if (error === 'Email field is required') {
+                    emailErrorLabel = <label forHtml='email' className="error-message">Email can't be blank</label>
+                }
+
+                if(error === 'This user does not exist') {
+                    emailNotExistLabel = <label forHtml='password' className="error-message">This user does not exist in our user database. Did you mean to log into your user page?</label>
+                }
+
+                if (error === 'Password field is required') {
+                    passwordErrorLabel = <label forHtml='password' className="error-message">Password can't be blank</label>
+                }
+
+                if (error === 'Incorrect password') {
+                    loginErrorsLabel = <label forHtml='password' className="error-message">Enter a valid username and password combination</label>
+                    failedLogin = 'failed-login'
+                }
+            })
+        }
+
     return (
       <div className='session-form login'>
-        <form onSubmit={this.handleSubmit}>
-        <h3 className='session-form-title'>
-        <br />
-        <br />
-        Log In
-        </h3>
-          {this.renderErrors()}
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
-              />
-            <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password"
-              />
-            <br/>
-            <input type="submit" value="Log In" />
-        </form>
-        </div>
+      <form onSubmit={this.handleSubmit}>
+      <h3 className='session-form-title'>
+      <br />
+      <br />
+      Stylist Log In
+      </h3>
+            <input className =  "test" type="text"
+              value={this.state.email}
+              onChange={this.update('email')}
+              placeholder="Email"
+            />
+            {emailErrorLabel}
+            {emailNotExistLabel}
+          <br/>
+            <input type="password"
+              value={this.state.password}
+              onChange={this.update('password')}
+              placeholder="Password"
+            />
+          {passwordErrorLabel}
+          {loginErrorsLabel}
+          <br/>
+          <input type="submit" className = "submit-button" value="Log In" />
+      </form>
+      </div>
 
     );
   }

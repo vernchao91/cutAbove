@@ -11,6 +11,7 @@ import SignupButtons from './session/sign_up_button';
 import LoginButtons from './session/log_in_buttons';
 import BookAppointmentContainer from './book_appointment/book_appointment_container'
 import Footer from '../components/footer/footer';
+import Wow from '../components/wow/wow'
 
 const App = () => (
   <div>
@@ -25,6 +26,7 @@ const App = () => (
         <AuthRoute exact path="/signup" component={SignupButtons}/>
         <AuthRoute exact path="/users/signup" component={SignupFormContainer} />
         <AuthRoute exact path="/stylists/signup" component={StylistSignupFormContainer} />
+        <AuthRoute exact path="/wow" component = {Wow}/>
     </Switch>
     </div>
     <Footer />
