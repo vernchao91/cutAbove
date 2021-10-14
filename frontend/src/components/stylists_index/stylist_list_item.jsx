@@ -6,9 +6,9 @@ const StylistIndexItem = props => (
   <li>
     <p>
     {props.stylist.firstName} {props.stylist.lastName}
-    {props.stylist.ratiing}
+    {props.stylist.rating}
     </p>
-    <Link to={`/stylists/${props.stylist.id}`}> Stylist Profile Page </Link>
+    <Link to={`/stylists/${props.stylist._id}`}> Stylist Profile Page </Link>
     {/* <BookAppointmentContainer stylist={props.stylist}/> */}
   </li>
 )
