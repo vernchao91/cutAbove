@@ -43,6 +43,14 @@ body {
     text-decoration: none;
 }
 
+.nav-bar > button {
+  border: 0;
+  /* background-color: ; */
+  font-family: 'Montserrat', sans-serif;
+  font-size: inherit;
+  background-color: inherit;
+}
+
 .logo-main {
     background-image: url("https://raw.githubusercontent.com/acrks/cutAbove/main/frontend/public/cutAboveLogoBold.png");
     width: 200px;
