@@ -13,10 +13,6 @@ class StylistsIndex extends React.Component {
     // console.log(this.props)
   }
 
-  // renderIndex() {
-  //   this.props.stylists.map( (stylist, i) => <StylistIndexItem key={i} stylist={stylist}/> )
-  // }
-
   render() {
     // debugger
     if (!this.props.stylists) {

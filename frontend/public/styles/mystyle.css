@@ -510,6 +510,10 @@ input[type='password'] {
   font-weight: lighter;
 }
 
+.appointment-form-title {
+  font-size: 35px;
+}
+
 .appointment-form {
   display: flex;
   flex-direction: column;
@@ -525,8 +529,18 @@ input[type='password'] {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   height: 20%;
   width: 80%;
+  border: 5px outset #A45E30;
+  text-align: center;
+  box-shadow: 0px 2px 8px 0px #844C27;
+  background-color: #fff9f5;
+}
+
+.appointment-form > label:hover {
+  transform: scale(1.005);
+  box-shadow: 0px 2px 8px 2px #844C27;
 }
 
 .appointment-form > label > input,
@@ -536,12 +550,24 @@ input[type='password'] {
   text-align: center;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   font-size: inherit;
   font-family: inherit;
+  background-color: inherit;
+  width: 50%;
 }
 
+.appointment-form > label > select {
+  height: 25%;
+}
+
+.dropdown {
+  height: 10%;
+}
+
+
 .appointment-form > label > input[type="body"] {
-  width: 100%;
+  width: 80%;
   height: 50%;
 }
 
