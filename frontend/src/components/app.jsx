@@ -12,7 +12,6 @@ import SignupButtons from './session/sign_up_button';
 import LoginButtons from './session/log_in_buttons';
 import BookAppointmentContainer from './book_appointment/book_appointment_container'
 import Footer from '../components/footer/footer';
-import Wow from '../components/wow/wow'
 
 
 const App = () => (
