@@ -9,3 +9,7 @@ export const fetchStylists = () => {
 export const fetchStylist = stylistId => {
   return axios.get(`/api/stylists/${stylistId}`)
 }
+
+export const stylistSearch = query => {
+  return axios.get('/api/stylists/search', query)
+}
