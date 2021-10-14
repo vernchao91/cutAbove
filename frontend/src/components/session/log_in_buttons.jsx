@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { login } from '../../actions/session_actions'
+import DemoLogin from './demo_login_container'
 
 
 export default function signupbuttons() {
@@ -14,6 +16,7 @@ export default function signupbuttons() {
             <Link className = "buttonforsignupform" to = "/users/login">
                 Client
             </Link>
+            <DemoLogin />
             <Link className = "buttonforsignupform" to = "/stylists/login">
                 Stylist
             </Link>
