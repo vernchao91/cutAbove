@@ -10,7 +10,8 @@ import StylistLoginFormContainer from './session/stylist_login_form_container';
 import StylistProfileContainer from './stylist_profile/stylist_profile_container';
 import SignupButtons from './session/sign_up_button';
 import LoginButtons from './session/log_in_buttons';
-import BookAppointmentContainer from './book_appointment/book_appointment_container'
+import BookAppointmentContainer from './book_appointment/book_appointment_container_form_form'
+import StylistsIndexContainer from './stylists_index/stylists_index_container'
 import Footer from '../components/footer/footer';
 
 
@@ -24,6 +25,7 @@ const App = () => (
         <AuthRoute exact path="/users/login" component={LoginFormContainer} />
         <AuthRoute exact path='/stylists/login' component={StylistLoginFormContainer}/>
         <AuthRoute exact path='/appointment/create' component={BookAppointmentContainer}/>
+        <AuthRoute exact path='/stylists/index' component={StylistsIndexContainer}/>
         <AuthRoute exact path="/signup" component={SignupButtons}/>
         <AuthRoute exact path="/users/signup" component={SignupFormContainer} />
         <AuthRoute exact path="/stylists/signup" component={StylistSignupFormContainer} />
