@@ -3,15 +3,13 @@ import React from 'react'
 
 const ReviewItem = (props) => {
     return (
-        <div>
             <div className="review-item-container">
             <h2 className="review-heading">
-                <div className="review-title">{props.review.heading}</div>
-                    <div className="review-rating"> <span className="star">★</span> {props.review.rating} / 10</div>
+                <div className="review-rating"> <span className="star">★</span> {props.review.rating} / 10</div>
+                <div className="review-title">{props.review.title}</div>  
             </h2>
-            <p className="review-body">{props.review.review}</p>
+            <p className="review-body">{props.review.body}</p>
             </div>
-        </div>
     )
 }
 
