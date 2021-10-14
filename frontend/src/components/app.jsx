@@ -28,11 +28,7 @@ const App = () => (
         <AuthRoute exact path="/signup" component={SignupButtons}/>
         <AuthRoute exact path="/users/signup" component={SignupFormContainer} />
         <AuthRoute exact path="/stylists/signup" component={StylistSignupFormContainer} />
-<<<<<<< HEAD
-        <AuthRoute exact path="/wow" component = {Wow}/>
-=======
         <AuthRoute exact path="/stylists/:stylistId" component={StylistProfileContainer} />
->>>>>>> frontend-stylistprofile
     </Switch>
     </div>
     <Footer />
