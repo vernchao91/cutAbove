@@ -4,9 +4,13 @@ import ReviewItem from './review_item'
 
 class ReviewIndex extends React.Component {
 
-    // constructor(props) {
-    //     super(props)
-    // }
+    constructor(props) {
+        super(props)
+    }
+
+    componentDidMount() {
+        // this.props.fetchReviewsFromStylist(this.props.stylist.id)
+    }
 
     render() {
         return (
