@@ -6,8 +6,8 @@ import AppointmentForm from './book_appointment';
 
 const mapStateToProps = (state, ownProps) => ({
   user: state.session.user,
-  stylist: state.entities.stylists
-  // [ownProps.match.params.stylistId]
+  stylist: state.entities.stylists,
+  styles: Object.values({}, state.entities.stylists.styles)
 })
 
 const mapDispatchToProps = (dispatch) => ({

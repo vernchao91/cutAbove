@@ -586,3 +586,69 @@ input[type='password'] {
   background-color: red;
 }
 
+.appointment-form-title {
+  font-size: 35px;
+}
+
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  font-size: 20px;
+  width: 100vw;
+}
+
+.appointment-form > label {
+  border: 1px solid brown;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 20%;
+  width: 80%;
+  border: 5px outset #A45E30;
+  text-align: center;
+  box-shadow: 0px 2px 8px 0px #844C27;
+  background-color: #fff9f5;
+}
+
+.appointment-form > label:hover {
+  transform: scale(1.005);
+  box-shadow: 0px 2px 8px 2px #844C27;
+}
+
+.appointment-form > label > input,
+.appointment-form > label > select {
+  height: auto;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: inherit;
+  width: 50%;
+}
+
+.appointment-form > label > select {
+  height: 25%;
+}
+
+.dropdown {
+  height: 10%;
+}
+
+
+.appointment-form > label > input[type="body"] {
+  width: 80%;
+  height: 50%;
+}
+
+.appointment-form > label > select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
