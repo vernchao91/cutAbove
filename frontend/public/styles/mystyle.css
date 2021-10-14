@@ -35,7 +35,8 @@ body {
     -webkit-border-bottom-left-radius: 40px;
     -moz-border-radius-bottomleft: 40px;
     border-bottom-left-radius: 40px;
-    font-weight: 900;
+    font-weight: 500;
+    letter-spacing: 0.05em;
 }
 
 .nav-bar-buttons {
