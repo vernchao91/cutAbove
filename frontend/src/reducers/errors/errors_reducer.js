@@ -7,8 +7,6 @@ import stylistErrorsReducer from "./stylist_errors_reducer"
 // import messageErrorsReducer from "./message_errors_reducer";
 
 export default combineReducers({
-  stylist: stylistErrorsReducer,
-  style: styleErrorsReducer,
   review: reviewErrorsReducer,
   appointment: appointmentErrorsReducer,
   // message: messageErrorsReducer,
