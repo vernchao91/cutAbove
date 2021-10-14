@@ -27,6 +27,10 @@ router.get(
   }
 )
 
+router.get("/search", (req,res)=> {
+  Stylist.findOne({handle : req.body.handle}).then(query => res.json(query))
+})
+
 router.get(
   "/:id",
   (req, res) => {
@@ -125,5 +129,8 @@ router.post("/login", (req, res) => {
   });
 });
 
+// router.get("/search/search", (req,res)=> {
+//   Stylist.findOne({handle : req.body.handle}).then(query => res.json(query))
+// })
 
 module.exports = router;

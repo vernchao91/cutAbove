@@ -47,6 +47,6 @@ export const fetchStylist = stylistId => dispatch => {
 }
 
 export const stylistSearch = query => dispatch => (
-  StylistApiUtil.stylistSearch(query).then(movies => 
-      dispatch(receiveStylist(movies)))
+  StylistApiUtil.stylistSearch(query).then(stylists => 
+      dispatch(receiveStylists(stylists)))
 )

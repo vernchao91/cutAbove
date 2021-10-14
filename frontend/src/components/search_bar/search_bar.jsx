@@ -4,7 +4,7 @@ import SearchPage from './search_page.js'
 class Search extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {title: ""}
+        this.state = {handle: ""}
         this.handleSubmit = this.handleSubmit.bind(this)
         this.updateField = this.updateField.bind(this)
     }
