@@ -31,7 +31,7 @@ class AppointmentForm extends React.Component {
         <form>
           <h3>Book appointment with {this.props.stylist.handle}</h3>
           
-          <label>Enter your preferred Appointment Time 
+          <label>Enter your preferred appointment Time 
             <input type="date" name="appointment-time" id="appointment-time" />
           </label>
 
