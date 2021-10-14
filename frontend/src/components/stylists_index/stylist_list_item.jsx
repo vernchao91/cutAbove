@@ -5,11 +5,10 @@ import BookAppointmentContainer from '../book_appointment/book_appointment_conta
 const StylistIndexItem = props => (
   <li>
     <p>
-    {props.stylist.firstName}
-    {props.stylist.lastName}
+    {props.stylist.firstName} {props.stylist.lastName}
     {props.stylist.ratiing}
     </p>
-    <Link to=''> This will be a link to the stylist home page</Link>
+    <Link to={`/stylists/${props.stylist.id}`}> Stylist Profile Page </Link>
     {/* <BookAppointmentContainer stylist={props.stylist}/> */}
   </li>
 )
