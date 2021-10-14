@@ -22,7 +22,7 @@ const App = () => (
     <NavBarContainer />
     <div className = "body">
     <Switch>
-        <Route exact path="/" component={MainPage} />
+        <AuthRoute exact path="/" component={MainPage} />
         <AuthRoute exact path='/login' component={LoginButtons}/>
         <AuthRoute exact path="/users/login" component={LoginFormContainer} />
         <AuthRoute exact path='/stylists/login' component={StylistLoginFormContainer}/>

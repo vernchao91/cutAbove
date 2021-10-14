@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BookAppointmentContainer from '../book_appointment/book_appointment_container_form_form'
+// import BookAppointmentContainer from '../book_appointment/book_appointment_container_form_form'
 
 const StylistIndexItem = props => (
   <li>

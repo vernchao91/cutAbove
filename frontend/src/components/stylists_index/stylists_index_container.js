@@ -3,7 +3,7 @@ import StylistsIndex from './stylists_index'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => ({
-  stylists: state.entities.stylists.data 
+  stylists: Object.values(state.entities.stylists)
 })
 
 const mapDispatchToProps = (dispatch) => ({
