@@ -56,8 +56,8 @@ router.post(
     }
 
     const newReview = new Review({
-      reviewer_id: req.body.reviewer_id,
-      stylist_id: req.params.stylistId,
+      reviewerId: req.body.reviewerId,
+      stylistId: req.params.stylistId,
       title: req.body.title,
       body: req.body.body,
       rating: req.body.rating
