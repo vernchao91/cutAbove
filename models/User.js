@@ -1,13 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// const extendSchema = require('mongoose-extend-schema');
-
-// function extendSchema (Schema, definition, options) {
-//   return new mongoose.Schema(
-//     Object.assign({}, Schema.obj, definition),
-//     options
-//   );
-// }
 
 const UserSchema = new Schema({
   firstName: {
@@ -36,13 +28,6 @@ const UserSchema = new Schema({
   }
 }, {
   timestamps: true
-})
-
-// const StylistSchema = extendSchema(UserSchema, {
-//   phoneNumber: {type: String, required: false},
-//   address: {type: String, required: false},
-//   averageRating: {type: Number, required: false}
-// });
+});
 
 module.exports = User = mongoose.model('User', UserSchema);
-// module.exports = Stylist = mongoose.model('Stylist', StylistSchema);
