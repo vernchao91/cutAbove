@@ -13,6 +13,7 @@ import LoginButtons from './session/log_in_buttons';
 import BookAppointmentContainer from './book_appointment/book_appointment_container_form_form'
 import StylistsIndexContainer from './stylists_index/stylists_index_container'
 import Footer from '../components/footer/footer';
+import TeamPage from "../components/team/team";
 import Wow from '../components/wow/wow'
 import { Route } from 'react-router';
 
@@ -24,6 +25,7 @@ const App = () => (
     <Switch>
         <Route exact path="/" component={MainPage} />
         <AuthRoute exact path='/login' component={LoginButtons}/>
+        <Route exact path="/team" component={TeamPage} />
         <AuthRoute exact path="/users/login" component={LoginFormContainer} />
         <AuthRoute exact path='/stylists/login' component={StylistLoginFormContainer}/>
         <Route exact path='/stylists/index' component={StylistsIndexContainer}/>
