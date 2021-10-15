@@ -740,6 +740,8 @@ input[type='password'] {
   font-family: inherit;
   background-color: inherit;
   width: 50%;
+  background-color: #fffbf8;
+  border-radius: 5px;
 }
 
 .appointment-form > label > select {
