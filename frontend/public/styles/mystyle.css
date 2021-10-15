@@ -822,6 +822,7 @@ input[type='password'] {
 
 .user-profile-titles {
   display: flex;
+}
 .cut-review-icon {
   background-image: url('https://raw.githubusercontent.com/acrks/cutAbove/main/frontend/src/components/review/review_icon.png');
   background-repeat: no-repeat;
