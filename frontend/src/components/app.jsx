@@ -12,7 +12,8 @@ import UserProfileContainer from './user_profile/user_profile_container'
 import SignupButtons from './session/sign_up_button';
 import LoginButtons from './session/log_in_buttons';
 import BookAppointmentContainer from './book_appointment/book_appointment_container_form_form'
-import StylistsIndexContainer from './stylists_index/stylists_index_container'
+import StylistsIndexContainer from './stylists_index/stylists_index_container';
+import AppointmentIndex from './appointments/appointments_booked_container'
 import Footer from '../components/footer/footer';
 import Wow from '../components/wow/wow'
 import { Route } from 'react-router';
@@ -33,6 +34,7 @@ const App = () => (
         <AuthRoute exact path="/stylists/signup" component={StylistSignupFormContainer} />
         <Route exact path="/stylists/:stylistId" component={StylistProfileContainer} />
         <Route exact path="/users/:userId" component={UserProfileContainer}/>
+        <Route exact path='/appointments/:userId' component={AppointmentIndex}/>
         <ProtectedRoute exact path='/appointments/create/:stylistId' component={BookAppointmentContainer}/>
     </Switch>
     </div>

@@ -7,16 +7,21 @@ class AppointmentsBooked extends React.Component{
   }
 
   componentDidMount() {
-    if (this.props.user.id === this.props.stylist.id) {
-      this.props.fetchAppointmentsFromStylist(this.props.stylist.id)
+    // console.log('I mounted')
+    if (this.props.appointments == null) {
+      this.props.fetchAppointmentsFromUser(this.props.user.id)
     } else {
       this.props.fetchAppointmentsFromUser(this.props.user.id)
     }
   }
 
   render(){
+    if (this.props.appointments == null) return null
     return (
-      <div>
+      // <div>
+      //   HELLO
+      // </div>
+      <div> 
         <ul>
           {
             this.props.appointments.map( (appointment, idx) => <AppointmentItemContainer

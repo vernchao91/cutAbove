@@ -12,7 +12,7 @@ import style5 from './stylist_hairstyles/download-1.jpg'
 import style6 from './stylist_hairstyles/download.jpg'
 import style7 from './stylist_hairstyles/Hairstyles-for-Women-Over-50-With-Highlights-37.jpg'
 import style8 from './stylist_hairstyles/lob-cut-with-copper-highlights-500x500.jpg'
-import karrie from './featured-stylist.jpg'
+import karrie from './featured-stylist.jpg';
 
 class StylistProfile extends React.Component {
 
@@ -57,7 +57,9 @@ class StylistProfile extends React.Component {
                             <li>Store Address: {this.props.stylist.address}</li>
                         </ul>
                     </div>
-
+                    {/* <h3> HELLO
+                    <AppointmentsBookedContainer stylist={this.props.stylist}/>
+                    </h3> */}
                     </div>
                 </div>
                 <div className="stylist-reviews-title">{this.props.stylist.firstName}'s Reviews</div>

@@ -6,8 +6,8 @@ class AppointmentItem extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchClient(appointment.clientId);
-    this.props.fetchStyle(appointment.styleId)
+    this.props.fetchClient(this.props.appointment.clientId);
+    this.props.fetchStyle(this.props.appointment.styleId)
   }
 
   render() {

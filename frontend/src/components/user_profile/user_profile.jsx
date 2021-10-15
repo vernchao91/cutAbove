@@ -34,7 +34,7 @@ class UserProfile extends React.Component {
                                 {Object.values(this.props.reviews).length !== 0 ?
                                     <ReviewIndexContainer user={this.props.user} reviews={this.props.reviews}/> : <div>You haven't made any reviews yet!</div>}
                             </div>
-                            <div className="user-appointments-title">{this.props.user.firstName}'s Appointments</div>
+                            {/* <div className="user-appointments-title">{this.props.user.firstName}'s Appointments</div> */}
                         </div>
 
                 </div>

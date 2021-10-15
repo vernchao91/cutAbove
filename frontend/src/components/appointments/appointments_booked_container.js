@@ -6,7 +6,7 @@ import { fetchAppointmentsFromUser,
 
 const mapStateToProps = (state) => ({
   user: state.session.user,
-  appointments: state.entities.appointments
+  appointments: Object.values(state.entities.appointments)
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -15,4 +15,4 @@ const mapDispatchToProps = (dispatch) => ({
   deleteAppointment: (appointmentId) => dispatch(deleteAppointment(appointmentId)),
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(AppointmentsBooked)
+export default connect(mapStateToProps, mapDispatchToProps)(AppointmentsBooked)
