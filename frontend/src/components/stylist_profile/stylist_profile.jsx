@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 import ReviewIndexContainer from '../reviews/review_index_container'
+import ReviewFormContainer from '../review/review_form_container'
 import vern25 from './vern25.png'
 
 class StylistProfile extends React.Component {
@@ -26,7 +27,7 @@ class StylistProfile extends React.Component {
                 <Link to = {`/appointments/create/${this.props.match.params.stylistId}`} className="stylist-bookapt-button">Book an Appointment with {this.props.stylist.firstName}</Link>
                 <div className="stylist-carousel-container"></div>
                 <div className="stylist-profile-container">
-                    <div className="stylist-name">{this.props.stylist.firstName}</div>
+                    <div className="stylist-name">{this.props.stylist.handle}</div>
                     <div className="stylist-profile-info-container">
                     <img className="stylist-pic" src={vern25}/>
                     <div className="stylist-rating"><span className="star">★ </span>11.3/10</div>
@@ -41,8 +42,10 @@ class StylistProfile extends React.Component {
 
                     </div>
                 </div>
-                <div className="stylist-reviews-title">{this.props.stylist.firstName}'s Reviews</div>
-                    <ReviewIndexContainer stylist={this.props.stylist} reviews={this.props.reviews}/>
+                <div className="stylist-reviews-title">{this.props.stylist.handle}'s Reviews</div>
+                {Object.values(this.props.reviews).length !== 0 ?  
+                    <ReviewIndexContainer stylist={this.props.stylist} reviews={this.props.reviews}/> : <div>This stylist does not have any reviews! Write one for them</div>}
+                <Link to = {`/reviews/create/${this.props.match.params.stylistId}`} className="stylist-bookapt-button">Write Review for {this.props.stylist.handle}</Link>
             </div>
             </div>
         )

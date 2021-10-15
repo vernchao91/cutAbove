@@ -769,3 +769,9 @@ input[type='password'] {
   align-items: center;
   justify-content: center;
 }
+
+.cut-review-icon {
+  background-image: url('frontend/src/components/review/review_icon.png');
+  width: 15px;
+  height: 15px;
+}
