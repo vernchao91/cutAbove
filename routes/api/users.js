@@ -28,6 +28,13 @@ router.get(
   }
 )
 
+router.get(
+  "/:id", (req, res) => {
+    User.findById(req.params.id)
+      .then(user => res.json(user))
+  }
+)
+
 router.post("/register", (req, res) => {
 
   const { errors, isValid } = validateRegisterInput(req.body);
