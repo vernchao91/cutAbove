@@ -505,9 +505,14 @@ input[type='password'] {
 }
 
 .stylist-carousel-container {
-  height: 200px;
+  height: 300px;
   width: 100%;
-  background-color: lightgray;
+
+}
+
+.stylist-carousel-container img{
+  height: 300px;
+  width: 25%;
 }
 
 .stylist-pic {
@@ -515,8 +520,8 @@ input[type='password'] {
   /* position: absolute;
   top: 350px;
   left: 205px; */
-  height: 200px;
-  width: 200px;
+  height: 280px;
+  width: 350px;
 }
 
 .stylist-profile-container {
@@ -538,13 +543,16 @@ input[type='password'] {
 }
 
 .stylist-rating {
-  font-size: 30px;
-  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  /* font-family: 'Montserrat', sans-serif; */
   letter-spacing: 0.1em;
+  font-weight: 350;
 }
 
-.star {
-  color: rgb(228, 228, 0);
+.review-icon {
+  width: 30px;
+  height: 30px;
+
 }
 
 .stylist-info ul{
@@ -585,6 +593,7 @@ input[type='password'] {
 .reviews-container {
   width: 100%;
 }
+
 
 .review-heading {
   display: flex;
@@ -768,4 +777,41 @@ input[type='password'] {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+/* User Profile */
+
+.user-profile-container {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  align-items: center;
+}
+
+.profile-pic {
+  margin: 30px;
+  width: 300px;
+  border-radius: 10px;
+  border: 1px solid black
+}
+
+.profile-pic-btn {
+  margin-bottom: 30px;
+}
+
+.user-reviews-title {
+  font-size: 25px;
+  font-weight: 300;
+  padding: 10px;
+}
+
+.user-appointments-title {
+  font-size: 25px;
+  font-weight: 300;
+  padding: 10px;
+}
+
+.user-profile-titles {
+  display: flex;
 }

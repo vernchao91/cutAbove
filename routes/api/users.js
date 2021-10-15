@@ -60,7 +60,6 @@ router.post("/register", (req, res) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
           if (err) throw err;
           newUser.password = hash;
-          debugger
           newUser
             .save()
             .then(user => {
@@ -99,7 +98,7 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, email: user.email };
+        const payload = { id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, handle: user.handle };
 
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
           res.json({

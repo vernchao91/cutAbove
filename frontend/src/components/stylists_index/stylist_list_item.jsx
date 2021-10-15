@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import vern25 from './vern25.png'
+import karrie from './featured-stylist.jpg'
 
 class StylistIndexItem  extends React.Component{
   constructor(props){
@@ -34,7 +35,7 @@ class StylistIndexItem  extends React.Component{
       return(
       <li className='stylist-index-item'>
         <div className='stylist-index-link-profile'>
-        <img className='stylist-index-photo' src={vern25} />
+        {this.props.stylist.firstName == "Karrie" ? <img className='stylist-index-photo' src={karrie}/> : <img className='stylist-index-photo' src={vern25} />}
         </div>
         <div className='stylist-index-info-container'>
         <p className='stylist-index-item-info'>

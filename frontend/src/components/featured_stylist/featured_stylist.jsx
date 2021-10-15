@@ -16,7 +16,8 @@ class FeaturedStylist extends React.Component {
     }
 
     featureAStylist(){
-        let chosenStylistId = Math.floor(Math.random() * 11)
+        // let chosenStylistId = Math.floor(Math.random() * 11)
+        let chosenStylistId = 1
         let chosenStylist = this.props.stylists[chosenStylistId]
         return (
             <>
