@@ -13,7 +13,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <div className = "splashPage">
-        <div className = "search-bar-container"><Link to = "/stylists/index" className = "book-appointment-button">Find Stylists</Link></div>
+        {/* <div className = "search-bar-container"><Link to = "/stylists/index" className = "book-appointment-button">Find Stylists</Link></div> */}
         <div className="main-page-pics">
           <img className="salon" src={salon}/>
           <img className="barbershop" src={barbershop}/>
