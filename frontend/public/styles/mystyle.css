@@ -21,7 +21,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px dashed black;
+    /* border-bottom: 1px dashed black; */
 }
 
 .nav-bar {
@@ -46,7 +46,7 @@ body {
     /* vertical-align: middle; */
 }
 
-.nav-bar-buttons > a{
+.nav-bar-buttons > a {
     color:#493018;
     text-decoration: none;
     float: right;
@@ -71,6 +71,13 @@ body {
   font-size: inherit;
   background-color: inherit;
   color: inherit;
+  font-weight: inherit;
+  color: #493018;
+  float: right;
+  padding: 15px;
+  width: max-content;
+  letter-spacing: 1px;
+  cursor: pointer;
 }
 
 .signup-buttons {
@@ -78,10 +85,11 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     padding: 200px;
+    text-align: center;
     width: 100%;
     height: 10vh;
     font-size: 25px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .signup-buttons-container {
@@ -101,9 +109,20 @@ body {
     align-items: center;
     text-decoration: none;
     color: white;
-    background-image: linear-gradient(#889EAF, #889EAF);
+    box-shadow: 0px 0px 5px 2px #946935;
+    text-shadow: 1px 1px #8d5613;
+    background-color: #b8702d;
+    text-decoration: none;
+    color: white;
+    padding: 2%;
     border-radius: 50px;
-    text-shadow: 0px 0px 2px #778fa1;
+    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px 2px #946935;
+    text-shadow: 1px 1px #8d5613;
     /* -webkit-text-stroke: 1px #D3E7EE; */
 }
 
@@ -214,6 +233,15 @@ input[type='password'] {
   width: 50%;
 }
 
+.signup-option {
+  text-align: center;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .errors {
   color: red;
   padding: 10px;
@@ -291,7 +319,8 @@ input[type='password'] {
   text-shadow: 1px 1px #8d5613;
 }
 
-.book-appointment-button:hover {
+.book-appointment-button:hover,
+.buttonforsignupform:hover {
     background-color: black;
     color: #b8702d;
     transition: 0.4s;
@@ -478,7 +507,7 @@ input[type='password'] {
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: #fdf6f0;
+    background-color: inherit;
 }
 
 .stylist-bookapt-container {
@@ -487,6 +516,7 @@ input[type='password'] {
   justify-content: space-between;
   align-items: center;
   width: 75%;
+
   /* height: 600px; */
   border-bottom: 1px solid;
 }
@@ -503,6 +533,11 @@ input[type='password'] {
   font-size: 17px;
   border-radius: 10px;
   margin: 30px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .stylist-bookapt-button:hover  {
@@ -607,6 +642,8 @@ input[type='password'] {
 .review-heading {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .review-item-container {
@@ -625,6 +662,10 @@ input[type='password'] {
 
 .review-rating {
   font-weight: bolder;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
 }
 
 .review-title {
@@ -747,7 +788,8 @@ input[type='password'] {
   background-color: #fff9f5;
 }
 
-.appointment-form > label:hover {
+.appointment-form > label:hover,
+.stylist-bookapt-button:hover {
   transform: scale(1.005);
   box-shadow: 0px 2px 8px 2px #844C27;
 }

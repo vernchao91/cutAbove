@@ -22,7 +22,7 @@ class FeaturedStylist extends React.Component {
         return (
             <>
                 <div className="featured-stylist-title">FEATURED STYLIST</div>
-                <div className="featured-stylist-name">{chosenStylist.firstName}</div>
+                <div className="featured-stylist-name">{chosenStylist.handle}</div>
                 <div className="featured-stylist-info">
                     <Link to={`./stylists/${chosenStylist._id}`}>View Details</Link>
                     <img src={featuredStylist}/>

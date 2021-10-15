@@ -18,7 +18,7 @@ class MainPage extends React.Component {
           <img className="salon" src={salon}/>
           <img className="barbershop" src={barbershop}/>
         </div>
-        <Link to = "/stylists/index" className = "book-appointment-button">Book Appointment</Link>
+        <Link to = "/stylists/index" className = "book-appointment-button">Find Stylists</Link>
         <FeaturedStylist />
         <div className="splash-hair-index">
           <div className = "splash-mens-haircuts">

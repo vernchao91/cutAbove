@@ -13,6 +13,10 @@ class StylistsIndex extends React.Component {
     // console.log(this.props)
   }
 
+  componentWillUnmount() {
+    // this.props.stylists = Object.assign({})
+  }
+
   render() {
     // debugger
     if (!this.props.stylists) {

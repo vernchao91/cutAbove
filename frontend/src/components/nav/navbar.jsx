@@ -25,8 +25,9 @@ class NavBar extends React.Component {
       } else {
         return ( 
           <div className="nav-bar-buttons">
+            <Link to={'/signup'}>Register</Link>
             <Link to={'/login'}>Login</Link>
-            <a href= "https://www.target.com/c/hair-care-beauty/-/N-5xu0k">Buy styling/<br/>care products!</a>
+            <a href= "https://www.target.com/c/hair-care-beauty/-/N-5xu0k" target="_blank" rel="noreferrer noopener">Buy styling/<br/>care products!</a>
           </div>
         );
       }

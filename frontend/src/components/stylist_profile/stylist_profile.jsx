@@ -37,8 +37,10 @@ class StylistProfile extends React.Component {
         if (!this.props.stylist) return null
         return (
             <div className="profile-page">
+                        {/* <Link to = "/stylists/index" className = "">Search more Stylists</Link> */}
+
             <div className="stylist-bookapt-container">
-                <Link to = {`/appointments/create/${this.props.match.params.stylistId}`} className="stylist-bookapt-button">Book an Appointment with {this.props.stylist.firstName}</Link>
+                <Link to = {`/appointments/create/${this.props.match.params.stylistId}`} className="stylist-bookapt-button">Book Appointment with {this.props.stylist.firstName}</Link>
                 <div className="stylist-carousel-container">
                     {this.props.stylist.firstName == "Vern da Goat" ? <img className="stylist-work" src={style1}/> : <img className="stylist-work" src={style5}/>}
                     {this.props.stylist.firstName == "Vern da Goat" ? <img className="stylist-work" src={style2}/> : <img className="stylist-work" src={style6}/>}
@@ -49,7 +51,10 @@ class StylistProfile extends React.Component {
                     <div className="stylist-name">{this.props.stylist.handle}</div>
                     <div className="stylist-profile-info-container">
                     {this.props.stylist.firstName == "Vern da Goat" ? <img className="stylist-pic" src={vern25}/> : <img className="stylist-pic" src={karrie}/>}
-                    <div className="stylist-rating">{this.props.stylist.firstName == "Vern da Goat" ? <><img className="review-icon" src={reviewIcon}/><div> 4.9/5</div></> : <><img className="review-icon" src={reviewIcon}/><div> 4.4/5</div></>}</div>
+                    <div className="stylist-rating">
+                        {this.props.stylist.firstName === "Karrie" ? <><br /><img className="review-icon" src={reviewIcon}/><br />5/5</> : null}
+                        </div>
+                        {/* {this.props.stylist.firstName == "Vern da Goat" ? <><img className="review-icon" src={reviewIcon}/><div> {this.props.stylist.rating ? : '/5'}</div></> : <><img className="review-icon" src={reviewIcon}/><div> 4.4/5</div></>}</div> */}
                     <div className="stylist-info">
                         <ul>
                             <li>Name: {this.props.stylist.firstName} {this.props.stylist.lastName}</li>
