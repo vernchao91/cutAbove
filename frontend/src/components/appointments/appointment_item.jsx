@@ -6,11 +6,14 @@ class AppointmentItem extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props)
     this.props.fetchClient(this.props.appointment.clientId);
     this.props.fetchStyle(this.props.appointment.styleId)
+    this.props.fetchStylist(this.props.appointment.stylistId)
   }
 
   render() {
+    if (this.props.appointment === null ) return null
     return(
       <li classname='appointment-item-container'>
         <h3 className='appointment-with'>Appointment with {this.props.stylist.firstName}</h3>
