@@ -8,7 +8,7 @@ module.exports = function validateReview(data) {
   // data.stylistId = validText(data.stylistId) ? data.stylistId : "";
   data.title = validText(data.title) ? data.title : "";
   data.body = validText(data.body) ? data.body : "";
-  data.rating = validText(data.rating) ? data.rating : "";
+  // data.rating = validText(data.rating) ? data.rating : "";
 
   if (Validator.isEmpty(data.title)) {
     errors.title = "Title field required"
