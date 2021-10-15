@@ -19,7 +19,7 @@ class NavBar extends React.Component {
           <div className="nav-bar-buttons">
             <button onClick={this.logoutUser}>Logout</button>
             <Link to={'/cuts'}>Refer a friend</Link>
-            <Link to={'/appointment'}>Your appointments</Link>
+            <Link to={`/users/${this.props.user.id}`}>My Profile</Link>
           </div>
         );
       } else {

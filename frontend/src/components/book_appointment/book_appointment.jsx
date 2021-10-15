@@ -5,9 +5,9 @@ class AppointmentForm extends React.Component {
     super(props)
 
     this.state = {
-      clientId: this.props.user,
+      clientId: this.props.user.id,
       stylistId: this.props.match.params.stylistId,
-      styleId: '',
+      // styleId: 0,
       timeFrame: '',
       // UNCOMMENT WHEN READY FOR PICTURES
       // pictureUrl: '',
@@ -35,6 +35,16 @@ class AppointmentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const appointment = Object.assign({}, this.state)
+    this.props.createAppointment(appointment).then(() => {
+      this.setState({
+        clientId: this.props.user.id,
+        stylistId: this.props.match.params.stylistId,
+        // styleId: 0,
+        timeFrame: '',
+        style: '',
+      })
+    }
+    )
   }
 
   handleChange(field) {
