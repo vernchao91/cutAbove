@@ -50,7 +50,7 @@ class ReviewForm extends React.Component {
             style: '',
           })
         }
-        ).then(() => this.props.history.push(`/stylists/{stylistId}`))
+        ).then(() => this.props.history.push(`/stylists/${this.state.stylistId}`))
       }
 
     CustomRatingBar() {
