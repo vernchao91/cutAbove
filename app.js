@@ -7,9 +7,10 @@ const stylists = require("./routes/api/stylists")
 const styles = require("./routes/api/styles");
 const reviews = require("./routes/api/reviews");
 const appointments = require("./routes/api/appointments")
+const images = require("./routes/api/images")
 const bodyParser = require('body-parser');
 const passport = require('passport');
-
+const fs = require("fs")
 require('./config/passport')(passport);
 
 const db = require('./config/keys').mongoURI;
@@ -23,8 +24,11 @@ app.use("/api/styles", styles);
 app.use("/api/reviews", reviews);
 app.use("/api/appointments", appointments)
 
+app.use('/uploads', express.static('uploads'))
+app.use("/api/images", images)
+
 mongoose
-  .connect(db, { useNewUrlParser: true })
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 

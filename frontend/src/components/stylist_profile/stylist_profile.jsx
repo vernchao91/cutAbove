@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 import ReviewIndexContainer from '../reviews/review_index_container'
 import vern25 from './vern25.png'
@@ -13,6 +14,7 @@ class StylistProfile extends React.Component {
         // this.props.fetchStylesfromStylist(this.props.match.params.stylistId)
         this.props.fetchStylist(this.props.match.params.stylistId)
         this.props.fetchReviewsFromStylist(this.props.match.params.stylistId)
+        // console.log(this.props)
         // this.props.fetchStylists()
     }
 
@@ -21,7 +23,7 @@ class StylistProfile extends React.Component {
         return (
             <div className="profile-page">
             <div className="stylist-bookapt-container">
-                <button className="stylist-bookapt-button">Book an Appointment with {this.props.stylist.firstName}</button>
+                <Link to = {`/appointments/create/${this.props.match.params.stylistId}`} className="stylist-bookapt-button">Book an Appointment with {this.props.stylist.firstName}</Link>
                 <div className="stylist-carousel-container"></div>
                 <div className="stylist-profile-container">
                     <div className="stylist-name">{this.props.stylist.firstName}</div>

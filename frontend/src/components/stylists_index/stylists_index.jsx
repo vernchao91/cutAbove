@@ -4,6 +4,8 @@ import StylistIndexItem from './stylist_list_item'
 class StylistsIndex extends React.Component {
   constructor(props){
     super(props)
+
+    // this.renderIndex = this.renderIndex.bind(this)
   }
 
   componentDidMount() {
@@ -21,8 +23,7 @@ class StylistsIndex extends React.Component {
       <div className='stylists-index-container'>
         <ul className='stylist-list'>
           {
-            // console.log(this.props.stylists)
-            this.props.stylists.map( (stylist, index) => <StylistIndexItem key={index} stylist={stylist}/> )
+            this.props.stylists.map( (stylist, i) => <StylistIndexItem key={i} stylist={stylist}/> )
           }
         </ul>
       </div>
