@@ -621,25 +621,29 @@ input[type='password'] {
 
 .stylists-index-container { 
   width: 80%;
-  border: solid greenyellow;
+  
+  border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  margin-top: 20px;
 } 
 
 .stylist-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%
+  width: 100%;
 }
 
 .stylist-index-item {
-  border: solid blue;
+  border: solid #493018;
+  border-radius: 3px;
   display: flex;
   padding: 10px;
   height: 175px;
-  width: 50%;
+  width: 48%;
+  margin: 3px;
 }
 
 .stylist-index-photo {
@@ -651,7 +655,6 @@ input[type='password'] {
 
 .stylist-index-info-container {
   display: flex;
-  border: solid gold;
   width: 100%;
 }
 
@@ -663,7 +666,6 @@ input[type='password'] {
   flex-direction: column;
   text-align: start;
   justify-content: center;
-  border: solid pink
 }
 
 .stylist-index-link-profile{
@@ -676,7 +678,6 @@ input[type='password'] {
   justify-content: center;
   width: 100%;
   align-items: center;
-  border: solid green;
   padding-right: 10px;
 }
 
@@ -686,13 +687,18 @@ input[type='password'] {
   width: 100%;
   font-weight: 700;
   text-align: center;
-  background-color: cadetblue;
+  background-color: rgb(223, 237, 247);
+  border-radius: 10px;
   margin-left: 15%;
   padding: 20px;
 }
 
 .stylist-index-link :hover {
-  background-color: red;
+  background-color: rgb(206, 218, 228);
+}
+
+.stylist-index-link :active {
+  background-color: rgb(189, 200, 209);
 }
 
 .appointment-form-title {
