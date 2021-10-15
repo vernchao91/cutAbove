@@ -16,6 +16,7 @@ export const fetchReview = (reviewId) => {
 }
 
 export const createReview = (review) => {
+  debugger
   return axios.post(`/api/reviews/${review.stylistId}`, review)
 }
 

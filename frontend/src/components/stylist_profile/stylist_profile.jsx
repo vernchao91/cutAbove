@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 import ReviewIndexContainer from '../reviews/review_index_container'
+import ReviewFormContainer from '../review/review_form_container'
 import vern25 from './vern25.png'
 import reviewIcon from '../review/review_icon.png'
 import style1 from './stylist_haircuts/9f47865469d56f3a254e37e925cbd940.jpg'
@@ -45,7 +46,7 @@ class StylistProfile extends React.Component {
                     {this.props.stylist.firstName == "Vern da Goat" ? <img className="stylist-work" src={style4}/> : <img className="stylist-work" src={style8}/>}
                 </div>
                 <div className="stylist-profile-container">
-                    <div className="stylist-name">{this.props.stylist.firstName}</div>
+                    <div className="stylist-name">{this.props.stylist.handle}</div>
                     <div className="stylist-profile-info-container">
                     {this.props.stylist.firstName == "Vern da Goat" ? <img className="stylist-pic" src={vern25}/> : <img className="stylist-pic" src={karrie}/>}
                     <div className="stylist-rating">{this.props.stylist.firstName == "Vern da Goat" ? <><img className="review-icon" src={reviewIcon}/><div> 4.9/5</div></> : <><img className="review-icon" src={reviewIcon}/><div> 4.4/5</div></>}</div>
@@ -60,8 +61,10 @@ class StylistProfile extends React.Component {
 
                     </div>
                 </div>
-                <div className="stylist-reviews-title">{this.props.stylist.firstName}'s Reviews</div>
-                    <ReviewIndexContainer stylist={this.props.stylist} reviews={this.props.reviews}/>
+                <div className="stylist-reviews-title">{this.props.stylist.handle}'s Reviews</div>
+                {Object.values(this.props.reviews).length !== 0 ?  
+                    <ReviewIndexContainer stylist={this.props.stylist} reviews={this.props.reviews}/> : <div>This stylist does not have any reviews! Write one for them</div>}
+                <Link to = {`/reviews/create/${this.props.match.params.stylistId}`} className="stylist-bookapt-button">Write Review for {this.props.stylist.handle}</Link>
             </div>
             </div>
         )
