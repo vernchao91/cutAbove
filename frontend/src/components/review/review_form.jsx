@@ -18,7 +18,12 @@ class ReviewForm extends React.Component {
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-    } 
+    }
+    
+    componentDidMount() {
+        this.props.fetchStylist(this.props.match.params.stylistId)
+        this.props.fetchStylesFromStylist(this.props.match.params.stylistId)
+      }
 
     handleChange(field) {
         if(field === 'pictureUrl') {
@@ -44,7 +49,7 @@ class ReviewForm extends React.Component {
                 <form className = "appointment-form">
                   <h3 className = "appointent-form-title">Review your appointment with {this.props.stylist.handle}</h3>
                     <label className = "review-rating-number">Cuts  
-                        
+
                         <input type = "radio"></input>
                     </label>
               
