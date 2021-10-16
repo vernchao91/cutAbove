@@ -10,16 +10,20 @@ class LoginForm extends React.Component {
       email: '',
       password: '',
       errors: {},
-      stylist: false
+      stylist: false,
+      signup: false,
     };
     this.toggleClient = this.toggleClient.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
+    // debugger
     if (nextProps.currentUser === true) {
-      // this.props.history.push('/');
+      console.log("Did we get here")
+      this.props.closeModal()
     }
+    console.log("or here")
 
     this.setState({errors: nextProps.errors})
   }
@@ -55,7 +59,6 @@ class LoginForm extends React.Component {
 
     if(this.state.stylist) {
       this.props.stylistLogin(user)
-      .then(this.props.closeModal)
     }
 
     else {
@@ -83,7 +86,6 @@ class LoginForm extends React.Component {
         emailNotExistLabel, 
         passwordErrorLabel, 
         loginErrorsLabel = <label></label>;
-
 
         let errorsArr = Object.values(this.state.errors)
         if (errorsArr.length) {
@@ -159,7 +161,7 @@ class LoginForm extends React.Component {
         </form>
         </div>
     );
-  }
+}
 }
 
 export default withRouter(LoginForm);
