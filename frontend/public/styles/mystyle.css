@@ -261,15 +261,61 @@ input[type='password'] {
   align-items: center;
 }
 
+/* .main-page-pics-container {
+  width: 80vh;
+  height: 500px;
+} */
+
 .main-page-pics {
-  background-color: #fadea2;
+  background-color: white;
   transition: 0.4s;
-  background-image: url('');
+  background-image: url('https://github.com/acrks/cutAbove/blob/frontend/frontend/src/components/main/main_image%20combined.png?raw=true');
+  background-repeat: no-repeat;
+  width: 80vh;
+  height: 500px;
+  background-size: cover;
+  box-shadow: 0px 0px 5px 2px #946935;
+  border-radius: 65px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  animation: 1s ease-in-out 0s 1 slideInFromLeft;
 }
 
 .main-page-pics:hover {
-    -webkit-filter: blur(3px);
-    transition: 0.4s;
+  transform: scale(1.005);
+    /* transition: 0.4s; */
+}
+
+.main-page-pics > .book-appointment-button {
+  /* animation-duration: 1s;
+  animation-name: growFromCenter; */
+  animation: growFromCenter 0.5s linear 1s backwards;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes growFromCenter {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .main-page-pics img{
@@ -302,10 +348,8 @@ input[type='password'] {
 }
 
 .book-appointment-button {
-  position: absolute;
-  height: 40px;
-  width: 300px;
-  top: 520px;
+  height: 10%;
+  width: 50%;
   background-color: #b8702d;
   text-decoration: none;
   color: white;

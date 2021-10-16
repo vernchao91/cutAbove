@@ -14,10 +14,8 @@ class MainPage extends React.Component {
     return (
       <div className = "splashPage">
         {/* <div className = "search-bar-container"><Link to = "/stylists/index" className = "book-appointment-button">Find Stylists</Link></div> */}
-        <div>
+        <div className = "main-page-pics-container">
         <div className="main-page-pics">
-          {/* <img className="salon" src={salon}/>
-          <img className="barbershop" src={barbershop}/> */}
           <Link to = "/stylists/index" className = "book-appointment-button">Find Stylists</Link>
         </div>
         </div>
