@@ -1,18 +1,19 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       email: '',
       password: '',
-      errors: {}
+      errors: {},
+      stylist: false
     };
-
+    this.toggleClient = this.toggleClient.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -28,33 +29,52 @@ class LoginForm extends React.Component {
   // }
 
   update(field) {
+
     return e => this.setState({
       [field]: e.currentTarget.value
     });
   }
 
+  toggleClient() {
+    if(this.state.stylist) {
+      this.setState({'stylist': false})
+    }
+    else {
+      this.setState({'stylist': true})
+    }
+    console.log(this.state.stylist)
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-
+    // this.setState({errors : {}})
     let user = {
       email: this.state.email,
       password: this.state.password
     };
 
-    this.props.login(user); 
+    if(this.state.stylist) {
+      this.props.stylistLogin(user)
+      .then(this.props.closeModal)
+    }
+
+    else {
+      this.props.login(user)
+    } 
+
   }
 
-  renderErrors() {
-    return(
-      <ul className='errors'>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  // renderErrors() {
+  //   return(
+  //     <ul className='errors'>
+  //       {Object.keys(this.state.errors).map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {this.state.errors[error]}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
   render() {
 
@@ -73,8 +93,16 @@ class LoginForm extends React.Component {
                     emailErrorLabel = <label className="error-message">Email can't be blank</label>
                 }
 
+                if (error === 'Email is invalid') {
+                  emailErrorLabel = <label className="error-message">That is not a valid email</label>
+              }
+
                 if(error === 'This user does not exist') {
-                    emailNotExistLabel = <label className="error-message">This user does not exist in our user database. Did you mean to log into your stylist page?</label>
+                  emailNotExistLabel = <label className="error-message">This user does not exist in our user database. Did you mean to log into your stylist page?</label>
+                }
+
+                if(error === 'This stylist does not exist') {
+                  emailNotExistLabel = <label className="error-message">This stylist does not exist in our user database. Did you mean to log into your user page?</label>
                 }
 
                 if (error === 'Password field is required') {
@@ -93,12 +121,28 @@ class LoginForm extends React.Component {
         <h3 className='session-form-title'>
         <br />
         <br />
-        Log In
+        login
         </h3>
+        <br />
+        <div className = "client-stylist-slider">
+          
+          {this.state.stylist ? <div className = "toggle-not-selected">client</div> : <div>client</div>}
+        <label className="switch">
+        <input type="checkbox" 
+        checked = {this.state.stylist} 
+        onChange = {this.toggleClient}
+        />
+        <div className="slider round"></div>
+        </label>
+        {!this.state.stylist ? <div className = "toggle-not-selected">stylist</div> : <div>stylist</div>}
+
+        
+        </div>
+
               <input className =  "test" type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
-                placeholder="Email"
+                placeholder="email"
               />
               {emailErrorLabel}
               {emailNotExistLabel}
@@ -106,12 +150,12 @@ class LoginForm extends React.Component {
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                placeholder="Password"
+                placeholder="password"
               />
             {passwordErrorLabel}
             {loginErrorsLabel}
             <br/>
-            <input type="submit" className = "submit-button" value="Log In" />
+            <input type="submit" className = "book-appointment-button" value="login" />
         </form>
         </div>
     );

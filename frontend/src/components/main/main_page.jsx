@@ -15,9 +15,11 @@ class MainPage extends React.Component {
       <div className = "splashPage">
         {/* <div className = "search-bar-container"><Link to = "/stylists/index" className = "book-appointment-button">Find Stylists</Link></div> */}
         <div className = "main-page-pics-container">
-        <div className="main-page-pics">
+          <div className="main-page-pics">
+          <div className="main-page-pic-left"/>
+          <div className="main-page-pic-right"/>
+          </div>
           <Link to = "/stylists/index" className = "book-appointment-button">find a stylist</Link>
-        </div>
         </div>
         <br />
         <FeaturedStylist />

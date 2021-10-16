@@ -17,17 +17,18 @@ class NavBar extends React.Component {
       if (this.props.loggedIn) {
         return (
           <div className="nav-bar-buttons">
-            <button onClick={this.logoutUser}>Logout</button>
+            <button onClick={this.logoutUser}>logout</button>
             <Link to={'/cuts'}>Refer a friend</Link>
-            <Link to={`/users/${this.props.user.id}`}>My Profile</Link>
+            <Link to={`/users/${this.props.user.id}`}>my profile</Link>
           </div>
         );
       } else {
         return ( 
           <div className="nav-bar-buttons">
-            <Link to={'/signup'}>Register</Link>
-            <Link to={'/login'}>Login</Link>
-            <a href= "https://www.target.com/c/hair-care-beauty/-/N-5xu0k" target="_blank" rel="noreferrer noopener">Buy styling/<br/>care products!</a>
+            <Link to={'/signup'}>register</Link>
+            {/* <Link to={'/login'}>Login</Link> */}
+            <button onClick={() => this.props.openModal('login')} className = "nav">login</button>
+            <a href= "https://www.target.com/c/hair-care-beauty/-/N-5xu0k" target="_blank" rel="noreferrer noopener">care for<br/>your hair</a>
           </div>
         );
       }
