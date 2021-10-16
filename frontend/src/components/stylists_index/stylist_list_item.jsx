@@ -39,6 +39,8 @@ class StylistIndexItem  extends React.Component{
         </div>
         <div className='stylist-index-info-container'>
         <p className='stylist-index-item-info'>
+        {this.props.stylist.handle}
+        <br/>
         {this.props.stylist.firstName} {this.props.stylist.lastName}
         {this.addressSplitStreet()}
         {this.addressSplitCity()}
