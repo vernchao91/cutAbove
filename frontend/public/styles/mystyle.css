@@ -263,7 +263,8 @@ input[type='password'] {
 
 .main-page-pics {
   background-color: #fadea2;
-  transition: 0.4s
+  transition: 0.4s;
+  background-image: url('');
 }
 
 .main-page-pics:hover {
