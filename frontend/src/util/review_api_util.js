@@ -6,7 +6,7 @@ export const fetchReviewsFromStylist = (stylistId) => {
 }
 
 // pass in reivewer ID to fetch all reviews for that user
-export const fetechReviewsFromUser = (reviewerId) => {
+export const fetchReviewsFromUser = (reviewerId) => {
   return axios.get(`/api/reviews/reviewer/${reviewerId}`)
 }
 
@@ -16,6 +16,7 @@ export const fetchReview = (reviewId) => {
 }
 
 export const createReview = (review) => {
+  debugger
   return axios.post(`/api/reviews/${review.stylistId}`, review)
 }
 

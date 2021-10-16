@@ -6,7 +6,7 @@ const mapStateToProps = (state) => {
     return {reviews: Object.values(state.entities.reviews)}
 };
 const mapDispatchToProps = dispatch => ({
-    fetchReviewsFromStylist:(stylistId) => dispatch(fetchReviewsFromStylist(stylistId))
+    fetchReviewsFromStylist:(stylistId) => dispatch(fetchReviewsFromStylist(stylistId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewIndex);

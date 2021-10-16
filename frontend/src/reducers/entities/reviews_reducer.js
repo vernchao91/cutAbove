@@ -11,7 +11,7 @@ const reviewsReducer = (oldState = {}, action) => {
   switch (action.type) {
     case RECEIVE_REVIEWS:
       // console.log(action.reviews);
-      return Object.assign({}, oldState, action.reviews)
+      return Object.assign({}, oldState, action.reviews.data)
       // return action.reviews
     
     case RECEIVE_REVIEW:

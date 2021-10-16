@@ -6,8 +6,12 @@ import DemoLogin from './demo_login_container'
 export default function signupbuttons() {
     return(
         <div className = "signup-buttons">
-        Are you new to cutAbove?
-        <Link to='/signup'>Sign Up Here</Link> 
+            <div className = "signup-option" >
+            Are you new to cutAbove?
+            <br/>
+            <br/>
+            <Link to='/signup' className = "buttonforsignupform">Sign Up Here</Link> 
+            </div>
         <br/>
         Which type of profile would you like to log in to?
         <br/>

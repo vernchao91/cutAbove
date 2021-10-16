@@ -16,11 +16,19 @@ class NavBar extends React.Component {
   getLinks() {
       if (this.props.loggedIn) {
         return (
-          <button onClick={this.logoutUser}>Logout</button>
+          <div className="nav-bar-buttons">
+            <button onClick={this.logoutUser}>Logout</button>
+            <Link to={'/cuts'}>Refer a friend</Link>
+            <Link to={`/users/${this.props.user.id}`}>My Profile</Link>
+          </div>
         );
       } else {
         return ( 
+          <div className="nav-bar-buttons">
+            <Link to={'/signup'}>Register</Link>
             <Link to={'/login'}>Login</Link>
+            <a href= "https://www.target.com/c/hair-care-beauty/-/N-5xu0k" target="_blank" rel="noreferrer noopener">Buy styling/<br/>care products!</a>
+          </div>
         );
       }
   }
@@ -29,9 +37,6 @@ class NavBar extends React.Component {
       return (
         <div className = "nav-bar">
           <Link className = "logo-main" to ="/"></Link>
-          <a href= "https://www.target.com/c/hair-care-beauty/-/N-5xu0k">Buy styling/<br/>care products!</a>
-          <Link to={'/cuts'}>Refer a friend</Link>
-          <Link to={'/appointment'}>Your appointments</Link>
             { this.getLinks() }
         </div>
       );

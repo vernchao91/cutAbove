@@ -47,8 +47,8 @@ export const fetchReviewsFromStylist = stylistId => dispatch => {
 }
 
 // fetches all reviews from user
-export const fetechReviewsFromUser = reviewerId => dispatch => {
-  return ReviewApiUtil.fetechReviewsFromUser(reviewerId)
+export const fetchReviewsFromUser = reviewerId => dispatch => {
+  return ReviewApiUtil.fetchReviewsFromUser(reviewerId)
     .then(
       reviews => dispatch(receiveReviews(reviews)),
       err => dispatch(receiveReviewErrors(err.response.data))
@@ -66,7 +66,8 @@ export const fetchReview = reviewId => dispatch => {
 }
 
 export const createReview = review => dispatch => {
-  return ReviewApiUtil.fetchReview(review)
+  debugger
+  return ReviewApiUtil.createReview(review)
     .then(
       review => dispatch(receiveReview(review)),
       err => dispatch(receiveReviewErrors(err.response.data))
