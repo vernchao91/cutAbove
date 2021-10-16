@@ -2,6 +2,7 @@
 @import "./team.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -11,6 +12,7 @@ body {
     text-align: center;
     /* border: 1px solid gray; */
     font-family: Circular Std Book,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    font-family: 'Noto Sans', sans-serif;
     color: rgb(21, 21, 21);
     background-color: #f8f0e3;
     align-items: center;
@@ -47,11 +49,39 @@ body {
 }
 
 .nav-bar-buttons > a {
-    color:#493018;
+    color:#705338;
     text-decoration: none;
     float: right;
     padding: 15px;
-    width: max-content
+    width: max-content;
+    position: relative;
+}
+
+.nav-bar-buttons > a::after,
+.nav-bar-buttons > a::before,
+.nav-bar-buttons > a {
+  transition: all .5s;
+}
+
+.nav-bar-buttons > a::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #493018;
+  height: 1px;
+}
+
+.nav-bar-buttons > a:hover {
+  color: #493018;
+}
+
+.nav-bar-buttons > a:hover::after {
+  width: 100%;
 }
 
 .logo-main {
@@ -261,15 +291,16 @@ input[type='password'] {
 }
 
 .main-page-pics-container {
-  border-radius: 65px;
-  width: 80%;
-  height: 525px;
+  border-radius: 75px;
+  width: 75%;
+  height: 78vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: rgb(250, 222, 162);
-  animation: 1s ease-in-out 0s 1 slideInFromLeft;
+  /* border: 10px solid brown; */
+  animation: 1s ease-in-out 0s 1 growColorFromCenter;
 }
 
 .main-page-pics {
@@ -280,16 +311,28 @@ input[type='password'] {
   width: 100%;
   height: 100%;
   background-size: contain;
+  background-position: center;
   box-shadow: 0px 0px 5px 2px #946935;
-  border-radius: 65px;
+  border-radius: 75px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.main-page-pics:hover {
+@keyframes growColorFromCenter {
+  0% {
+    background-position: 100% 100%;
+    background-color: #f8f0e3;
+  }
+  100% {
+    background-size: 50% 50%;
+  }
+}
+
+.main-page-pics-container:hover {
   transform: scale(1.005);
+  /* opacity: 0.7; */
     /* transition: 0.4s; */
 }
 
@@ -301,19 +344,9 @@ input[type='password'] {
   font-size: 40px;
   padding: 0;
   background-color: rgb(250, 222, 162);
-  animation: growFromCenter 0.5s linear 1s backwards;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+  animation: growFromCenter 0.5s linear 0.5s backwards;
 }
-
-@keyframes slideInFromLeft {
-  0% {
-    background-position: 50% 50%;
-    background-color: #f8f0e3;
-  }
-  100% {
-    background-size: 100% 100%;
-  }
-}
-
 
 @keyframes growFromCenter {
   0% {
@@ -327,13 +360,6 @@ input[type='password'] {
   100% {
     transform: scale(1);
   }
-}
-
-.main-page-pics img{
-  position: relative;
-  overflow: hidden;
-  width: 550px;
-  height: 600px;
 }
 
 .splashPage > div {
@@ -373,6 +399,7 @@ input[type='password'] {
   align-items: center;
   box-shadow: 0px 0px 5px 2px #946935;
   text-shadow: 1px 1px #8d5613;
+  border: 5px solid #b8702d;
 }
 
 .book-appointment-button:hover,
@@ -381,12 +408,31 @@ input[type='password'] {
     color: #b8702d;
     transition: 0.4s;
     cursor: pointer;
-
 }
 
 .book-appointment-button:active {
   background-color: white;
   color: black
+}
+
+.book-appointment-button {
+  color: #fff;
+  border: 5px solid #b8702d;
+  background-image: -webkit-linear-gradient(30deg, rgb(250, 222, 162) 50%, transparent 50%);
+  background-image: linear-gradient(30deg, rgb(250, 222, 162) 50%, transparent 50%);
+  background-size: 1500px;
+  background-repeat: no-repeat;
+  background-position: 0%;
+  -webkit-transition: background 300ms ease-in-out;
+  transition: background 300ms ease-in-out;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+}
+
+.book-appointment-button:hover {
+  background-position: 100%;
+  color: #b8702d;
+  text-shadow: 2px 4px 4px rgba(0,0,0,0.2),
+  0px -5px 10px rgba(255,255,255,0.15);
 }
 
 .search-bar {

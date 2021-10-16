@@ -16,7 +16,7 @@ class MainPage extends React.Component {
         {/* <div className = "search-bar-container"><Link to = "/stylists/index" className = "book-appointment-button">Find Stylists</Link></div> */}
         <div className = "main-page-pics-container">
         <div className="main-page-pics">
-          <Link to = "/stylists/index" className = "book-appointment-button">Find Stylists</Link>
+          <Link to = "/stylists/index" className = "book-appointment-button">FIND STYLISTS</Link>
         </div>
         </div>
         <FeaturedStylist />
