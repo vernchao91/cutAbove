@@ -19,6 +19,7 @@ class MainPage extends React.Component {
           <Link to = "/stylists/index" className = "book-appointment-button">FIND STYLISTS</Link>
         </div>
         </div>
+        <br />
         <FeaturedStylist />
         <div className="splash-hair-index">
           <div className = "splash-mens-haircuts">
