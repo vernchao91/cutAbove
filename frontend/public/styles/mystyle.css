@@ -372,6 +372,14 @@ form > .demo-login:hover {
   padding: 20px;
   border: 1px solid black;
   font-family: 'Crimson Pro', sans-serif;
+  text-transform: lowercase;
+}
+
+/* Border for styling dev purposes
+TODO: Change layout to be more dynamic */
+
+.featured-stylist-container * {
+  border: 1px solid black;
 }
 
 /* Header across top of element */
@@ -397,12 +405,7 @@ form > .demo-login:hover {
   letter-spacing: 0.05em;
 }
 
-/* Border for styling dev purposes
-TODO: Change layout to be more dynamic */
 
-.featured-stylist-container * {
-  border: 1px solid black;
-}
 
 /* Profile pic of featured stylist 
 TODO: Change individual stylist profile pics to these dimensions */
@@ -425,6 +428,7 @@ TODO: Change individual stylist profile pics to these dimensions */
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  text-transform: none;
 }
 
 /* Button to go to the stylist's individual profile
@@ -468,6 +472,7 @@ TODO: Put color on top of page to not have to scroll back and forth */
   justify-content: center;
   align-items: center;
   color: #493018;
+  text-transform: none;
 }
 
 /* Splash HairStyle Index */
@@ -475,15 +480,12 @@ TODO: Put color on top of page to not have to scroll back and forth */
 .splash-hair-index {
   display: flex;
   justify-content: space-between;
-  width: 1100px;
-  height: 600px;
+  width: 80%;
+  height: 40%;
+  text-transform: lowercase;
 }
 
-.splash-mens-haircuts {
-  display: flex;
-  flex-direction: column;
-}
-
+.splash-mens-haircuts,
 .splash-womens-hairstyles {
   display: flex;
   flex-direction: column;
@@ -644,7 +646,6 @@ TODO: Put color on top of page to not have to scroll back and forth */
 .review-icon {
   width: 30px;
   height: 30px;
-
 }
 
 .stylist-info ul{
