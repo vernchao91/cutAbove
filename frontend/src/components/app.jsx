@@ -18,6 +18,7 @@ import TeamPage from "../components/team/team";
 import Wow from '../components/wow/wow'
 import ReviewFormContainer from '../components/review/review_form_container'
 import { Route } from 'react-router';
+import ImageContainer from "../components/image/ImageContainer"
 
 
 const App = () => (
@@ -38,6 +39,7 @@ const App = () => (
         <Route exact path="/users/:userId" component={UserProfileContainer}/>
         <ProtectedRoute exact path='/appointments/create/:stylistId' component={BookAppointmentContainer}/>
         <ProtectedRoute exact path='/reviews/create/:stylistId' component={ReviewFormContainer}/>
+        <Route exact path="/images" component={ImageContainer}/>
     </Switch>
     </div>
     <Footer />
