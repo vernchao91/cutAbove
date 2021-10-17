@@ -49,7 +49,12 @@ class SignupForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state)
 
-    this.props.signup(user, this.props.history); 
+    if(this.state.stylist) {
+      this.props.stylistSignup(user, this.props.history)
+    }
+    else {
+      this.props.signup(user, this.props.history); 
+    }
   }
 
   render() {
