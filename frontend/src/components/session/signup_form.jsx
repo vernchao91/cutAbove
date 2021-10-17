@@ -12,9 +12,12 @@ class SignupForm extends React.Component {
       handle: '',
       password: '',
       password2: '',
-      errors: {}
+      errors: {},
+      stylist: false,
+      address: '',
+      phoneNumber: '',
     };
-
+    this.toggleClient = this.toggleClient.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
   }
@@ -33,16 +36,18 @@ class SignupForm extends React.Component {
     });
   }
 
+  toggleClient() {
+    if(this.state.stylist) {
+      this.setState({'stylist': false})
+    }
+    else {
+      this.setState({'stylist': true})
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    let user = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      handle: this.state.handle,
-      password: this.state.password,
-      password2: this.state.password2
-    };
+    const user = Object.assign({}, this.state)
 
     this.props.signup(user, this.props.history); 
   }
@@ -71,11 +76,15 @@ class SignupForm extends React.Component {
         }
 
         if (error === 'Email is invalid') {
-            emailErrorLabel = <label  className="error-message">You sign up with a valid email address</label>
+            emailErrorLabel = <label  className="error-message">You must sign up with a valid email address</label>
         }
 
         if (error === 'Email has already been registered') {
           emailTakenLabel = <label  className="error-message">This email is already attached to a user</label>
+      }
+
+      if (error === 'First Name field is required') {
+        firstNameErrorLabel = <label  className="error-message">We have to know your first name!</label>
       }
             if (error === 'Last Name field is required') {
               lastNameErrorLabel = <label  className="error-message">We have to know your last name!</label>
@@ -99,7 +108,23 @@ class SignupForm extends React.Component {
         
         {/* {this.renderErrors()} */}
         <form onSubmit={this.handleSubmit}>
-        <h3 className='session-form-title'>Client Sign Up</h3>
+        <h3 className='session-form-title'>sign up</h3>
+        <br />
+        <div className = "client-stylist-slider">
+          
+          {this.state.stylist ? <div className = "toggle-not-selected">client</div> : <div>client</div>}
+        <label className="switch">
+        <input type="checkbox" 
+        checked = {this.state.stylist} 
+        onChange = {this.toggleClient}
+        />
+        <div className="slider round"></div>
+        </label>
+        {!this.state.stylist ? <div className = "toggle-not-selected">stylist</div> : <div>stylist</div>}
+
+        
+        </div>
+        
               <input type="text"
                 value={this.state.firstName}
                 onChange={this.update('firstName')}
@@ -147,9 +172,28 @@ class SignupForm extends React.Component {
             <br/>
             {passwordMatchLabel}
               <br/>
-            <input type="submit" value="Submit" className = "submit-button"/>
+              {this.state.stylist ? 
+              <>
+              <input type="password"
+              value={this.state.password2}
+              onChange={this.update('password2')}
+              placeholder="Confirm Password"
+              />
+              {passwordConfirmEmptyErrorLabel}
+              {passwordConfirmErrorLabel}
+              <br/>
+              <input type="text"
+              value={this.state.phoneNumber}
+              onChange={this.update('phoneNumber')}
+              placeholder="Phone Number"
+              />
+              <br/>
+                </>
+              : 
+              null}
+            <input type="submit" value="submit" className = "book-appointment-button demo-login"/>
         </form>
-        <img className="client-sign-up-model" src={gronk} alt = "gronkilicous"/>
+        <div className="client-sign-up-model gronk"/>
           </div>
     );
   }

@@ -11,8 +11,8 @@ class LoginForm extends React.Component {
       password: '',
       errors: {},
       stylist: false,
-      signup: false,
     };
+    this.demoLogin = this.demoLogin.bind(this)
     this.toggleClient = this.toggleClient.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -20,10 +20,8 @@ class LoginForm extends React.Component {
   componentWillReceiveProps(nextProps) {
     // debugger
     if (nextProps.currentUser === true) {
-      console.log("Did we get here")
       this.props.closeModal()
     }
-    console.log("or here")
 
     this.setState({errors: nextProps.errors})
   }
@@ -67,17 +65,13 @@ class LoginForm extends React.Component {
 
   }
 
-  // renderErrors() {
-  //   return(
-  //     <ul className='errors'>
-  //       {Object.keys(this.state.errors).map((error, i) => (
-  //         <li key={`error-${i}`}>
-  //           {this.state.errors[error]}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
+  demoLogin() {
+    const user = {
+      email: 'demo@cutAbove.com',
+      password: 'demotestdemo'
+    }
+    this.props.login(user)
+  }
 
   render() {
 
@@ -140,8 +134,7 @@ class LoginForm extends React.Component {
 
         
         </div>
-
-              <input className =  "test" type="text"
+              <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
                 placeholder="email"
@@ -158,6 +151,8 @@ class LoginForm extends React.Component {
             {loginErrorsLabel}
             <br/>
             <input type="submit" className = "book-appointment-button" value="login" />
+            <br/>
+            <div className = "book-appointment-button demo-login" onClick = {this.demoLogin}>demo login</div>
         </form>
         </div>
     );

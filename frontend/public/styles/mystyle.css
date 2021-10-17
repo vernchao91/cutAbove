@@ -305,7 +305,8 @@ body {
   font-weight: 600;
 }
 
-.book-appointment-button {
+.book-appointment-button
+{
   /* position: fixed; */
   z-index: 10;
   width: 50%;
@@ -322,9 +323,30 @@ body {
   text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
 }
 
+form > .demo-login,
+form > .book-appointment-button {
+  animation: none;
+  border: 0px;
+  height: 40px;
+  font-size: 17px;
+  padding: 8px;
+  background-color: #7ab5c5;
+  font-family: 'Montserrat', sans-serif;
+  transition: background 500ms ease-in-out;
+}
+
 .book-appointment-button:hover {
   background-position: 100%;
   color: #b8702d;
+  text-shadow: 2px 4px 4px rgba(0,0,0,0.2),
+  0px -5px 10px rgba(255,255,255,0.15);
+}
+
+form > .book-appointment-button:hover,
+form > .demo-login:hover {
+  background-position: 100%;
+  background-color: #7ab5c5;
+  color: white;
   text-shadow: 2px 4px 4px rgba(0,0,0,0.2),
   0px -5px 10px rgba(255,255,255,0.15);
 }
