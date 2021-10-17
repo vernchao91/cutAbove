@@ -15,7 +15,7 @@ class AppointmentItem extends React.Component {
   render() {
     if (this.props.appointment === null ) return null
     return(
-      <li classname='appointment-item-container'>
+      <li className='appointment-item-container'>
         <h3 className='appointment-with'>Appointment with {this.props.stylist.firstName}</h3>
         <div className='appointment-details-container'>
           <p>{this.props.client.firstName}</p>
