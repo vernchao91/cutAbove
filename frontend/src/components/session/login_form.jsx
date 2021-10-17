@@ -112,7 +112,10 @@ class LoginForm extends React.Component {
         }
 
     return (
+        <>
+        <div onClick={this.props.closeModal} className="close-x-left">X</div>
         <div className='session-form login'>
+
         <form onSubmit={this.handleSubmit}>
         <h3 className='session-form-title'>
         <br />
@@ -153,6 +156,7 @@ class LoginForm extends React.Component {
             <div className = "book-appointment-button demo-login" onClick = {this.demoLogin}>demo login</div>
         </form>
         </div>
+        </>
     );
 }
 }

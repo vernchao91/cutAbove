@@ -41,6 +41,14 @@
     letter-spacing: 0.5px;
   }
 
+  .close-x-left {
+    float: left;
+  }
+
+  .close-x-right {
+    float: right;
+  }
+
   .signup-buttons {
     display: flex;
     flex-direction: column;

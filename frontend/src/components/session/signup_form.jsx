@@ -104,9 +104,9 @@ class SignupForm extends React.Component {
     }
 
     return (
+        <>
+        <div onClick={this.props.closeModal} className="close-x-right">X</div>
         <div className="session-form signup-form">
-        
-        {/* {this.renderErrors()} */}
         <form onSubmit={this.handleSubmit}>
         <h3 className='session-form-title'>sign up</h3>
         <br />
@@ -190,6 +190,7 @@ class SignupForm extends React.Component {
         </form>
         <div className="client-sign-up-model gronk"/>
           </div>
+          </>
     );
   }
 }
