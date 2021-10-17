@@ -131,8 +131,6 @@ class LoginForm extends React.Component {
         <div className="slider round"></div>
         </label>
         {!this.state.stylist ? <div className = "toggle-not-selected">stylist</div> : <div>stylist</div>}
-
-        
         </div>
               <input type="text"
                 value={this.state.email}

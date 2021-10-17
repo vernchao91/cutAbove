@@ -128,21 +128,21 @@ class SignupForm extends React.Component {
               <input type="text"
                 value={this.state.firstName}
                 onChange={this.update('firstName')}
-                placeholder="First Name"
+                placeholder="first name"
                 />
                 {firstNameErrorLabel}
             <br/>
                 <input type="text"
                   value={this.state.lastName}
                   onChange={this.update('lastName')}
-                  placeholder="Last Name"
+                  placeholder="last name"
                 />
                 {lastNameErrorLabel}
             <br/>
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
-                placeholder="Email"
+                placeholder="email"
               />
               {emailTakenLabel}
               {emailErrorLabel}
@@ -150,7 +150,7 @@ class SignupForm extends React.Component {
               <input type="text"
                 value={this.state.handle}
                 onChange={this.update('handle')}
-                placeholder="Handle"
+                placeholder="handle"
               />
               {handleTakenLabel}
               {handleErrorLabel}
@@ -158,34 +158,32 @@ class SignupForm extends React.Component {
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                placeholder="Password"
+                placeholder="password"
                 />
             {passwordErrorLabel}
             <br/>
               <input type="password"
                 value={this.state.password2}
                 onChange={this.update('password2')}
-                placeholder="Confirm Password"
+                placeholder="confirm password"
                 />
                 {passwordConfirmEmptyErrorLabel}
                 {passwordConfirmErrorLabel}
             <br/>
             {passwordMatchLabel}
-              <br/>
+              {/* <br/> */}
               {this.state.stylist ? 
               <>
-              <input type="password"
-              value={this.state.password2}
-              onChange={this.update('password2')}
-              placeholder="Confirm Password"
-              />
-              {passwordConfirmEmptyErrorLabel}
-              {passwordConfirmErrorLabel}
-              <br/>
               <input type="text"
               value={this.state.phoneNumber}
               onChange={this.update('phoneNumber')}
-              placeholder="Phone Number"
+              placeholder="business phone number"
+              />
+              <br/>
+              <input type="text"
+              value={this.state.phoneNumber}
+              onChange={this.update('address')}
+              placeholder="place of work"
               />
               <br/>
                 </>
