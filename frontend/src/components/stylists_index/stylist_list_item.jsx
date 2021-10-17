@@ -26,7 +26,7 @@ class StylistIndexItem  extends React.Component{
   }
 
   render() {
-    if (this.props.stylist.address == null) {
+    if (!this.props.stylist.address) {
       return (
         null
       ) 
@@ -35,7 +35,7 @@ class StylistIndexItem  extends React.Component{
       return(
       <li className='stylist-index-item'>
         <div className='stylist-index-link-profile'>
-        {this.props.stylist.firstName == "Karrie" ? <img className='stylist-index-photo' src={karrie}/> : <img className='stylist-index-photo' src={vern25} />}
+        {this.props.stylist.firstName === "Karrie" ? <img className='stylist-index-photo' src={karrie} alt = "altimage1"/> : <img className='stylist-index-photo' src={vern25} alt = "altimage1"/>}
         </div>
         <div className='stylist-index-info-container'>
         <p className='stylist-index-item-info'>

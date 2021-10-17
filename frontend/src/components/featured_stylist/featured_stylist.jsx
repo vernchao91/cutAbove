@@ -42,7 +42,7 @@ class FeaturedStylist extends React.Component {
     }
 
     render() {
-        if (this.props.stylists.length == 0) return null
+        if (this.props.stylists.length === 0) return null
         return(
             <div className = "featured-stylist-container">
                 {this.featureAStylist()}

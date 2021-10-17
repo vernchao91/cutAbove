@@ -2,10 +2,9 @@ import React from 'react'
 // import { Link } from 'react-router-dom'
 
 const ReviewItem = (props) => {
-    const iconNum = [...Array(props.review.rating).keys()]
     let ratingContent = []
     for (let i = 0; i < props.review.rating; i++) {
-        ratingContent.push(<img id='rating-item-index-icon' src={'https://raw.githubusercontent.com/acrks/cutAbove/main/frontend/src/components/review/review_icon.png'} width='10' height='10' key = {i}/>)
+        ratingContent.push(<img id='rating-item-index-icon' src={'https://raw.githubusercontent.com/acrks/cutAbove/main/frontend/src/components/review/review_icon.png'} width='10' height='10' key = {i} alt = "review icon"/>)
     }
     return (
             <div className="review-item-container">

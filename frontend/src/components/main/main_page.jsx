@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import FeaturedStylist from '../featured_stylist/featured_stylist_container';
 import PopularHaircuts from '../popular_items/popular_components/popular_haircuts'
 import PopularHairstyles from '../popular_items/popular_components/popular_hairstyles'
-// import SearchBarContainer from '../search_bar/search_bar_container'
-import barbershop from './barbershop.jpeg'
-import salon from './salon.jpeg'
 
 class MainPage extends React.Component {
 

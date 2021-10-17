@@ -3,19 +3,14 @@ import { ProtectedRoute } from '../util/route_util';
 import { Switch } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
 import MainPage from './main/main_page';
-import LoginFormContainer from './session/login_form_container';
-import SignupFormContainer from './session/signup_form_container';
-import StylistSignupFormContainer from './session/stylist_sign_form_container';
-import StylistLoginFormContainer from './session/stylist_login_form_container';
 import StylistProfileContainer from './stylist_profile/stylist_profile_container';
 import UserProfileContainer from './user_profile/user_profile_container'
-import SignupButtons from './session/sign_up_button';
-import LoginButtons from './session/log_in_buttons';
+// import LoginButtons from './session/log_in_buttons';
 import BookAppointmentContainer from './book_appointment/book_appointment_container_form_form'
 import StylistsIndexContainer from './stylists_index/stylists_index_container'
 import Footer from '../components/footer/footer';
 import TeamPage from "../components/team/team";
-import Wow from '../components/wow/wow'
+// import Wow from '../components/wow/wow'
 import Modal from '../components/modal/modal'
 import ReviewFormContainer from '../components/review/review_form_container'
 import { Route, Redirect } from 'react-router';

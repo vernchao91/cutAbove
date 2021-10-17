@@ -1,14 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 import ReviewIndexContainer from '../reviews/review_index_container'
 import demoProfilePic from '../popular_items/popular_components/hairstyles/3-brunette-shag-for-long-hair-CPusXsXjjgl.jpeg'
 
 class UserProfile extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
+    // constructor(props) {
+    //     super(props)
+    // }
 
     componentDidMount() {
         this.props.fetchReviewsFromUser(this.props.match.params.userId)
@@ -18,7 +17,7 @@ class UserProfile extends React.Component {
         return (
             <div className="user-profile-page">
                 <div className="user-profile-container">
-                    <img className= "profile-pic" src={demoProfilePic} />
+                    <img className= "profile-pic" src={demoProfilePic} alt = "Dummy profile pic"/>
                     <button className="profile-pic-btn"> Upload/Change Profile Image</button>
                     <div className="stylist-info">
                         <ul>

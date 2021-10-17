@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import gronk from './gronk.jpeg'
+// import gronk from './gronk.jpeg'
 
 class SignupForm extends React.Component {
   constructor(props) {

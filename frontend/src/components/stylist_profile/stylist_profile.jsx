@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 import ReviewIndexContainer from '../reviews/review_index_container'
-import ReviewFormContainer from '../review/review_form_container'
+// import ReviewFormContainer from '../review/review_form_container'
 import vern25 from './vern25.png'
 import reviewIcon from '../review/review_icon.png'
 import style1 from './stylist_haircuts/9f47865469d56f3a254e37e925cbd940.jpg'
@@ -17,9 +17,9 @@ import karrie from './featured-stylist.jpg'
 
 class StylistProfile extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
+    // constructor(props) {
+    //     super(props)
+    // }
 
     componentDidMount() {
         // this.props.fetchStylesfromStylist(this.props.match.params.stylistId)
@@ -42,17 +42,17 @@ class StylistProfile extends React.Component {
             <div className="stylist-bookapt-container">
                 <Link to = {`/appointments/create/${this.props.match.params.stylistId}`} className="stylist-bookapt-button">Book Appointment with {this.props.stylist.firstName}</Link>
                 <div className="stylist-carousel-container">
-                    {this.props.stylist.firstName == "Vern da Goat" ? <img className="stylist-work" src={style1}/> : <img className="stylist-work" src={style5}/>}
-                    {this.props.stylist.firstName == "Vern da Goat" ? <img className="stylist-work" src={style2}/> : <img className="stylist-work" src={style6}/>}
-                    {this.props.stylist.firstName == "Vern da Goat" ? <img className="stylist-work" src={style3}/> : <img className="stylist-work" src={style7}/>}
-                    {this.props.stylist.firstName == "Vern da Goat" ? <img className="stylist-work" src={style4}/> : <img className="stylist-work" src={style8}/>}
+                    {this.props.stylist.firstName === "Vern da Goat" ? <img className="stylist-work" src={style1} alt = "Hich i have no clue why you did this"/> : <img className="stylist-work" src={style5} alt = "hairstyle1"/>}
+                    {this.props.stylist.firstName === "Vern da Goat" ? <img className="stylist-work" src={style2} alt = "Hich i have no clue why you did this"/> : <img className="stylist-work" src={style6} alt = "hairstyle1"/>}
+                    {this.props.stylist.firstName === "Vern da Goat" ? <img className="stylist-work" src={style3} alt = "Hich i have no clue why you did this"/> : <img className="stylist-work" src={style7} alt = "hairstyle1"/>}
+                    {this.props.stylist.firstName === "Vern da Goat" ? <img className="stylist-work" src={style4} alt = "Hich i have no clue why you did this"/> : <img className="stylist-work" src={style8} alt = "hairstyle1"/>}
                 </div>
                 <div className="stylist-profile-container">
                     <div className="stylist-name">{this.props.stylist.handle}</div>
                     <div className="stylist-profile-info-container">
-                    {this.props.stylist.firstName == "Vern da Goat" ? <img className="stylist-pic" src={vern25}/> : <img className="stylist-pic" src={karrie}/>}
+                    {this.props.stylist.firstName === "Vern da Goat" ? <img className="stylist-pic" src={vern25} alt = "Hich i have no clue why you did this"/> : <img className="stylist-pic" src={karrie} alt = "Hich i have no clue why you did this"/>}
                     <div className="stylist-rating">
-                        {this.props.stylist.firstName === "Karrie" ? <><br /><img className="review-icon" src={reviewIcon}/><br />5/5</> : null}
+                        {this.props.stylist.firstName === "Karrie" ? <><br /><img className="review-icon" src={reviewIcon} alt = "Hich i have no clue why you did this"/><br />5/5</> : null}
                         </div>
                         {/* {this.props.stylist.firstName == "Vern da Goat" ? <><img className="review-icon" src={reviewIcon}/><div> {this.props.stylist.rating ? : '/5'}</div></> : <><img className="review-icon" src={reviewIcon}/><div> 4.4/5</div></>}</div> */}
                     <div className="stylist-info">
@@ -63,7 +63,6 @@ class StylistProfile extends React.Component {
                             <li>Store Address: {this.props.stylist.address}</li>
                         </ul>
                     </div>
-
                     </div>
                 </div>
                 <div className="stylist-reviews-title">{this.props.stylist.handle}'s Reviews</div>
