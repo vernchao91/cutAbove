@@ -64,7 +64,8 @@ router.post("/register", (req, res) => {
         profileType: req.body.profileType,
         phoneNumber: req.body.phoneNumber,
         address: req.body.address,
-        averageRating: req.body.averageRating
+        averageRating: req.body.averageRating,
+        imageUrl: "/api/images/cutabove-1634449093367.png"
       });
 
       bcrypt.genSalt(10, (err, salt) => {
@@ -125,5 +126,15 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.patch(
+  "/:id",
+  // passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+
+    Stylist.findByIdAndUpdate((req.params.id), req.body, { new: true })
+      .then(stylist => res.json(stylist))
+      .catch(err => res.status(404).json({ nostylistfound: "No stylist found by that Id" }))
+  }
+)
 
 module.exports = router;

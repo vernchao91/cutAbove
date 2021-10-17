@@ -35,7 +35,8 @@ class StylistIndexItem  extends React.Component{
       return(
       <li className='stylist-index-item'>
         <div className='stylist-index-link-profile'>
-        {this.props.stylist.firstName == "Karrie" ? <img className='stylist-index-photo' src={karrie}/> : <img className='stylist-index-photo' src={vern25} />}
+        <img className='stylist-index-photo' src={this.props.stylist.imageUrl} alt="Profile Picture"/>
+        {/* <div className="stylist-index-photo" style={{backgroundImage : `url(${this.props.stylist.imageUrl})`}} /> */}
         </div>
         <div className='stylist-index-info-container'>
         <p className='stylist-index-item-info'>

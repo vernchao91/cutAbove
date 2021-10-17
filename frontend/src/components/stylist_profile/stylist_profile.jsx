@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import { Link } from 'react-router-dom'
+import { uploadImage } from "../../actions/image_action"
 import ReviewIndexContainer from '../reviews/review_index_container'
 import ReviewFormContainer from '../review/review_form_container'
 import vern25 from './vern25.png'
@@ -29,6 +29,21 @@ class StylistProfile extends React.Component {
         // this.props.fetchStylists()
     }
 
+    sessionCheck() {
+        
+    }
+
+    async handleImageSubmit(e) {
+        e.preventDefault();
+        const {file, description} = this.state;
+        let result = null;
+    
+        if (file) {
+          result = await uploadImage({image: file, description});
+          this.setState( {imageUrl: `/api/images/${result.imagePath}`} )
+        }
+    }
+
     // componentWillUpdate(){
     //     this.props.fetchReviewsFromStylist(this.props.match.params.stylistId)
     // }
@@ -50,11 +65,10 @@ class StylistProfile extends React.Component {
                 <div className="stylist-profile-container">
                     <div className="stylist-name">{this.props.stylist.handle}</div>
                     <div className="stylist-profile-info-container">
-                    {this.props.stylist.firstName == "Vern da Goat" ? <img className="stylist-pic" src={vern25}/> : <img className="stylist-pic" src={karrie}/>}
+                    <img className="stylist-pic" src={this.props.stylist.imageUrl}/>
                     <div className="stylist-rating">
                         {this.props.stylist.firstName === "Karrie" ? <><br /><img className="review-icon" src={reviewIcon}/><br />5/5</> : null}
-                        </div>
-                        {/* {this.props.stylist.firstName == "Vern da Goat" ? <><img className="review-icon" src={reviewIcon}/><div> {this.props.stylist.rating ? : '/5'}</div></> : <><img className="review-icon" src={reviewIcon}/><div> 4.4/5</div></>}</div> */}
+                    </div>
                     <div className="stylist-info">
                         <ul>
                             <li>Name: {this.props.stylist.firstName} {this.props.stylist.lastName}</li>
