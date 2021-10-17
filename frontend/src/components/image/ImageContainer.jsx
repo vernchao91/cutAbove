@@ -37,7 +37,7 @@ class Image extends React.Component {
   // }
 
   render() {
-    const image = <img src="/api/images/cutabove-1634444500661.jpg" alt="image"></img>
+    const image = <img src="/api/images/cutabove-1634449093367.png" alt="image"></img>
     return (
       <div>
         Upload Image
