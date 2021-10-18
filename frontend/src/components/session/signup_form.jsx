@@ -23,9 +23,7 @@ class SignupForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
     if (nextProps.signedIn) {
-      debugger
       const user = Object.assign({}, this.state)
       if(this.state.stylist) {
         this.props.stylistLogin(user)

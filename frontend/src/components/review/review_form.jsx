@@ -35,7 +35,6 @@ class ReviewForm extends React.Component {
       handleSubmit(e) {
         e.preventDefault()
         const appointment = Object.assign({}, this.state)
-        debugger
         this.props.createReview(appointment).then(() => {
           this.setState({
             clientId: this.props.user,
