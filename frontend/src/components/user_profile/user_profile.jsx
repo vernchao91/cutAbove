@@ -7,13 +7,17 @@ class UserProfile extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            imageUrl: this.props.user.imageUrl
+            imageUrl: "",
+            id: this.props.match.params.userId
         }
-        this.handleImageSubmit = this.handleImageSubmit.bind(this)
+        this.handleImageSubmit = this.handleImageSubmit.bind(this);
+        this.fileSelected = this.fileSelected.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchReviewsFromUser(this.props.match.params.userId)
+        this.props.fetchClient(this.props.match.params.userId)
+            // .then(this.setState({user: this.props.user, imageUrl: this.props.user.imageUrl}))
     }
 
     async handleImageSubmit(e) {
@@ -24,6 +28,10 @@ class UserProfile extends React.Component {
         if (file) {
           result = await uploadImage({image: file, description});
           this.setState( {imageUrl: `/api/images/${result.imagePath}`} )
+        //   console.log("result.imagepath" + result.imagePath)
+          this.state.imageUrl = `/api/images/${result.imagePath}`
+          const stateUser = Object.assign({}, this.state)
+          this.props.updateClient(stateUser)
         }
       }
 
@@ -34,6 +42,7 @@ class UserProfile extends React.Component {
     }
 
     render() {
+        if (this.props.user === undefined) return null
         return (
             <div className="user-profile-page">
                 <div className="user-profile-container">

@@ -6,6 +6,7 @@ class NavBar extends React.Component {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
+    this.toggleLink = this.toggleLink.bind(this);
   }
 
   logoutUser(e) {
@@ -13,13 +14,20 @@ class NavBar extends React.Component {
       this.props.logout();
   }
 
+  toggleLink() {
+    return this.props.user.address ? 
+    <Link to={`/stylists/${this.props.user.id}`}>my profile</Link> : 
+    <Link to={`/users/${this.props.user.id}`}>my profile</Link>
+  }
+
   getLinks() {
       if (this.props.loggedIn) {
         return (
           <div className="nav-bar-buttons">
             <button onClick={this.logoutUser}>logout</button>
-            <Link to={'/cuts'}>refer a friend</Link>
-            <Link to={`/users/${this.props.user.id}`}>my profile</Link>
+            {/* <Link to={'/cuts'}>refer a friend</Link> */}
+            {/* <Link to={`/users/${this.props.user.id}`}>my profile</Link> */}
+            {this.toggleLink()}
           </div>
         );
       } else {

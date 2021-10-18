@@ -5,7 +5,7 @@ const ClientsReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_CLIENT:
-      return action.client;
+      return action.client.data;
   
     default:
       return oldState
