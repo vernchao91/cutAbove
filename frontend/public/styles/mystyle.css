@@ -353,8 +353,8 @@ form > .demo-login:hover {
   background-color: white;
   /* padding: 20px; */
   width: 100%;
-  border-radius: 50px;
-  border: 1px solid red;
+  border-radius: 5px;
+  border: 1px solid black;
   text-align: center;
   font-size: inherit;
 }
@@ -740,6 +740,7 @@ TODO: Put color on top of page to not have to scroll back and forth */
 .stylist-list {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
 }
