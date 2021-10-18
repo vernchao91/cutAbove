@@ -383,10 +383,6 @@ form > .demo-login:hover {
 /* Border for styling dev purposes
 TODO: Change layout to be more dynamic */
 
-.featured-stylist-container * {
-  /* border: 1px solid black; */
-}
-
 /* Header across top of element */
 
 .featured-stylist-header {
