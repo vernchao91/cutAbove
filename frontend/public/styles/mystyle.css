@@ -184,7 +184,8 @@ body {
 
 /* Animation to grow hero element when hovered */
 
-.main-page-pics-container:hover {
+.main-page-pics-container:hover,
+.featured-stylist-container:hover {
   transform: scale(1.01);
 }
 
@@ -362,25 +363,25 @@ form > .demo-login:hover {
 /* Featured Stylist master element */
 
 .featured-stylist-container {
+  margin-top: 5%;
   width: 80%;
-  height: 40%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgb(250, 222, 162);
   background-image: linear-gradient(rgb(250, 222, 162), #f8f0e3);
   padding: 20px;
-  border: 1px solid black;
+  transition: 0.5s;
   font-family: 'Crimson Pro', sans-serif;
   text-transform: lowercase;
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  box-shadow: 0px -10px 10px -10px  rgba(0, 0, 0,.7);
 }
 
 /* Border for styling dev purposes
 TODO: Change layout to be more dynamic */
-
-.featured-stylist-container * {
-  border: 1px solid black;
-}
 
 /* Header across top of element */
 
@@ -388,21 +389,24 @@ TODO: Change layout to be more dynamic */
   font-family: 'Noto Sans', sans-serif;
   font-size: 60px;
   letter-spacing: 5px;
-  padding-bottom: 10px;
-  padding-top: 10px;
   font-weight: 600;
-  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #493018;
 }
 
 /* Handle for featured stylist */
 
 .featured-stylist-name {
-  font-size: 30px;
+  font-family: 'Crimson Pro', sans-serif;
+  font-size: 75px;
   padding: 10px;
-  color: #493018;
   padding-bottom: 20px;
   font-weight: bolder;
   letter-spacing: 0.05em;
+  text-transform: none;
 }
 
 
@@ -413,11 +417,12 @@ TODO: Change individual stylist profile pics to these dimensions */
 .featured-stylist-profile-pic {
   height: 250px;
   width: 250px;
+  margin-bottom: 2.5%;
   background-repeat: no-repeat;
   background-size: cover;
-  border: 1px solid red;
   background-position: center;
   border-radius: 10px;
+  box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.7);
 }
 
 /* Information for featured stylist */
@@ -427,17 +432,31 @@ TODO: Change individual stylist profile pics to these dimensions */
   width: 100%;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   text-transform: none;
+  /* border: 1px solid blue; */
+}
+
+.featured-stylist-details {
+  width: 75%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #493018;
 }
 
 /* Button to go to the stylist's individual profile
 TODO: Consider creating element to get rid of animation */
 
-.featured-stylist-info > .book-appointment-button {
-  width: 30%;
+.featured-stylist-details > .book-appointment-button {
+  width: 50%;
+  height: 100%;
   font-size: 30px;
   animation: none;
+  padding: 0.5%;
+  border: 3px solid #b8702d;
 }
 
 /* Featured stylist info - consider combining blurb
@@ -445,34 +464,36 @@ TODO: Change width to percentage */
 
 .featured-stylist-info ul {
   padding-left: 20px;
-  width: 367px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  margin-top: 25px;
 }
 
 /* List items
 TODO: Put color on top of page to not have to scroll back and forth */
 
 .featured-stylist-info li {
-  color: #493018;
-  padding-top: 5px;
-  padding-bottom: 5px;
+
   text-align: left;
+  font-size: 30px;
 }
 
 .featured-stylist-description {
-  width: 50%;
+  width: 100%;
   height: 20%;
   display: flex;
   padding: 20px;
+  font-size: 20px;
   margin-top: 20px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   color: #493018;
   text-transform: none;
+  text-align: justify;
 }
 
 /* Splash HairStyle Index */
