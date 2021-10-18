@@ -23,8 +23,18 @@ class SignupForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
+    debugger
+    if (nextProps.signedIn) {
+      debugger
+      const user = Object.assign({}, this.state)
+      if(this.state.stylist) {
+        this.props.stylistLogin(user)
+      }
+      else {
+        this.props.login(user)
+      }
+      this.props.closeModal()
+      // this.props.history.push('/');
     }
 
     this.setState({errors: nextProps.errors})
@@ -183,7 +193,7 @@ class SignupForm extends React.Component {
               />
               <br/>
               <input type="text"
-              value={this.state.phoneNumber}
+              value={this.state.address}
               onChange={this.update('address')}
               placeholder="place of work"
               />

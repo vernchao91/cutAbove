@@ -1,14 +1,21 @@
 import React from 'react';
-class Search extends  React.Component {
+
+class Search extends React.Component {
 	constructor( props ) {
 		super( props );
 		this.state = {
 			query: '',
-                        results: {},
-                        loading: false,
-                        message: '',
+			results: {},
+			loading: false,
+			message: '',
 		};
 	}
+
+	handleOnInputChange = (event) => {
+		const query = event.target.value;
+				this.setState({ query, loading: true, message: ''  } );
+	};
+
 	render() {
 		return (
 			<div className="container">
@@ -21,6 +28,7 @@ class Search extends  React.Component {
 						value=""
 						id="search-input"
 						placeholder="Search..."
+						onChange = {this.handleOnInputChange}
 					/>
 					<i className="fa fa-search search-icon"/>
 				</label>
