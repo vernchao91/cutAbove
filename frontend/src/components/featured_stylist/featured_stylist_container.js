@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchStylists } from '../../actions/stylist_actions';
+import { fetchStylists, fetchStylist } from '../../actions/stylist_actions';
 // import React from "react";
 import FeaturedStylist from './featured_stylist'
 
@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
 
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchStylists:()=> dispatch(fetchStylists())
+    fetchStylists:()=> dispatch(fetchStylists()),
+    fetchStylist: userId => dispatch(fetchStylist(userId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeaturedStylist)
