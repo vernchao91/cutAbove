@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import vern25 from './vern25.png'
 
 class StylistIndexItem  extends React.Component{
   constructor(props){
@@ -25,7 +24,7 @@ class StylistIndexItem  extends React.Component{
   }
 
   render() {
-    if (this.props.stylist.address == null) {
+    if (!this.props.stylist.address) {
       return (
         null
       ) 
@@ -34,10 +33,13 @@ class StylistIndexItem  extends React.Component{
       return(
       <li className='stylist-index-item'>
         <div className='stylist-index-link-profile'>
-        <img className='stylist-index-photo' src={vern25} />
+        <img className='stylist-index-photo' src={this.props.stylist.imageUrl} alt="Profile Picture"/>
+        {/* <div className="stylist-index-photo" style={{backgroundImage : `url(${this.props.stylist.imageUrl})`}} /> */}
         </div>
         <div className='stylist-index-info-container'>
         <p className='stylist-index-item-info'>
+        {this.props.stylist.handle}
+        <br/>
         {this.props.stylist.firstName} {this.props.stylist.lastName}
         {this.addressSplitStreet()}
         {this.addressSplitCity()}

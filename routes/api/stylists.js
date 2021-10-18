@@ -27,6 +27,10 @@ router.get(
   }
 )
 
+router.get("/search", (req,res)=> {
+  Stylist.findOne({handle : req.body.handle}).then(query => res.json(query))
+})
+
 router.get(
   "/:id",
   (req, res) => {
@@ -64,7 +68,8 @@ router.post("/register", (req, res) => {
         profileType: req.body.profileType,
         phoneNumber: req.body.phoneNumber,
         address: req.body.address,
-        averageRating: req.body.averageRating
+        averageRating: req.body.averageRating,
+        imageUrl: "/api/images/cutabove-1634449093367.png"
       });
 
       bcrypt.genSalt(10, (err, salt) => {
@@ -109,7 +114,7 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, stylist.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: stylist.id, email: stylist.email };
+        const payload = { id: stylist.id, email: stylist.email, firstName: stylist.firstName, lastName: stylist.lastName, handle: stylist.handle, address: stylist.address, phoneNumber: stylist.phoneNumber, imageUrl: stylist.imageUrl };
 
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
           res.json({
@@ -125,5 +130,18 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.patch(
+  "/:id",
+  // passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+
+    Stylist.findByIdAndUpdate((req.params.id), req.body, { new: true })
+      .then(stylist => res.json(stylist))
+      .catch(err => res.status(404).json({ nostylistfound: "No stylist found by that Id" }))
+  }
+)
+// router.get("/search/search", (req,res)=> {
+//   Stylist.findOne({handle : req.body.handle}).then(query => res.json(query))
+// })
 
 module.exports = router;

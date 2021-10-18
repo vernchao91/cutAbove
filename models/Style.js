@@ -18,6 +18,10 @@ const StyleSchema = new Schema ({
     price: {
         type: Number,
         require: false
+    },
+    imageUrl: {
+        type: String,
+        required: false,
     }
 }, {
     timestamps: true

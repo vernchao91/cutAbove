@@ -37,6 +37,10 @@ const StylistSchema = new Schema({
   averageRating: {
     type: Number,
     required: false
+  },
+  imageUrl: {
+    type: String,
+    required: false,
   }
 }, {
   timestamps: true

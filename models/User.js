@@ -25,6 +25,10 @@ const UserSchema = new Schema({
   profileType: {
     type: Boolean,
     // required: true
+  },
+  imageUrl: {
+    type: String,
+    required: false,
   }
 }, {
   timestamps: true
