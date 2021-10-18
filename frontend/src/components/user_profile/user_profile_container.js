@@ -1,5 +1,6 @@
 import {connect} from 'react-redux'
 import { fetchReviewsFromUser} from '../../actions/review_actions'
+import { updateClient } from "../../actions/client_actions"
 import UserProfile from './user_profile'
 
 
@@ -12,6 +13,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     fetchReviewsFromUser:(userId) => dispatch(fetchReviewsFromUser(userId)),
+    updateClient: client => dispatch(updateClient(client))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

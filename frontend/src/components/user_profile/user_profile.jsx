@@ -1,5 +1,6 @@
 import React from 'react'
 // import { Link } from 'react-router-dom';
+import { uploadImage } from "../../actions/image_action";
 import ReviewIndexContainer from '../reviews/review_index_container'
 import demoProfilePic from '../popular_items/popular_components/hairstyles/3-brunette-shag-for-long-hair-CPusXsXjjgl.jpeg'
 
@@ -7,18 +8,45 @@ class UserProfile extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            imageUrl: this.props.user.imageUrl
+        }
     }
 
     componentDidMount() {
         this.props.fetchReviewsFromUser(this.props.match.params.userId)
     }
 
+    async handleImageSubmit(e) {
+        e.preventDefault();
+        const {file, description} = this.state;
+        let result = null;
+    
+        if (file) {
+          result = await uploadImage({image: file, description});
+          this.setState( {imageUrl: `/api/images/${result.imagePath}`} )
+        }
+      }
+
+    fileSelected(e) {
+        e.preventDefault();
+        const file = e.target.files[0];
+            this.setState( {file: file} );
+    }
+
     render() {
         return (
             <div className="user-profile-page">
                 <div className="user-profile-container">
-                    <img className= "profile-pic" src={demoProfilePic} />
-                    <button className="profile-pic-btn"> Upload/Change Profile Image</button>
+                    <img className= "profile-pic" src={this.props.user.imageUrl} alt="Profile Picture"/>
+                    <form onSubmit={this.handleImageSubmit}>
+                        <input
+                        type="file"
+                        onChange={this.fileSelected}
+                        accept="image/*"
+                        />
+                        <button className="profile-pic-btn" type="submit"> Upload/Change Profile Image</button>
+                    </form>
                     <div className="stylist-info">
                         <ul>
                             <li>Name: {this.props.user.firstName} {this.props.user.lastName}</li>

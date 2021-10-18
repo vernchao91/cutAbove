@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import vern25 from './vern25.png'
-import karrie from './featured-stylist.jpg'
 
 class StylistIndexItem  extends React.Component{
   constructor(props){
