@@ -1,5 +1,7 @@
 import React from 'react';
 import StylistIndexItem from './stylist_list_item'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/fontawesome-free-solid'
 // import {useState} from 'react'
 
 class StylistsIndex extends React.Component {
@@ -32,7 +34,11 @@ class StylistsIndex extends React.Component {
 
     return (
       <div className='stylists-index-container'>
-        <input className = "search-bar" type="text" placeholder="Search for a Stylist..." onChange={this.updateSearch}/>
+        <div className="search-box">
+              <button class="btn-search"><FontAwesomeIcon class="fas fa-search" icon={faSearch}/></button>
+        <input className = "input-search" type="text" placeholder="search for a stylist..." onChange={this.updateSearch}/>
+        </div>
+        <div class="search"></div>
         <ul className='stylist-list'>
           {
             this.props.stylists.filter((val) => {
