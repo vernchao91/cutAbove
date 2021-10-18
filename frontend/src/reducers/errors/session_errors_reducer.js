@@ -5,13 +5,16 @@ import {
 
 const _nullErrors = [];
 
+
+
 const SessionErrorsReducer = (state = _nullErrors, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_SESSION_ERRORS:
+      debugger
       return action.errors;
     case RECEIVE_CURRENT_USER:
-      return _nullErrors;
+        return _nullErrors;
     default:
       return state;
   }

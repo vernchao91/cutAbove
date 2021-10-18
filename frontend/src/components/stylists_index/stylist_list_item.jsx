@@ -24,7 +24,7 @@ class StylistIndexItem  extends React.Component{
   }
 
   render() {
-    if (this.props.stylist.address == null) {
+    if (!this.props.stylist.address) {
       return (
         null
       ) 

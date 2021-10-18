@@ -66,7 +66,7 @@ export const fetchReview = reviewId => dispatch => {
 }
 
 export const createReview = review => dispatch => {
-  debugger
+  // debugger
   return ReviewApiUtil.createReview(review)
     .then(
       review => dispatch(receiveReview(review)),

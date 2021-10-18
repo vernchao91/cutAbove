@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import FeaturedStylist from '../featured_stylist/featured_stylist_container';
 import PopularHaircuts from '../popular_items/popular_components/popular_haircuts'
 import PopularHairstyles from '../popular_items/popular_components/popular_hairstyles'
-// import SearchBarContainer from '../search_bar/search_bar_container'
-import barbershop from './barbershop.jpeg'
-import salon from './salon.jpeg'
 
 class MainPage extends React.Component {
 
@@ -15,9 +12,11 @@ class MainPage extends React.Component {
       <div className = "splashPage">
         {/* <div className = "search-bar-container"><Link to = "/stylists/index" className = "book-appointment-button">Find Stylists</Link></div> */}
         <div className = "main-page-pics-container">
-        <div className="main-page-pics">
+          <div className="main-page-pics">
+          <div className="main-page-pic-left"/>
+          <div className="main-page-pic-right"/>
+          </div>
           <Link to = "/stylists/index" className = "book-appointment-button">find a stylist</Link>
-        </div>
         </div>
         <br />
         <FeaturedStylist />

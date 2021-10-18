@@ -1,6 +1,4 @@
 import React from 'react'
-import StarRating from './star_rating'
-// import review_icon from './review_icon.png'
 
 class ReviewForm extends React.Component {
     constructor(props) {
@@ -80,12 +78,12 @@ class ReviewForm extends React.Component {
         
         let cutsFilled = value => (
             <div id='filled' onClick={ e =>this.clickHandler(e, value)} value={value} key={value}>
-                <img id='small' src={'https://raw.githubusercontent.com/acrks/cutAbove/main/frontend/src/components/review/review_icon.png'} width='10' height='10'/>
+                <img id='small' src={'https://raw.githubusercontent.com/acrks/cutAbove/main/frontend/src/components/review/review_icon.png'} width='10' height='10' alt = "review icon"/>
             </div> 
         )
         let cutsUnfilled = value => (
             <div id='unfilled'onClick={e =>this.clickHandler(e, value)} value={value} key={value}>
-                <img id='small' src={'https://raw.githubusercontent.com/acrks/cutAbove/main/frontend/src/components/review/review_icon.png'} width='10' height='10' opacity = {0.7}/> 
+                <img id='small' src={'https://raw.githubusercontent.com/acrks/cutAbove/main/frontend/src/components/review/review_icon.png'} width='10' height='10' opacity = {0.7} alt = "review icon"/> 
             </div>
         )
         let ratingContent = []

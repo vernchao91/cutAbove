@@ -37,6 +37,7 @@ export const fetchStylists = () => dispatch => {
       err => dispatch(receiveStylistErrors(err.response.data))
     )
 }
+
 export const fetchStylist = stylistId => dispatch => {
   return StylistApiUtil.fetchStylist(stylistId)
     .then(
@@ -44,3 +45,8 @@ export const fetchStylist = stylistId => dispatch => {
       err => dispatch(receiveStylistErrors(err.response.data))
     )
 }
+
+export const stylistSearch = query => dispatch => (
+  StylistApiUtil.stylistSearch(query).then(stylists => 
+      dispatch(receiveStylists(stylists)))
+)

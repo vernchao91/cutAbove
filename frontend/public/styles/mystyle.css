@@ -1,14 +1,16 @@
 @import url(./css_reset.css);
 @import "./team.css";
-@import "./modal.css";
+@import "./session_modal.css";
+@import "./search.css";
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
 
 * {
   box-sizing: border-box;
 }
 
+/* Main body element */
 body {
     text-align: center;
     /* border: 1px solid gray; */
@@ -19,6 +21,8 @@ body {
     align-items: center;
 }
 
+/* Child class of body element, root tags? Need to confirm */
+
 .body {
     display: flex;
     flex-direction: row;
@@ -27,14 +31,14 @@ body {
     /* border-bottom: 1px dashed black; */
 }
 
+/* Nav-bar class */
+
 .nav-bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 100px;
-    /* border-bottom: solid #705338;
-    border-left: solid #705338; */
     padding: 10px;
     -webkit-border-bottom-left-radius: 40px;
     -moz-border-radius-bottomleft: 40px;
@@ -43,7 +47,12 @@ body {
     letter-spacing: 0.05em;
     animation: increase 0.75s; 
     animation-fill-mode: forwards;
+    font-family: 'Crimson Pro', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
 }
+
+/* Temporary animation to draw border around nav-bar */
 
 @keyframes increase {
   100% {
@@ -53,28 +62,52 @@ body {
   }
 }
 
+/* Layout for elements in nav-bar */
+
 .nav-bar-buttons {
     display: flex;
     align-items: center;
-    /* vertical-align: middle; */
 }
 
-.nav-bar-buttons > a {
+/* Styling for individual elements in nav-bar */
+
+.nav-bar-buttons > a,
+.nav-bar-buttons > button {
     color:#705338;
     text-decoration: none;
     float: right;
     padding: 15px;
     width: max-content;
     position: relative;
+    color: inherit;
 }
+
+.nav-bar-buttons > button {
+  font-family: inherit;
+  border: none;
+  font-size: inherit;
+  background-color: inherit;
+  color: inherit;
+  font-weight: inherit;
+  width: max-content;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* component for animation for when a nav bar element is hovered over */
 
 .nav-bar-buttons > a::after,
 .nav-bar-buttons > a::before,
-.nav-bar-buttons > a {
+.nav-bar-buttons > a,
+.nav-bar-buttons > button::after,
+.nav-bar-buttons > button::before,
+.nav-bar-buttons > button {
   transition: all .5s;
 }
+/* component for animation for when a nav bar element is hovered over */
 
-.nav-bar-buttons > a::after {
+.nav-bar-buttons > a::after,
+.nav-bar-buttons > button::after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -87,207 +120,41 @@ body {
   height: 1px;
 }
 
-.nav-bar-buttons > a:hover {
+/* component for animation for when a nav bar element is hovered over */
+
+.nav-bar-buttons > a:hover,
+.nav-bar-buttons > button:hover {
   color: #493018;
 }
 
-.nav-bar-buttons > a:hover::after {
+/* component for animation for when a nav bar element is hovered over */
+
+.nav-bar-buttons > a:hover::after,
+.nav-bar-buttons > button:hover::after {
   width: 100%;
 }
 
+/* Styling for logo element on main page */
+
 .logo-main {
     background-image: url("https://raw.githubusercontent.com/acrks/cutAbove/main/frontend/public/cutAboveLogoBold.png");
-    width: 200px;
+    width: 20%;
     height: 80%;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    filter: invert(19%) sepia(11%) saturate(4223%) hue-rotate(348deg) brightness(114%) contrast(61%);    /* filter: invert(99%) sepia(1%) saturate(2%) hue-rotate(306deg) brightness(111%) contrast(100%); */
-}
-
-.nav-bar-buttons > button {
-  font-family: inherit;
-  border: none;
-  font-size: inherit;
-  background-color: inherit;
-  color: inherit;
-  font-weight: inherit;
-  color: #493018;
-  float: right;
-  padding: 15px;
-  width: max-content;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-
-.signup-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 200px;
-    text-align: center;
-    width: 100%;
-    height: 10vh;
-    font-size: 25px;
-    /* border: 1px solid black; */
-}
-
-.signup-buttons-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.buttonforsignupform {
-    width: 300px;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    box-shadow: 0px 0px 5px 2px #946935;
-    text-shadow: 1px 1px #8d5613;
-    background-color: #b8702d;
-    text-decoration: none;
-    padding: 2%;
-    border-radius: 50px;
-    font-size: 25px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 0px 5px 2px #946935;
-    text-shadow: 1px 1px #8d5613;
-    /* -webkit-text-stroke: 1px #D3E7EE; */
-}
-
-.form-container {
-  width: 56%;
-  height: 580px;
-  display: flex;
-  flex-direction: row;
-  margin: 30px;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
-}
-
-.client-sign-up-model {
-  width: 50%;
-  height: auto;
-
-}
-
-.session-form-title {
-  font-family: 'Montserrat', sans-serif;
-  padding: 20px;
-  padding-bottom: 40px;
-  font-size: 25px;
-  z-index: 9;
+    /* Filter to change color, dark brown */
+    transition: 0.5s;
+    filter: invert(18%) sepia(15%) saturate(2020%) hue-rotate(348deg) brightness(92%) contrast(91%);  }
+  
+  .logo-main:hover {
+    /* Filter to change color, dark brown */
+    filter: invert(19%) sepia(11%) saturate(4223%) hue-rotate(348deg) brightness(114%) contrast(61%);
 }
 
 
-.session-form {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  height: 50vh;
-  max-width: 750px;
-  /* padding: 15px; */
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  font-size: 25px;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
-  background-color: #FDF6F0;
-  z-index: 9;
-}
 
-.signup-form {
-  height: 75vh;
-}
-
-.session-form form {
-  height: 100%;
-  width: 75%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  z-index: 9;
-}
-
-.test {
-  z-index: 9;
-  width: 100%;
-}
-
-.error-message {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100px;
-  font-size: 15px;
-  color: red;
-  width: 100%;
-  z-index: 10;
-}
-
-
-.session-form input[type='text'], 
-input[type='password'] {
-  height: 38px;
-  padding: 15px;
-  width: 100%;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  background-color: #fffcf9;
-  border-radius: 50px;
-  border: 1px solid;
-  border-color: #ABD1DC;
-}  
-
-.session-form input[type='submit'] {
-  /* width: 100%; */
-  height: 40px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  background-color: #7ab5c5;
-  border: none;
-  padding: 8px;
-  color: white;
-  /* text-shadow: 2px 2px 2px #7097A8; */
-  font-size: 17px;
-  text-decoration: none;
-  /* background-image: linear-gradient(#889EAF, #889EAF); */
-  border-radius: 50px;
-}
-
-.submit-button {
-  width: 50%;
-}
-
-.signup-option {
-  text-align: center;
-  /* border: 1px solid red; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.errors {
-  color: red;
-  padding: 10px;
-  font-size: 15px;
-}
-
-/* SplashPage */
+/* SplashPage (main_page.jsx) */
 
 .splashPage {
   width: 100%;
@@ -300,38 +167,72 @@ input[type='password'] {
   align-items: center;
 }
 
+/* Master element for hero element */
+
 .main-page-pics-container {
+  position: relative;
   transition: 0.5s;
-  border-radius: 45px;
   width: 75%;
   height: 78vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: rgb(250, 222, 162);
-  border: 10px solid #b8702d;
   box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
-  animation: 1s ease-in-out 0s 1 growColorFromCenter;
+  border-radius: 45px;
 }
 
+/* Animation to grow hero element when hovered */
+
+.main-page-pics-container:hover {
+  transform: scale(1.01);
+}
+
+/* Frame to keep two main pictures inside */
+
 .main-page-pics {
-  /* background-color: white; */
-  background-image: url('https://github.com/acrks/cutAbove/blob/frontend/frontend/src/components/main/main_image_final.png?raw=true');
   background-repeat: no-repeat;
+  position: absolute;
   width: 100%;
   height: 100%;
-  background-size: contain;
-  background-position: center;
-  /* box-shadow: 0px 0px 5px 2px #946935; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  border-radius: 45px;
 }
+
+/* General styling for both pictures */
+
+.main-page-pic-left,
+.main-page-pic-right {
+  position: absolute;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Picture on left side of hero element */
+
+.main-page-pic-left {
+  background-image: url('https://github.com/acrks/cutAbove/blob/main/frontend/src/components/main/salon.jpeg?raw=true');
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+
+/* Picture on right side of hero element */
+
+.main-page-pic-right {
+  left: 50%;
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+  background-image: url('https://github.com/acrks/cutAbove/blob/main/frontend/src/components/main/barbershop.jpeg?raw=true');
+}
+
+/* Animation to grow a certain color from middle of element, not used but maybe useful */
+/* TODO: Find page about animation when element viewed in browser */
 
 @keyframes growColorFromCenter {
   0% {
+    box-shadow: none;
     background-position: 100% 100%;
     background-color: #f8f0e3;
   }
@@ -340,19 +241,7 @@ input[type='password'] {
   }
 }
 
-.main-page-pics-container:hover {
-  transform: scale(1.01);
-}
-
-.main-page-pics > .book-appointment-button {
-  width: 50%;
-  height: 15%;
-  font-size: 40px;
-  padding: 0;
-  background-color: rgb(250, 222, 162);
-  box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
-  animation: growFromCenter 0.5s linear 0.5s backwards;
-}
+/* Animation to have index link grow from middle of hero element */
 
 @keyframes growFromCenter {
   0% {
@@ -368,10 +257,79 @@ input[type='password'] {
   }
 }
 
-.splashPage > div {
-  /* margin-top: 10px; */
-  /* margin-bottom: 10px; */
+
+
+/* Styling for buttons - pretty universal except for session forms */
+
+.book-appointment-button {
+  height: 15%;
+  width: 50%;
+  z-index: 10;
+  text-decoration: none;
+  color: #fff;
+  padding: 2%;
+  border-radius: 50px;
+  font-size: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  animation: growFromCenter 0.5s linear 0.5s backwards;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+  border: 5px solid #b8702d;
+  background-image: -webkit-linear-gradient(30deg, #b8702d 50%, transparent 50%);
+  background-image: linear-gradient(30deg, #b8702d 50%, transparent 50%);
+  background-size: 1500px;
+  background-repeat: no-repeat;
+  background-position: 0%;
+  transition: background 500ms ease-in-out;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+  -webkit-transition: background 500ms ease-in-out;
 }
+
+/* When hovered, color wipe across element */
+
+.book-appointment-button:hover,
+.buttonforsignupform:hover {
+    background-color: black;
+    color: #b8702d;
+    transition: 0.4s;
+    cursor: pointer;
+    background-position: 100%;
+    color: #b8702d;
+    text-shadow: 2px 4px 4px rgba(0,0,0,0.2),
+    0px -5px 10px rgba(255,255,255,0.15);
+}
+
+/* Different styling for buttons in session form - consider using in other components */
+
+form > .demo-login,
+form > .book-appointment-button {
+  animation: none;
+  border: 0px;
+  height: 40px;
+  font-size: 17px;
+  padding: 8px;
+  background-color: #7ab5c5;
+  font-family: 'Montserrat', sans-serif;
+  transition: background 500ms ease-in-out;
+}
+
+/* Will change blue instead of black on hover */
+
+form > .book-appointment-button:hover,
+form > .demo-login:hover {
+  background-position: 100%;
+  background-color: #7ab5c5;
+  color: white;
+  text-shadow: 2px 4px 4px rgba(0,0,0,0.2),
+  0px -5px 10px rgba(255,255,255,0.15);
+}
+
+/* Search bar styling - Not in use currently */
 
 
 .search-bar-container {
@@ -390,86 +348,53 @@ input[type='password'] {
   align-items: center;
 }
 
-.book-appointment-button {
-  height: 10%;
-  width: 50%;
-  background-color: #b8702d;
-  text-decoration: none;
-  color: white;
-  padding: 2%;
-  border-radius: 50px;
-  font-size: 25px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 0px 5px 2px #946935;
-  text-shadow: 1px 1px #8d5613;
-  border: 5px solid #b8702d;
-}
-
-.book-appointment-button:hover,
-.buttonforsignupform:hover {
-    background-color: black;
-    color: #b8702d;
-    transition: 0.4s;
-    cursor: pointer;
-}
-
-.book-appointment-button:active {
-  background-color: white;
-  color: black
-}
-
-.book-appointment-button {
-  color: #fff;
-  border: 5px solid #b8702d;
-  background-image: -webkit-linear-gradient(30deg, rgb(250, 222, 162) 50%, transparent 50%);
-  background-image: linear-gradient(30deg, rgb(250, 222, 162) 50%, transparent 50%);
-  background-size: 1500px;
-  background-repeat: no-repeat;
-  background-position: 0%;
-  -webkit-transition: background 500ms ease-in-out;
-  transition: background 500ms ease-in-out;
-  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
-}
-
-.book-appointment-button:hover {
-  background-position: 100%;
-  color: #b8702d;
-  text-shadow: 2px 4px 4px rgba(0,0,0,0.2),
-  0px -5px 10px rgba(255,255,255,0.15);
-}
-
 .search-bar {
-  height: 25%;
+  height: 100%;
   background-color: white;
-  padding: 20px;
-  width: 65%;
+  /* padding: 20px; */
+  width: 100%;
   border-radius: 50px;
+  border: 1px solid red;
+  text-align: center;
+  font-size: inherit;
 }
 
-/* Featured Stylist */
+/* Featured Stylist master element */
 
 .featured-stylist-container {
-  width: 1100px;
-  height: 600px;
+  width: 80%;
+  height: 40%;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   background-color: rgb(250, 222, 162);
   background-image: linear-gradient(rgb(250, 222, 162), #f8f0e3);
   padding: 20px;
+  border: 1px solid black;
+  font-family: 'Crimson Pro', sans-serif;
+  text-transform: lowercase;
 }
 
-.featured-stylist-title {
+/* Border for styling dev purposes
+TODO: Change layout to be more dynamic */
+
+.featured-stylist-container * {
+  border: 1px solid black;
+}
+
+/* Header across top of element */
+
+.featured-stylist-header {
+  font-family: 'Noto Sans', sans-serif;
   font-size: 60px;
-  letter-spacing: 0.3em;
-  font-weight: lighter;
+  letter-spacing: 5px;
   padding-bottom: 10px;
   padding-top: 10px;
+  font-weight: 600;
+  float: left;
 }
+
+/* Handle for featured stylist */
 
 .featured-stylist-name {
   font-size: 30px;
@@ -480,27 +405,43 @@ input[type='password'] {
   letter-spacing: 0.05em;
 }
 
+
+
+/* Profile pic of featured stylist 
+TODO: Change individual stylist profile pics to these dimensions */
+
+.featured-stylist-profile-pic {
+  height: 250px;
+  width: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid red;
+  background-position: center;
+  border-radius: 10px;
+}
+
+/* Information for featured stylist */
+
 .featured-stylist-info {
   display: flex;
   width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  text-transform: none;
 }
 
-.featured-stylist-info > img {
-  border-radius: 500px;
-  height: 210px;
-  width: 250px;
+/* Button to go to the stylist's individual profile
+TODO: Consider creating element to get rid of animation */
 
-}
-
-.featured-stylist-info a{
-  width: 367px;
-  text-decoration: none;
-  color: #493018;
+.featured-stylist-info > .book-appointment-button {
+  width: 30%;
   font-size: 30px;
+  animation: none;
 }
+
+/* Featured stylist info - consider combining blurb
+TODO: Change width to percentage */
 
 .featured-stylist-info ul {
   padding-left: 20px;
@@ -511,11 +452,14 @@ input[type='password'] {
   align-items: flex-start;
 }
 
+/* List items
+TODO: Put color on top of page to not have to scroll back and forth */
+
 .featured-stylist-info li {
   color: #493018;
   padding-top: 5px;
   padding-bottom: 5px;
-  text-align: left
+  text-align: left;
 }
 
 .featured-stylist-description {
@@ -528,6 +472,7 @@ input[type='password'] {
   justify-content: center;
   align-items: center;
   color: #493018;
+  text-transform: none;
 }
 
 /* Splash HairStyle Index */
@@ -535,15 +480,12 @@ input[type='password'] {
 .splash-hair-index {
   display: flex;
   justify-content: space-between;
-  width: 1100px;
-  height: 600px;
+  width: 80%;
+  height: 40%;
+  text-transform: lowercase;
 }
 
-.splash-mens-haircuts {
-  display: flex;
-  flex-direction: column;
-}
-
+.splash-mens-haircuts,
 .splash-womens-hairstyles {
   display: flex;
   flex-direction: column;
@@ -704,7 +646,6 @@ input[type='password'] {
 .review-icon {
   width: 30px;
   height: 30px;
-
 }
 
 .stylist-info ul{
@@ -721,19 +662,19 @@ input[type='password'] {
 /* Reviews Container */
 
 .reviews {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 35px;
-    height: 100%;
-    width: 100%;
-    z-index: 5;
-    /* padding: 20px; */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 30%);
-    grid-gap: 25px;
-    box-sizing: border-box;
-    justify-content: center;  
-    align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 35px;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  /* padding: 20px; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 30%);
+  grid-gap: 25px;
+  box-sizing: border-box;
+  justify-content: center;  
+  align-items: center;
 }
 
 .stylist-reviews-title {
@@ -755,17 +696,17 @@ input[type='password'] {
 }
 
 .review-item-container {
-        background-color: rgb(223, 237, 247);
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
-        margin-bottom: 20px;
-        overflow-y: scroll;
-        height: 250px;
+  background-color: rgb(223, 237, 247);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px;
+  overflow-y: scroll;
+  height: 250px;
 }
 
 .review-rating {
@@ -974,6 +915,7 @@ input[type='password'] {
 .user-profile-titles {
   display: flex;
 }
+
 .cut-review-icon {
   background-image: url('https://raw.githubusercontent.com/acrks/cutAbove/main/frontend/src/components/review/review_icon.png');
   background-repeat: no-repeat;
@@ -1020,10 +962,6 @@ input[type='password'] {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-
-.star-radio {
-  display: none;
 }
 
 .textContainer > label {

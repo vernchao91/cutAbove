@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import gronk from './gronk.jpeg'
+// import gronk from './gronk.jpeg'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -12,16 +12,29 @@ class SignupForm extends React.Component {
       handle: '',
       password: '',
       password2: '',
-      errors: {}
+      errors: {},
+      stylist: false,
+      address: '',
+      phoneNumber: '',
     };
-
+    this.toggleClient = this.toggleClient.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
+    debugger
+    if (nextProps.signedIn) {
+      debugger
+      const user = Object.assign({}, this.state)
+      if(this.state.stylist) {
+        this.props.stylistLogin(user)
+      }
+      else {
+        this.props.login(user)
+      }
+      this.props.closeModal()
+      // this.props.history.push('/');
     }
 
     this.setState({errors: nextProps.errors})
@@ -33,18 +46,25 @@ class SignupForm extends React.Component {
     });
   }
 
+  toggleClient() {
+    if(this.state.stylist) {
+      this.setState({'stylist': false})
+    }
+    else {
+      this.setState({'stylist': true})
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    let user = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      handle: this.state.handle,
-      password: this.state.password,
-      password2: this.state.password2
-    };
+    const user = Object.assign({}, this.state)
 
-    this.props.signup(user, this.props.history); 
+    if(this.state.stylist) {
+      this.props.stylistSignup(user, this.props.history)
+    }
+    else {
+      this.props.signup(user, this.props.history); 
+    }
   }
 
   render() {
@@ -71,11 +91,15 @@ class SignupForm extends React.Component {
         }
 
         if (error === 'Email is invalid') {
-            emailErrorLabel = <label  className="error-message">You sign up with a valid email address</label>
+            emailErrorLabel = <label  className="error-message">You must sign up with a valid email address</label>
         }
 
         if (error === 'Email has already been registered') {
           emailTakenLabel = <label  className="error-message">This email is already attached to a user</label>
+      }
+
+      if (error === 'First Name field is required') {
+        firstNameErrorLabel = <label  className="error-message">We have to know your first name!</label>
       }
             if (error === 'Last Name field is required') {
               lastNameErrorLabel = <label  className="error-message">We have to know your last name!</label>
@@ -95,29 +119,42 @@ class SignupForm extends React.Component {
     }
 
     return (
+        <>
+        <div onClick={this.props.closeModal} className="close-x-right">X</div>
         <div className="session-form signup-form">
-        
-        {/* {this.renderErrors()} */}
         <form onSubmit={this.handleSubmit}>
-        <h3 className='session-form-title'>Client Sign Up</h3>
+        <h3 className='session-form-title'>sign up</h3>
+        <br />
+        <div className = "client-stylist-slider">
+          
+          {this.state.stylist ? <div className = "toggle-not-selected">client</div> : <div>client</div>}
+        <label className="switch">
+        <input type="checkbox" 
+        checked = {this.state.stylist} 
+        onChange = {this.toggleClient}
+        />
+        <div className="slider round"></div>
+        </label>
+        {!this.state.stylist ? <div className = "toggle-not-selected">stylist</div> : <div>stylist</div>}
+        </div>
               <input type="text"
                 value={this.state.firstName}
                 onChange={this.update('firstName')}
-                placeholder="First Name"
+                placeholder="first name"
                 />
                 {firstNameErrorLabel}
             <br/>
                 <input type="text"
                   value={this.state.lastName}
                   onChange={this.update('lastName')}
-                  placeholder="Last Name"
+                  placeholder="last name"
                 />
                 {lastNameErrorLabel}
             <br/>
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
-                placeholder="Email"
+                placeholder="email"
               />
               {emailTakenLabel}
               {emailErrorLabel}
@@ -125,7 +162,7 @@ class SignupForm extends React.Component {
               <input type="text"
                 value={this.state.handle}
                 onChange={this.update('handle')}
-                placeholder="Handle"
+                placeholder="handle"
               />
               {handleTakenLabel}
               {handleErrorLabel}
@@ -133,24 +170,42 @@ class SignupForm extends React.Component {
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                placeholder="Password"
+                placeholder="password"
                 />
             {passwordErrorLabel}
             <br/>
               <input type="password"
                 value={this.state.password2}
                 onChange={this.update('password2')}
-                placeholder="Confirm Password"
+                placeholder="confirm password"
                 />
                 {passwordConfirmEmptyErrorLabel}
                 {passwordConfirmErrorLabel}
             <br/>
             {passwordMatchLabel}
+              {/* <br/> */}
+              {this.state.stylist ? 
+              <>
+              <input type="text"
+              value={this.state.phoneNumber}
+              onChange={this.update('phoneNumber')}
+              placeholder="business phone number"
+              />
               <br/>
-            <input type="submit" value="Submit" className = "submit-button"/>
+              <input type="text"
+              value={this.state.address}
+              onChange={this.update('address')}
+              placeholder="place of work"
+              />
+              <br/>
+                </>
+              : 
+              null}
+            <input type="submit" value="submit" className = "book-appointment-button demo-login"/>
         </form>
-        <img className="client-sign-up-model" src={gronk} alt = "gronkilicous"/>
+        <div className="client-sign-up-model gronk"/>
           </div>
+          </>
     );
   }
 }

@@ -12,37 +12,37 @@ class PopularItems extends React.Component {
                 <div className = "style-item-container">
                <div className = "style-item">
                 <div className = "style-item-picture">
-                    <img src={style1}/>
+                    <img src={style1} alt = "Hich whyyyyy"/>
                 </div>
                 <div className = "style-item-name">Wavy Cut<br/>with Curtain Bangs</div>
                </div>
                <div className = "style-item">
                 <div className = "style-item-picture">                    
-                    <img src={style2}/>
+                    <img src={style2} alt = "seriously"/>
                 </div>
                 <div className = "style-item-name">Lob with<br/>Face-Framing Bangs</div>
                </div>
                <div className = "style-item">
                 <div className = "style-item-picture">                    
-                    <img src={style3}/>
+                    <img src={style3} alt = "it's saturday night"/>
                 </div>
                 <div className = "style-item-name">Tousled<br/>Multi-Colored</div>
                </div>
                <div className = "style-item">
                 <div className = "style-item-picture">                    
-                    <img src={style4}/>
+                    <img src={style4} alt = "I have better things to do"/>
                 </div>
                 <div className = "style-item-name">Tousled<br/>Lob Haircut</div>
                </div>
                <div className = "style-item">
                 <div className = "style-item-picture">                    
-                    <img src={style5}/>
+                    <img src={style5} alt = "...alright I don't"/>
                 </div>
                 <div className = "style-item-name">Wispy Bangs<br/>for Medium Hair</div>
                </div>
                <div className = "style-item">
                 <div className = "style-item-picture">                    
-                    <img src={style6}/>
+                    <img src={style6} alt = "fine I don't"/>
                 </div>
                 <div className = "style-item-name">Curtain Bangs<br/>and Shag Haircut</div>
                </div>

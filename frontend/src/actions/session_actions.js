@@ -42,6 +42,7 @@ export const signupStylist = user => dispatch => (
 
 export const login = user => dispatch => (
     APIUtil.login(user).then(res => {
+        debugger
         const { token } = res.data;
         localStorage.setItem('jwtToken', token);
         APIUtil.setAuthToken(token);
@@ -49,6 +50,7 @@ export const login = user => dispatch => (
         dispatch(receiveCurrentUser(decoded))
     })
     .catch(err => {
+        debugger
         dispatch(receiveErrors(err.response.data));
     })
 )

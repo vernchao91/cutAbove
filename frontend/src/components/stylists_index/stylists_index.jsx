@@ -2,11 +2,11 @@ import React from 'react';
 import StylistIndexItem from './stylist_list_item'
 
 class StylistsIndex extends React.Component {
-  constructor(props){
-    super(props)
+  // constructor(props){
+  //   super(props)
 
-    // this.renderIndex = this.renderIndex.bind(this)
-  }
+  //   // this.renderIndex = this.renderIndex.bind(this)
+  // }
 
   componentDidMount() {
     this.props.fetchStylists()

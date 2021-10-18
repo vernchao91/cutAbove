@@ -27,6 +27,10 @@ router.get(
   }
 )
 
+router.get("/search", (req,res)=> {
+  Stylist.findOne({handle : req.body.handle}).then(query => res.json(query))
+})
+
 router.get(
   "/:id",
   (req, res) => {
@@ -136,5 +140,8 @@ router.patch(
       .catch(err => res.status(404).json({ nostylistfound: "No stylist found by that Id" }))
   }
 )
+// router.get("/search/search", (req,res)=> {
+//   Stylist.findOne({handle : req.body.handle}).then(query => res.json(query))
+// })
 
 module.exports = router;

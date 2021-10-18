@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Link } from 'react-router-dom';
 import { uploadImage } from "../../actions/image_action";
 import ReviewIndexContainer from '../reviews/review_index_container'
 import demoProfilePic from '../popular_items/popular_components/hairstyles/3-brunette-shag-for-long-hair-CPusXsXjjgl.jpeg'
