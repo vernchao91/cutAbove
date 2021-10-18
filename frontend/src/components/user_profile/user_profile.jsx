@@ -1,7 +1,6 @@
 import React from 'react'
 import { uploadImage } from "../../actions/image_action";
 import ReviewIndexContainer from '../reviews/review_index_container'
-import demoProfilePic from '../popular_items/popular_components/hairstyles/3-brunette-shag-for-long-hair-CPusXsXjjgl.jpeg'
 
 class UserProfile extends React.Component {
 
@@ -10,6 +9,7 @@ class UserProfile extends React.Component {
         this.state = {
             imageUrl: this.props.user.imageUrl
         }
+        this.handleImageSubmit = this.handleImageSubmit.bind(this)
     }
 
     componentDidMount() {
