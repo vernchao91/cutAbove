@@ -11,6 +11,7 @@ import StylistsIndexContainer from './stylists_index/stylists_index_container'
 import Footer from '../components/footer/footer';
 import TeamPage from "../components/team/team";
 // import Wow from '../components/wow/wow'
+import Search from '../components/search_bar/search'
 import Modal from '../components/modal/modal'
 import ReviewFormContainer from '../components/review/review_form_container'
 import { Route, Redirect } from 'react-router';
@@ -28,6 +29,7 @@ const App = () => (
         {/* <AuthRoute exact path="/users/login" component={LoginFormContainer} /> */}
         {/* <AuthRoute exact path='/stylists/login' component={StylistLoginFormContainer}/> */}
         <Route exact path='/stylists/index' component={StylistsIndexContainer}/>
+        <Route exact path='/search' component={Search} />
         {/* <AuthRoute exact path="/signup" component={SignupButtons}/> */}
         {/* <AuthRoute exact path="/users/signup" component={SignupFormContainer} /> */}
         {/* <AuthRoute exact path="/stylists/signup" component={StylistSignupFormContainer} /> */}

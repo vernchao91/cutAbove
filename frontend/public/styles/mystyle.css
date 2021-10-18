@@ -1,6 +1,7 @@
 @import url(./css_reset.css);
 @import "./team.css";
 @import "./session_modal.css";
+@import "./search.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
@@ -180,6 +181,7 @@ body {
   justify-content: center;
   align-items: center;
   box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+  border-radius: 45px;
 }
 
 /* Animation to grow hero element when hovered */
