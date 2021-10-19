@@ -39,11 +39,6 @@ class Image extends React.Component {
 
 	}
 
-  // setCaption (e) {
-    // e.preventDefault();
-    // this.setState({ caption: e.target.value });
-  // }
-
   render() {
     const image = <img src="/api/images/cutabove-1634608082737.png" alt="image"></img>
     return (
