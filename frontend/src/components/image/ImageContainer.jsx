@@ -39,6 +39,7 @@ class Image extends React.Component {
 
 	}
 
+  
   render() {
     const image = <img src="/api/images/cutabove-1634608082737.png" alt="image"></img>
     return (
