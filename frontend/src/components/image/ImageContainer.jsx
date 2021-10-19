@@ -7,7 +7,6 @@ class Image extends React.Component {
     super(props)
     this.state ={
       imageUrl: "",
-      caption: "",
       file: "",
     }
     this.handleImageSubmit = this.handleImageSubmit.bind(this);
@@ -22,6 +21,7 @@ class Image extends React.Component {
     if (file) {
       result = await uploadImage({image: file, description});
       this.setState( {imageUrl: `/api/images/${result.imagePath}`} )
+      console.log(result)
     }
   }
 
@@ -29,15 +29,18 @@ class Image extends React.Component {
     e.preventDefault();
     const file = e.target.files[0];
 		this.setState( {file: file} );
+    const reader = new FileReader();
+    reader.onloadend = () => this.setState( {imageUrl: reader.result} )
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: ""});
+    }    
+
 	}
 
-  // setCaption (e) {
-    // e.preventDefault();
-    // this.setState({ caption: e.target.value });
-  // }
-
   render() {
-    const image = <img src="/api/images/cutabove-1634449093367.png" alt="image"></img>
+    const image = <img src="/api/images/cutabove-1634608082737.png" alt="image"></img>
     return (
       <div>
         Upload Image
@@ -49,8 +52,8 @@ class Image extends React.Component {
           />
           <button type="submit">submit</button>
         </form>
-        {image}
-        {/* <img src={this.state.imageUrl} alt="image"></img> */}
+        {/* {image} */}
+        <img src={this.state.imageUrl} alt="image file"></img>
       </div>
     )
   }

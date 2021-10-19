@@ -1,4 +1,5 @@
 import React from 'react';
+import { uploadImage } from "../../actions/image_action"
 
 class AppointmentForm extends React.Component {
   constructor(props){
@@ -9,9 +10,10 @@ class AppointmentForm extends React.Component {
       stylistId: this.props.match.params.stylistId,
       // styleId: 0,
       timeFrame: '',
-      // UNCOMMENT WHEN READY FOR PICTURES
-      // pictureUrl: '',
+      imageUrl: '',
       style: '',
+      message: '',
+      file: '',
     }
     this.appointmentTimes = [
       '9:00 - 10:00', 
@@ -23,23 +25,31 @@ class AppointmentForm extends React.Component {
       '4:00 - 5:00' ]
       this.handleChange = this.handleChange.bind(this)
       this.handleSubmit = this.handleSubmit.bind(this)
-    
+      this.fileSelected = this.fileSelected.bind(this)
   }
 
   componentDidMount() {
     this.props.fetchStylist(this.props.match.params.stylistId)
     this.props.fetchStylesFromStylist(this.props.match.params.stylistId)
-
+    
   }
 
   handleSubmit(e) {
     e.preventDefault()
+    let result = null
+
     const appointment = Object.assign({}, this.state)
-    this.props.createAppointment(appointment).then(() => {
+    if (this.state.file) {
+      result = uploadImage({image: this.state.file});
+      this.setState( {imageUrl: `/api/images/${result.imagePath}`} )
+    }
+    
+    this.props.createAppointment(appointment)
+    .then(() => {
       this.setState({
         clientId: this.props.user.id,
         stylistId: this.props.match.params.stylistId,
-        // styleId: 0,
+        imageUrl: '',
         timeFrame: '',
         style: '',
       })
@@ -48,12 +58,24 @@ class AppointmentForm extends React.Component {
   }
 
   handleChange(field) {
-    if(field === 'pictureUrl') {
-      return e => {this.setState({pictureUrl: e.currentTarget.files[0]})}
-    }
+    // if(field === 'pictureUrl') {
+    //   return e => {this.setState({pictureUrl: e.currentTarget.files[0]})}
+    // }
     return e => {this.setState({[field] : e.currentTarget.value})}
   }
 
+  fileSelected(e) {
+    e.preventDefault();
+    const file = e.target.files[0];
+		this.setState( {file: file} );
+    const reader = new FileReader();
+    reader.onloadend = () => this.setState( {imageUrl: reader.result} )
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: ""});
+    }    
+	}
 
 
   render() {
@@ -96,10 +118,10 @@ class AppointmentForm extends React.Component {
             )}
             </select>
             </label>
-            {/* UNCOMMENT WHEN WE'RE READY FOR PICTURES */}
-              {/* <label>Reference picture
-                <input type = "file" value = {this.state.pictureUrl} onChange = {this.handleChange('pictureUrl')}/>
-              </label> */}
+              <label>Reference picture
+                <input type = "file" accept="image/*" onChange = {this.fileSelected}/>
+                <img src={this.state.imageUrl} alt="image file"></img>
+              </label>
               <label>Message
                 <input type = "body" placeholder = "Send your stylist a message to let them know you're excited!" value = {this.state.message} onChange = {this.handleChange('message')} />
               </label>
