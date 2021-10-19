@@ -20,6 +20,13 @@ const AppointmentSchema = new Schema({
     timeFrame: {
         type: String,
         required: true
+    },
+    imageUrl: {
+        type: String,
+        // required: false
+    },
+    message: {
+        type: String,
     }
 }, {
     timestamps: true
