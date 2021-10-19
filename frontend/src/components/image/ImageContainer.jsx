@@ -7,7 +7,6 @@ class Image extends React.Component {
     super(props)
     this.state ={
       imageUrl: "",
-      caption: "",
       file: "",
     }
     this.handleImageSubmit = this.handleImageSubmit.bind(this);
