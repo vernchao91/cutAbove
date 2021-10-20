@@ -1,5 +1,6 @@
 import React from 'react';
 import { uploadImage } from "../../actions/image_action"
+import {withRouter} from 'react-router-dom'
 
 class AppointmentForm extends React.Component {
   constructor(props){
@@ -52,9 +53,10 @@ class AppointmentForm extends React.Component {
     }
     const appointment = Object.assign({}, this.state.appointment)
     console.log(this.state)
-    debugger
+    // debugger
     this.props.createAppointment(appointment)
-    debugger
+    .then(() => this.props.history.push(`/appointments/${this.state.appointment.clientId}`))
+    // debugger
     // .then(() => {
     //   this.setState({
     //     appointment: {
@@ -159,4 +161,4 @@ class AppointmentForm extends React.Component {
 }
 }
 
-export default AppointmentForm
+export default withRouter(AppointmentForm)
