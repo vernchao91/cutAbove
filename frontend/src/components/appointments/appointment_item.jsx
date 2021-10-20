@@ -9,10 +9,11 @@ class AppointmentItem extends React.Component {
 
   componentDidMount() {
     // this.props.clearStylists()
-    this.props.fetchClient(this.props.appointment.clientId);
-    this.props.fetchStylist(this.props.appointment.stylistId);
+    // this.props.fetchClient(this.props.appointment.clientId);
+    // this.props.fetchStylist(this.props.appointment.stylistId);
     // console.log(this.props.stylist.firstName)
-    console.log(this.props.appointment.stylistId)
+    // console.log(this.props.appointment.stylistId)
+    // console.log(this.props.stylists)
   }
 
   // shouldComponentUpdate(nextProps, nextState) {
@@ -31,7 +32,7 @@ class AppointmentItem extends React.Component {
   // }
 
   render() {
-    // console.log(this.props.stylist.firstName)
+    // console.log(this.props.stylist)
     if (this.props.appointment === null ) return null
     return(
       <div className='appointment-item-container'>
