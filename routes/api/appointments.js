@@ -63,6 +63,8 @@ router.post(
     const newAppointment = new Appointment({
       clientId: req.body.clientId,
       stylistId: req.params.stylistId,
+      imageUrl: req.body.imageUrl,
+      message: req.body.message,
       timeFrame: req.body.timeFrame,
       styleId: req.body.styleId
     })

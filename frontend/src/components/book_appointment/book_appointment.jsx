@@ -95,7 +95,7 @@ class AppointmentForm extends React.Component {
     return (
       <div>
         <form className = "appointment-form">
-          <h3 className = "appointent-form-title">Book your appointment with {this.props.stylist.handle}</h3>
+          <h3 className = "appointment-form-title">Book your appointment with {this.props.stylist.handle}</h3>
           
           <label className = "appointment-form-date">Enter the date for your appointment
             <input type="date" className="appointment-input-date" min = {today}/>
@@ -119,16 +119,17 @@ class AppointmentForm extends React.Component {
             </select>
             </label>
             
-              <label className>Reference picture
+              <label id = "appointment-form-ref-pic-label">Reference picture
               <div className = "appointment-form-pic">
-                <input type = "file" accept="image/*" onChange = {this.fileSelected}/>
-                {!this.state.imageUrl ? null : <div className = "featured-stylist-profile-pic" style = {{backgroundImage : `url(${this.state.imageUrl})`}} />}
+                <input type = "file" accept="image/*" onChange = {this.fileSelected} />
+                <div className = "book-appointment-button">Choose a file you want to submit</div>
+                {!this.state.imageUrl ? null : <div className = "appointment-form-ref-pic" style = {{backgroundImage : `url(${this.state.imageUrl})`}} />}
               </div>
               </label>
               <label>Message
                 <input type = "body" placeholder = "Send your stylist a message to let them know you're excited!" value = {this.state.message} onChange = {this.handleChange('message')} />
               </label>
-            <button onClick = {this.handleSubmit} className = "buttonforsignupform">Book your appointment with {this.props.stylist.handle}!</button>
+            <button onClick = {this.handleSubmit} className = "book-appointment-button">Book your appointment with {this.props.stylist.handle}!</button>
         </form>
       </div>
     )
