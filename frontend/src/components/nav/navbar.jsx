@@ -25,6 +25,7 @@ class NavBar extends React.Component {
         return (
           <div className="nav-bar-buttons">
             <button onClick={this.logoutUser}>logout</button>
+            <Link to={`/appointments/${this.props.user.id}`}>appointments</Link>
             {/* <Link to={'/cuts'}>refer a friend</Link> */}
             {/* <Link to={`/users/${this.props.user.id}`}>my profile</Link> */}
             {this.toggleLink()}

@@ -7,6 +7,7 @@ import StylistProfileContainer from './stylist_profile/stylist_profile_container
 import UserProfileContainer from './user_profile/user_profile_container'
 // import LoginButtons from './session/log_in_buttons';
 import BookAppointmentContainer from './book_appointment/book_appointment_container_form_form'
+import AppointmentsIndex from './appointments/appointments_booked_container'
 import StylistsIndexContainer from './stylists_index/stylists_index_container'
 import Footer from '../components/footer/footer';
 import TeamPage from "../components/team/team";
@@ -35,6 +36,7 @@ const App = () => (
         {/* <AuthRoute exact path="/users/signup" component={SignupFormContainer} /> */}
         {/* <AuthRoute exact path="/stylists/signup" component={StylistSignupFormContainer} /> */}
         <Route exact path="/stylists/:stylistId" component={StylistProfileContainer} />
+        <ProtectedRoute exact path="/appointments/:id" component={AppointmentsIndex}/>
         <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer}/>
         <ProtectedRoute exact path='/appointments/create/:stylistId' component={BookAppointmentContainer}/>
         <ProtectedRoute exact path='/reviews/create/:stylistId' component={ReviewFormContainer}/>
