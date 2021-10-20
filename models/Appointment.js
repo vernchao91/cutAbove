@@ -7,16 +7,34 @@ const AppointmentSchema = new Schema({
         ref: "users",
         // required: false 
     },
+
+    clientName: {
+      type: String,
+      required: true
+    },
+
     stylistId: {
         type: Schema.Types.ObjectId,
         ref: "stylists",
         // required: false 
     },
+
+    stylistName: {
+      type: String,
+      required: true
+    },
+
+    handle: {
+      type: String, 
+      required: true
+    },
+
     styleId: {
         type: Schema.Types.ObjectId,
         ref: "styles",
         // required: false 
     },
+
     timeFrame: {
         type: String,
         required: true
