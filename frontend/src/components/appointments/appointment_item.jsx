@@ -8,7 +8,7 @@ class AppointmentItem extends React.Component {
   }
 
   componentDidMount() {
-    this.props.clearStylists()
+    // this.props.clearStylists()
     this.props.fetchClient(this.props.appointment.clientId);
     this.props.fetchStylist(this.props.appointment.stylistId);
     // console.log(this.props.stylist.firstName)
