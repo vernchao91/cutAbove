@@ -16,6 +16,12 @@ class AppointmentsBooked extends React.Component{
     }
   }
 
+  componentDidUpdate() {
+    if (this.props.appointments == null) {
+      this.props.fetchAppointmentsFromUser(this.props.user.id)
+    }
+  }
+
 
 
   render(){

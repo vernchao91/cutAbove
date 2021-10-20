@@ -4,7 +4,7 @@ class AppointmentItem extends React.Component {
   constructor(props) {
     super(props)
 
-    // this.state = this.props
+    this.state = this.props.appointment
   }
 
   componentDidMount() {
@@ -36,13 +36,13 @@ class AppointmentItem extends React.Component {
     if (this.props.appointment === null ) return null
     return(
       <div className='appointment-item-container'>
-        <h3 className='appointment-with'>Appointment with {this.props.stylist.firstName}</h3>
+        <h3 className='appointment-with'>Appointment with {this.props.appointment.stylistName}</h3>
         <div className='appointment-details-container'>
-          <p>{this.props.client.firstName}</p>
+          <p>{this.props.appointment.clientName}</p>
           <p>{this.props.styleType}</p>
           <p> {this.props.appointment.timeFrame}</p>
         </div>
-        <button className='cancel-appointment' onClick={ () => this.props.deleteAppointment(this.props.appointment.id)}>Cancel Appointment</button>
+        <button className='cancel-appointment' onClick={ () => this.props.deleteAppointment(this.state._id)}>Cancel Appointment</button>
       </div>
     )
   }
