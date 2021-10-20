@@ -1,5 +1,6 @@
 import React from 'react';
 import AppointmentItemContainer from './appointment_item_container';
+import AppointmentItem from './appointment_item';
 
 class AppointmentsBooked extends React.Component{
   constructor(props){
@@ -7,25 +8,31 @@ class AppointmentsBooked extends React.Component{
   }
 
   componentDidMount() {
-    if (this.props.user.id === this.props.stylist.id) {
-      this.props.fetchAppointmentsFromStylist(this.props.stylist.id)
+    // console.log('I mounted')
+    if (this.props.appointments == null) {
+      this.props.fetchAppointmentsFromUser(this.props.user.id)
     } else {
       this.props.fetchAppointmentsFromUser(this.props.user.id)
     }
   }
 
+
+
   render(){
+    // if (this.props.appointments == null) return null
     return (
-      <div>
-        <ul>
+      <div className='appointment-list-container'> 
+        <div className='appointment-list'>
           {
-            this.props.appointments.map( (appointment, idx) => <AppointmentItemContainer
-            key={idx} 
-            deleteAppointment={this.props.deleteAppointment}
-            appointment={appointment}
-            />)
-          }
-        </ul>
+            this.props.appointments.map((appointment, idx) => 
+            
+              <AppointmentItemContainer key={`${idx}`} 
+              deleteAppointment={this.props.deleteAppointment}
+              appointment={appointment}
+              />)
+          
+          }   
+        </div>
       </div>
     )
   }

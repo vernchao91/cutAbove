@@ -10,10 +10,10 @@ const appointmentsReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_APPOINTMENTS:
-      return Object.assign({}, oldState, action.appointments)
+      return Object.assign({}, oldState, action.appointments.data)
 
     case RECEIVE_APPOINTMENT:
-      newState[action.appointment.id] = action.appointment
+      newState[action.appointment.id] = action.appointment.data
       return newState
 
     case REMOVE_APPOINTMENT:
