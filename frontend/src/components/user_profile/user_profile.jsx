@@ -46,7 +46,7 @@ class UserProfile extends React.Component {
         return (
             <div className="user-profile-page">
                 <div className="user-profile-container">
-                    <img className= "profile-pic" src={this.props.user.imageUrl} alt="Profile Picture"/>
+                    <img className= "profile-pic" src={this.props.user.imageUrl} alt=""/>
                     <form onSubmit={this.handleImageSubmit}>
                         <input
                         type="file"

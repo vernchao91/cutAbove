@@ -6,7 +6,7 @@ import { fetchAppointmentsFromUser,
 import { fetchStylist } from '../../actions/stylist_actions';
 import {fetchClient} from '../../actions/client_actions'
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   user: state.session.user,
   appointments: Object.values(state.entities.appointments)
 })

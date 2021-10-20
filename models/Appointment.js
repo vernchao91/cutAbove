@@ -5,43 +5,33 @@ const AppointmentSchema = new Schema({
     clientId: {
         type: Schema.Types.ObjectId,
         ref: "users",
-        // required: false 
     },
-
     clientName: {
       type: String,
       required: true
     },
-
     stylistId: {
         type: Schema.Types.ObjectId,
         ref: "stylists",
-        // required: false 
     },
-
     stylistName: {
       type: String,
       required: true
     },
-
-    handle: {
+    stylistHandle: {
       type: String, 
-      required: true
+    //   required: true
     },
-
-    styleId: {
-        type: Schema.Types.ObjectId,
-        ref: "styles",
-        // required: false 
-    },
-
     timeFrame: {
         type: String,
         required: true
     },
+    styleId: {
+        type: Schema.Types.ObjectId,
+        ref: "styles",
+    },
     imageUrl: {
         type: String,
-        // required: false
     },
     message: {
         type: String,

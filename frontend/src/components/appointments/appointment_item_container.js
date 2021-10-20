@@ -1,6 +1,7 @@
 import { fetchStyle } from '../../actions/style_actions'
 import { fetchClient } from '../../actions/client_actions';
 import { fetchStylist } from '../../actions/stylist_actions';
+import { deleteAppointment } from "../../actions/appointment_actions"
 import { connect } from 'react-redux';
 import AppointmentItem from './appointment_item';
 
@@ -14,6 +15,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchStyle: (styleId) => dispatch(fetchStyle(styleId)),
   fetchClient: (clientId) => dispatch(fetchClient(clientId)),
   fetchStylist: (stylistId) => dispatch(fetchStylist(stylistId)),
+  // deleteAppointment: (appointmentId) => dispatch(deleteAppointment(appointmentId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppointmentItem)

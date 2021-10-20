@@ -5,39 +5,31 @@ import AppointmentItem from './appointment_item';
 class AppointmentsBooked extends React.Component{
   constructor(props){
     super(props)
+    this.state = {
+      appointments: this.props.appointments
+    }
   }
 
   componentDidMount() {
-    // console.log('I mounted')
-    if (this.props.appointments == null) {
-      this.props.fetchAppointmentsFromUser(this.props.user.id)
-    } else {
-      this.props.fetchAppointmentsFromUser(this.props.user.id)
-    }
+    console.log("app mount")
+    this.props.fetchAppointmentsFromUser(this.props.user.id)
+      .then(state => this.setState({appointments: this.props.appointments}))
+
+    console.log(this.props.appointments)
   }
-
-  componentDidUpdate() {
-    if (this.props.appointments == null) {
-      this.props.fetchAppointmentsFromUser(this.props.user.id)
-    }
-  }
-
-
 
   render(){
-    // if (this.props.appointments == null) return null
+    console.log(this.props.appointments)
     return (
       <div className='appointment-list-container'> 
         <div className='appointment-list'>
           {
             this.props.appointments.map((appointment, idx) => 
-            
-              <AppointmentItemContainer key={`${idx}`} 
+              <AppointmentItemContainer key={idx}
               deleteAppointment={this.props.deleteAppointment}
               appointment={appointment}
               />)
-          
-          }   
+            }
         </div>
       </div>
     )
