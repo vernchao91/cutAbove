@@ -6,15 +6,20 @@ class AppointmentForm extends React.Component {
     super(props)
 
     this.state = {
-      clientId: this.props.user.id,
-      stylistId: this.props.match.params.stylistId,
-      // styleId: 0,
-      timeFrame: '',
-      imageUrl: '',
-      style: '',
-      message: '',
+      appointment: {
+        date: '',
+        clientId: this.props.user.id,
+        stylistId: this.props.stylist._id,
+        stylistName: this.props.stylist.firstName,
+        clientName: this.props.user.firstName,
+        timeFrame: '',
+        imageUrl: '',
+        style: '',
+        message: '',
+      },
       file: '',
     }
+    
     this.appointmentTimes = [
       '9:00 - 10:00', 
       '10:00 - 11:00',
@@ -34,46 +39,64 @@ class AppointmentForm extends React.Component {
     
   }
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault()
     let result = null
 
-    const appointment = Object.assign({}, this.state)
     if (this.state.file) {
-      result = uploadImage({image: this.state.file});
-      this.setState( {imageUrl: `/api/images/${result.imagePath}`} )
+      result = await uploadImage({image: this.state.file});
+      this.setState( {appointment: {
+        ...this.state.appointment,
+        imageUrl: `/api/images/${result.imagePath}`
+      }})
     }
-    
+    const appointment = Object.assign({}, this.state.appointment)
+    console.log(this.state)
+    debugger
     this.props.createAppointment(appointment)
-    .then(() => {
-      this.setState({
-        clientId: this.props.user.id,
-        stylistId: this.props.match.params.stylistId,
-        imageUrl: '',
-        timeFrame: '',
-        style: '',
-      })
-    }
-    )
+    debugger
+    // .then(() => {
+    //   this.setState({
+    //     appointment: {
+    //       clientId: this.props.user.id,
+    //       stylistId: this.props.match.params.stylistId,
+    //       imageUrl: '',
+    //       timeFrame: '',
+    //       style: '',
+    //     }
+    //   })
+    // }
+    // )
   }
 
   handleChange(field) {
+    console.log(this.state)
     // if(field === 'pictureUrl') {
     //   return e => {this.setState({pictureUrl: e.currentTarget.files[0]})}
     // }
-    return e => {this.setState({[field] : e.currentTarget.value})}
+    return e => {this.setState({appointment: {
+      ...this.state.appointment,
+      [field]: e.currentTarget.value
+    }})}
   }
 
   fileSelected(e) {
+    console.log(this.state)
     e.preventDefault();
     const file = e.target.files[0];
 		this.setState( {file: file} );
     const reader = new FileReader();
-    reader.onloadend = () => this.setState( {imageUrl: reader.result} )
+    reader.onloadend = () => this.setState({appointment: {
+      ...this.state.appointment,
+      imageUrl: reader.result 
+    }})
     if (file) {
       reader.readAsDataURL(file);
     } else {
-      this.setState({ imageUrl: ""});
+      this.setState({appointment: {
+        ...this.state.appointment,
+        imageUrl: ''
+      }})
     }    
 	}
 
@@ -98,12 +121,12 @@ class AppointmentForm extends React.Component {
           <h3 className = "appointment-form-title">Book your appointment with {this.props.stylist.handle}</h3>
           
           <label className = "appointment-form-date">Enter the date for your appointment
-            <input type="date" className="appointment-input-date" min = {today}/>
+            <input type="date" className="appointment-input-date" min = {today} onChange = {this.handleChange('date')}/>
           </label>
           
           <label className = "appointment-form-time dropdown">Time
-            <select value = {this.state.timeFrame} className = "appointment-input-timeFrame dropdown" onChange = {this.handleChange('timeFrame')}>
-            <option value="" disabled defaultValue className = "appoinment-time-option">Select a time frame</option>
+            <select value = {this.state.appointment.timeFrame} className = "appointment-input-timeFrame dropdown" onChange = {this.handleChange('timeFrame')}>
+            <option value="" disabled defaultValue className = "appointment-time-option">Select a time frame</option>
             {this.appointmentTimes.map((time, i) =>
               <option className = "appoinment-time-option" value = {time} key = {i}>{time}</option>
             )}
@@ -111,7 +134,7 @@ class AppointmentForm extends React.Component {
             </label>
             
             <label>Style
-            <select value = {this.state.style} className = "appointment-input-style dropdown" text-align-last = "center" onChange = {this.handleChange('style')}>
+            <select value = {this.state.appointment.style} className = "appointment-input-style dropdown" text-align-last = "center" onChange = {this.handleChange('style')}>
             <option value="" disabled defaultValue className = "appoinment-style-option">Select the style you want</option>
             {this.props.styles.map((style, i) =>
               <option className = "appoinment-style-option" value = {style} key = {i}>{style}</option>
@@ -121,13 +144,13 @@ class AppointmentForm extends React.Component {
             
               <label id = "appointment-form-ref-pic-label">Reference picture
               <div className = "appointment-form-pic">
-                <input type = "file" accept="image/*" onChange = {this.fileSelected} />
+                <input type = "file" accept="image/*" onChange = {this.fileSelected}/>
                 <div className = "book-appointment-button">Choose a file you want to submit</div>
-                {!this.state.imageUrl ? null : <div className = "appointment-form-ref-pic" style = {{backgroundImage : `url(${this.state.imageUrl})`}} />}
+                {!this.state.appointment.imageUrl ? null : <div className = "appointment-form-ref-pic" style = {{backgroundImage : `url(${this.state.appointment.imageUrl})`}} />}
               </div>
               </label>
               <label>Message
-                <input type = "body" placeholder = "Send your stylist a message to let them know you're excited!" value = {this.state.message} onChange = {this.handleChange('message')} />
+                <input type = "body" placeholder = "Send your stylist a message to let them know you're excited!" value = {this.state.appointment.message} onChange = {this.handleChange('message')} />
               </label>
             <button onClick = {this.handleSubmit} className = "book-appointment-button">Book your appointment with {this.props.stylist.handle}!</button>
         </form>

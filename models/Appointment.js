@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const AppointmentSchema = new Schema({
+    date: {
+        type: Date,
+        required: true
+    },
     clientId: {
         type: Schema.Types.ObjectId,
         ref: "users",

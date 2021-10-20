@@ -61,6 +61,7 @@ router.post(
     }
 
     const newAppointment = new Appointment({
+      date: req.body.date,
       clientId: req.body.clientId,
       clientName: req.body.clientName,
       stylistId: req.params.stylistId,
