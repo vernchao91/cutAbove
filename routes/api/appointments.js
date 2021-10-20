@@ -60,19 +60,27 @@ router.post(
       return res.status(400).json(errors)
     }
 
-    const newAppointment = new Appointment({
-      date: req.body.date,
-      clientId: req.body.clientId,
-      clientName: req.body.clientName,
-      stylistId: req.params.stylistId,
-      stylistName: req.body.stylistName,
-      stylistHandle: req.body.stylistHandle,
-      timeFrame: req.body.timeFrame,
-      styleId: req.body.styleId,
-      imageUrl: req.body.imageUrl
-    })
-    newAppointment.save()
-      .then(appointment => res.json(appointment))
+    Appointment.findOne({ timeFrame: req.body.timeFrame, date: req.body.date, stylistId: req.body.stylistId})
+      .then(appointment => {
+        if (appointment) {
+          errors.timeFrame = "Please book another time frame"
+          return res.status(400).json(errors)
+        } else {
+          const newAppointment = new Appointment({
+            date: req.body.date,
+            clientId: req.body.clientId,
+            clientName: req.body.clientName,
+            stylistId: req.params.stylistId,
+            stylistName: req.body.stylistName,
+            stylistHandle: req.body.stylistHandle,
+            timeFrame: req.body.timeFrame,
+            styleId: req.body.styleId,
+            imageUrl: req.body.imageUrl
+          })
+          newAppointment.save()
+            .then(appointment => res.json(appointment))
+        }
+      })
   }
 )
 
