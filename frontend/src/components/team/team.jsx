@@ -16,7 +16,7 @@ const TeamPage = () => {
         <div className="member-card">
             <h2>Alex Crooks</h2>
             <div className="image-cropper">
-                <img src={Alex} alt="" className="profile-pic"/>
+                <img src={Alex} alt="" className="member-pic"/>
             </div>
             <div className="social-links">
                 <a href="https://www.linkedin.com/in/alex-crooks/" target="_blank" rel="noreferrer">
@@ -34,7 +34,7 @@ const TeamPage = () => {
         <div className="member-card">
             <h2>Hicham Elalam</h2>
             <div className="image-cropper">
-                <img src={Hitch} alt="" className="profile-pic"/>
+                <img src={Hitch} alt="" className="member-pic"/>
             </div>
             <div className="social-links">
                 <a href="https://www.linkedin.com/in/hicham-elalam-06117a128/" target="_blank" rel="noreferrer">
@@ -54,7 +54,7 @@ const TeamPage = () => {
         <div className="member-card">
             <h2>Connor Germain</h2>
             <div className="image-cropper">
-                <img src={Connor} alt="" className="profile-pic"/>
+                <img src={Connor} alt="" className="member-pic"/>
             </div>
             <div className="social-links">
                 <a href="https://www.linkedin.com/in/connor-germain-04ab10188/" target="_blank" rel="noreferrer">
@@ -72,7 +72,7 @@ const TeamPage = () => {
         <div className="member-card">
             <h2>Vern Chao</h2>
             <div className="image-cropper">
-                <img src={Vern} alt="" className="profile-pic"/>
+                <img src={Vern} alt="" className="member-pic"/>
             </div>
             <div className="social-links">
                 <a href="https://www.linkedin.com/in/vern-chao-a8201a1ba/" target="_blank" rel="noreferrer">
