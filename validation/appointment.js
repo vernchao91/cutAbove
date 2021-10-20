@@ -12,6 +12,13 @@ module.exports = function validateAppointment(data) {
   if (Validator.isEmpty(data.timeFrame)) {
     errors.timeFrame = "Time frame field required"
   };
+  if (Validator.isEmpty(data.stylistName)) {
+    errors.stylistName = "Time frame field required"
+  };
+  if (Validator.isEmpty(data.clientName)) {
+    errors.clientName = "Time frame field required"
+  };
+
 
   return {
     errors,

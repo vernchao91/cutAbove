@@ -1,6 +1,5 @@
 import React from "react";
 import { uploadImage } from "../../actions/image_action"
-// import * as ImageApiUtil from "../../util/image_api_util"
 
 class Image extends React.Component {
   constructor(props) {
@@ -40,7 +39,6 @@ class Image extends React.Component {
 	}
 
   render() {
-    const image = <img src="/api/images/cutabove-1634608082737.png" alt="image"></img>
     return (
       <div>
         Upload Image
@@ -52,8 +50,7 @@ class Image extends React.Component {
           />
           <button type="submit">submit</button>
         </form>
-        {/* {image} */}
-        <img src={this.state.imageUrl} alt="image file"></img>
+        <img src={this.state.imageUrl} alt=""></img>
       </div>
     )
   }

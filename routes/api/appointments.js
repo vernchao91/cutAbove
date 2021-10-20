@@ -62,11 +62,13 @@ router.post(
 
     const newAppointment = new Appointment({
       clientId: req.body.clientId,
+      clientName: req.body.clientName,
       stylistId: req.params.stylistId,
-      imageUrl: req.body.imageUrl,
-      message: req.body.message,
+      stylistName: req.body.stylistName,
+      stylistHandle: req.body.stylistHandle,
       timeFrame: req.body.timeFrame,
-      styleId: req.body.styleId
+      styleId: req.body.styleId,
+      imageUrl: req.body.imageUrl
     })
     newAppointment.save()
       .then(appointment => res.json(appointment))

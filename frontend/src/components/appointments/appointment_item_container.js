@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import AppointmentItem from './appointment_item';
 
 const mapStateToProps = (state) => ({
-  client: state.entities.clients,
-  style: state.entities.style,
-  stylist: state.entities.stylists
+  // client: state.entities.clients,
+  // style: state.entities.style,
+  // stylist: state.entities.stylists
 })
 
 const mapDispatchToProps = (dispatch) => ({

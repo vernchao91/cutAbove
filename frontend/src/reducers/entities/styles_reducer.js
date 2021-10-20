@@ -10,10 +10,14 @@ const stylesReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_STYLES:
-      return Object.assign({}, oldState, action.styles)
+      let updatedState = {};
+      action.styles.data.forEach((style) => {
+        updatedState[style._id] = style;
+      });
+      return updatedState
 
     case RECEIVE_STYLE:
-      newState[action.style.id] = action.style
+      newState[action.style._id] = action.style
       return newState
 
     case REMOVE_STYLE:
