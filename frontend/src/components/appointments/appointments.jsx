@@ -10,23 +10,29 @@ class AppointmentsBooked extends React.Component{
   }
 
   componentDidMount() {
-    console.log("app mount")
-    this.props.fetchAppointmentsFromUser(this.props.user.id)
-      .then(state => this.setState({appointments: this.props.appointments}))
+    if (this.props.user.address) {
+      this.props.fetchAppointmentsFromStylist(this.props.user.id)
+        .then(state => this.setState({appointments: this.props.appointments}))
+    } else {
+      this.props.fetchAppointmentsFromUser(this.props.user.id)
+        .then(state => this.setState({appointments: this.props.appointments}))
+    }
+  }
 
-    console.log(this.props.appointments)
+  componentWillUnmount() {
+    this.setState({})
   }
 
   render(){
-    console.log(this.props.appointments)
     return (
       <div className='appointment-list-container'> 
         <div className='appointment-list'>
           {
-            this.props.appointments.map((appointment, idx) => 
+            this.state.appointments.map((appointment, idx) => 
               <AppointmentItemContainer key={idx}
               deleteAppointment={this.props.deleteAppointment}
               appointment={appointment}
+              userId={this.props.user.id}
               />)
             }
         </div>
