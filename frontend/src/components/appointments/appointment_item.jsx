@@ -9,15 +9,23 @@ class AppointmentItem extends React.Component {
     }
   }
 
+  renderLink() {
+    if (this.props.userId === this.props.appointment.stylistId) {
+      return <p>{this.state.appointment.clientName}</p>
+    } else {
+      return <Link className="appointment-stylist-name" to={`/stylists/${this.state.appointment.stylistId}`}>{this.state.appointment.stylistName}</Link>
+    }
+  }
+
   render() {
     // console.log(this.props.stylist)
     if (this.state.appointment === null ) return null
     return(
       <div className='appointment-item-container'>
         <h3 className='appointment-with'>Appointment with</h3>
-        <Link className="appointment-stylist-name" to={`/stylists/${this.state.appointment.stylistId}`}>{this.state.appointment.stylistName}</Link>
+        {this.renderLink()}
+        {/* <Link className="appointment-stylist-name" to={`/stylists/${this.state.appointment.stylistId}`}>{this.state.appointment.stylistName}</Link> */}
         <div className='appointment-details-container'>
-          {/* <p>{this.state.appointment.clientName}</p> */}
           <p>{this.state.appointment.styleType}</p>
           <p> {this.state.appointment.timeFrame}</p>
         </div>
