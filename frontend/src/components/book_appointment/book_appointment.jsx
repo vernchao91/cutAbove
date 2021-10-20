@@ -118,9 +118,12 @@ class AppointmentForm extends React.Component {
             )}
             </select>
             </label>
-              <label>Reference picture
+            
+              <label className>Reference picture
+              <div className = "appointment-form-pic">
                 <input type = "file" accept="image/*" onChange = {this.fileSelected}/>
-                <img src={this.state.imageUrl} alt="image file"></img>
+                {!this.state.imageUrl ? null : <div className = "featured-stylist-profile-pic" style = {{backgroundImage : `url(${this.state.imageUrl})`}} />}
+              </div>
               </label>
               <label>Message
                 <input type = "body" placeholder = "Send your stylist a message to let them know you're excited!" value = {this.state.message} onChange = {this.handleChange('message')} />

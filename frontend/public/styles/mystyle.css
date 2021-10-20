@@ -881,6 +881,12 @@ TODO: Put color on top of page to not have to scroll back and forth */
   border-radius: 5px;
 }
 
+.appointment-form > .appointment-form-pic {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+}
+
 .appointment-form > label > select {
   height: 25%;
 }
