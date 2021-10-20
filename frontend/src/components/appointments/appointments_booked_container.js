@@ -4,7 +4,7 @@ import { fetchAppointmentsFromUser,
         fetchAppointmentsFromStylist,
         deleteAppointment } from '../../actions/appointment_actions';
 import { fetchStylist } from '../../actions/stylist_actions';
-import {fetchClient} from '../../actions/client_actions'
+import { fetchClient } from '../../actions/client_actions'
 
 const mapStateToProps = (state, ownProps) => ({
   user: state.session.user,
