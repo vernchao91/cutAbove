@@ -20,7 +20,7 @@ class AppointmentsBooked extends React.Component{
   }
 
   componentWillUnmount() {
-    this.setState({})
+    this.setState({});
   }
 
   render(){
