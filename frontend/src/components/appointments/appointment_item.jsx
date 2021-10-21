@@ -19,10 +19,33 @@ class AppointmentItem extends React.Component {
 
   renderDate() {
     const { date } = this.state.appointment;
-    const year = date.slice(0, 4);
-    const month = date.slice(5, 7);
-    const day = date.slice(8, 10);
-    return month + "-" + day + "-" + year;
+    const date2 = new Date(date)
+    const day = date.slice(8,10)
+    const weekdayArray = new Array(7);
+    weekdayArray[0] = "Monday";
+    weekdayArray[1] = "Tuesday";
+    weekdayArray[2] = "Wednesday";
+    weekdayArray[3] = "Thursday";
+    weekdayArray[4] = "Friday";
+    weekdayArray[5] = "Saturday";
+    weekdayArray[6] = "Sunday";
+    const weekDay = weekdayArray[date2.getDay()]
+    const monthArray = new Array();
+    monthArray[0] = "Jan";
+    monthArray[1] = "Feb";
+    monthArray[2] = "Mar";
+    monthArray[3] = "Apr";
+    monthArray[4] = "May";
+    monthArray[5] = "June";
+    monthArray[6] = "July";
+    monthArray[7] = "Aug";
+    monthArray[8] = "Sept";
+    monthArray[9] = "Oct";
+    monthArray[10] = "Nov";
+    monthArray[11] = "Dec";
+    let month = monthArray[date2.getMonth()];
+
+    return month + " " + day + ", " + weekDay
   }
 
   renderTimeFrame() {
