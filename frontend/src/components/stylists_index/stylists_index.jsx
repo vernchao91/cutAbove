@@ -35,8 +35,8 @@ class StylistsIndex extends React.Component {
     return (
       <div className='stylists-index-container'>
         <div className="search-box">
-              <button class="btn-search"><FontAwesomeIcon class="fas fa-search" icon={faSearch}/></button>
-        <input className = "input-search" type="text" placeholder="search for a stylist..." onChange={this.updateSearch}/>
+              <button class="btn-search"><FontAwesomeIcon className="fas fa-search" icon={faSearch}/></button>
+        <input className = "input-search" type="text" placeholder="search by name/handle/address..." onChange={this.updateSearch}/>
         </div>
         <div class="search"></div>
         <ul className='stylist-list'>
@@ -44,7 +44,7 @@ class StylistsIndex extends React.Component {
             this.props.stylists.filter((val) => {
               if (searchTerm === '') {
                 return val
-              } else if (val.handle.toLowerCase().includes(searchTerm.toLowerCase()) || val.firstName.toLowerCase().includes(searchTerm.toLowerCase()))
+              } else if (val.handle.toLowerCase().includes(searchTerm.toLowerCase()) || val.firstName.toLowerCase().includes(searchTerm.toLowerCase()) || val.address.toLowerCase().includes(searchTerm.toLowerCase()))
                 return val
             }).map( (stylist, i) => <StylistIndexItem key={i} stylist={stylist}/> )
           }
