@@ -97,6 +97,39 @@ body {
   cursor: pointer;
 }
 
+.search-nav {
+  padding: 5px;
+  font-size: 25px !important;
+  border-radius: 20px;
+  letter-spacing: .1rem !important;
+  /* box-shadow: 0 0 0 0 rgba(0, 0, 0, 1); */
+	transform: scale(1);
+	animation: pulse 2s infinite;
+  font-weight: 600 !important;
+}
+
+.search-nav:hover {
+  animation: none;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
+
 /* component for animation for when a nav bar element is hovered over */
 
 .nav-bar-buttons > a::after,

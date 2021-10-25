@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/fontawesome-free-solid'
+import { withRouter } from 'react-router-dom'
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {key: 0}
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
     this.toggleLink = this.toggleLink.bind(this);
+    this.searchNav = this.searchNav.bind(this)
   }
 
   logoutUser(e) {
@@ -44,10 +49,20 @@ class NavBar extends React.Component {
       }
   }
 
+  searchNav() {
+    if (window.location.hash !== "#/stylists/index") {
+      return (
+        <Link className = "nav-bar-buttons" to="/stylists/index"><button className="search-nav"><FontAwesomeIcon className="fasfa-search" icon={faSearch}/>  for a stylist</button></Link>
+      )
+    } else 
+    return null
+  }
+
   render() {
       return (
         <div className = "nav-bar">
           <Link className = "logo-main" to ="/"></Link>
+            { this.searchNav() }
             { this.getLinks() }
         </div>
       );
