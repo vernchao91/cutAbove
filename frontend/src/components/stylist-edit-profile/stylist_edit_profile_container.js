@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 import { fetchStylist, updateStylist } from '../../actions/stylist_actions'
 import { fetchReviewsFromStylist } from '../../actions/review_actions'
-import { updateStylist } from '../../util/stylist_api_util'
 
 import StylistEditProfile from './stylist_edit_profile'
 
@@ -21,4 +20,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)
+export default connect(mapStateToProps, mapDispatchToProps)(StylistEditProfile)

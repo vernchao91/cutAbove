@@ -16,7 +16,7 @@ class NavBar extends React.Component {
 
   toggleLink() {
     return this.props.user.address ? 
-    <Link to={`/stylists/${this.props.user.id}`}>my profile</Link> : 
+    <Link to={`/stylists/${this.props.user.id}/edit`}>my profile</Link> : 
     <Link to={`/users/${this.props.user.id}`}>my profile</Link>
   }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { uploadImage } from "../../actions/image_action";
-// import ReviewIndexContainer from '../reviews/review_index_container'
+import { Link } from 'react-router-dom'
+import ReviewIndexContainer from '../reviews/review_index_container'
 
 class StylistEditProfile extends React.Component {
 

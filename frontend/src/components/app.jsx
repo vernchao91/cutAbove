@@ -12,6 +12,7 @@ import StylistsIndexContainer from './stylists_index/stylists_index_container'
 import Footer from '../components/footer/footer';
 import TeamPage from "../components/team/team";
 // import Wow from '../components/wow/wow'
+import StylistEditProfileContainer from './stylist-edit-profile/stylist_edit_profile_container';
 import Search from '../components/search_bar/search'
 import Modal from '../components/modal/modal'
 import ReviewFormContainer from '../components/review/review_form_container'
@@ -35,7 +36,7 @@ const App = () => (
         {/* <AuthRoute exact path="/signup" component={SignupButtons}/> */}
         {/* <AuthRoute exact path="/users/signup" component={SignupFormContainer} /> */}
         {/* <AuthRoute exact path="/stylists/signup" component={StylistSignupFormContainer} /> */}
-        <Route exact path="/stylists/:stylistId" component={StylistProfileContainer} />
+        <Route exact path="/stylists/:stylistId/edit" component={StylistEditProfileContainer} />
         <ProtectedRoute exact path="/appointments/:id" component={AppointmentsIndex}/>
         <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer}/>
         <ProtectedRoute exact path='/appointments/create/:stylistId' component={BookAppointmentContainer}/>
