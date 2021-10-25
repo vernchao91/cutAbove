@@ -16,7 +16,7 @@ class StylistEditProfile extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchReviewsFromStylist(this.props.user.id)
+        // this.props.fetchReviewsFromStylist(this.props.user.id)
         this.props.fetchStylist(this.props.user.id)
             // .then(this.setState({user: this.props.user, imageUrl: this.props.user.imageUrl}))
     }
@@ -64,14 +64,14 @@ class StylistEditProfile extends React.Component {
                             <li></li>
                         </ul>
                 </div>
-                    <div className="user-profile-titles">
+                    {/* <div className="user-profile-titles">
                         <div className="reviews-container">
                             <div className="user-reviews-title">{this.props.user.firstName}'s Reviews</div>
                                 {Object.values(this.props.reviews).length !== 0 ?
                                     <ReviewIndexContainer user={this.props.user} reviews={this.props.reviews}/> : <div>You haven't made any reviews yet!</div>}
                             </div>
                             <div className="user-appointments-title">{this.props.user.firstName}'s Appointments</div>
-                        </div>
+                        </div> */}
 
                 </div>
                 
