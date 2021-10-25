@@ -39,6 +39,7 @@ const App = () => (
         <Route exact path="/stylists/:stylistId/edit" component={StylistEditProfileContainer} />
         <ProtectedRoute exact path="/appointments/:id" component={AppointmentsIndex}/>
         <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer}/>
+        <Route exact path="/stylists/:stylistId" component={StylistProfileContainer}/>
         <ProtectedRoute exact path='/appointments/create/:stylistId' component={BookAppointmentContainer}/>
         <ProtectedRoute exact path='/reviews/create/:stylistId' component={ReviewFormContainer}/>
         <Route exact path="/images" component={ImageContainer}/>
