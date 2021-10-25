@@ -56,7 +56,6 @@
   width: 160px;
   height: 160px;
   position: relative;
-  /* overflow: hidden; */
   border-radius: 5%;
   align-self: center;
 }
@@ -80,18 +79,14 @@
 
 .social-links > a > .fontAwesome {
   font-size: 2.5rem;
-  /* margin-left: 10%;
-  margin-right: 10%; */
+
 }
 
 .social-links > a {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: space-around; */
   padding: 5px;
   color: rgb(196, 196, 196);
 }
 
 .social-links > a > .fontAwesome:hover {
-  color: #647bff;
+  color: #000000;
 }
