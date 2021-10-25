@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
 function Footer() {
 
     return(
@@ -15,26 +14,8 @@ function Footer() {
                     <ul>About Us</ul>
                     <ul>How It Works</ul>
                     <ul>Terms of Service</ul>
+                    <ul>Terms & Conditions</ul>
                     <ul>Privacy Policy</ul>
-                </div>
-
-
-                <div className="footer-connect">
-                    <h3>Connect</h3>
-                    <a href="" target="_blank"></a>
-                    <ul></ul>
-
-                </div>
-
-                <div className="footer-support">
-                    <h3>Support</h3>
-                    <a href="" target="_blank"></a>
-
-                    <ul>Help & Support</ul>
-                    <ul>Trust & Safety</ul>
-                    <ul></ul>
-                    <ul></ul>
-
                 </div>
 
                 <div className="footer-technologies">
@@ -46,6 +27,25 @@ function Footer() {
                     <a href="https://redux.js.org/" target="_blank">Redux</a>
                     <a href="https://nodejs.org/en/" target="_blank">Node</a>
                     <a href="https://aws.amazon.com/" target="_blank">AWS</a>
+                </div>
+
+                <div className="footer-connect">
+                    <h3>Connect</h3>
+                    <a href="" target="_blank"></a>
+                    <ul>Help Center</ul>
+                    <ul>contact@cutabove.com</ul>
+                    <p>(if you are a customer seeking support)</p>
+                </div>
+
+                <div className="footer-support">
+                    <h3>Support</h3>
+                    <a href="" target="_blank"></a>
+
+                    <ul>Help & Support</ul>
+                    <ul>Trust & Safety</ul>
+                    <ul></ul>
+                    <ul></ul>
+
                 </div>
 
                 <div className="footer-meet-the-team">

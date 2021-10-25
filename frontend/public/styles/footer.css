@@ -48,7 +48,16 @@
   font-size: 18px;
   font-weight: 600;
   padding-bottom: 5px;
+}
 
+.footer-connect ul {
+  padding-top: 10px;
+}
+
+.footer-connect p {
+  padding-top: 5px;
+  font-size: 14px;
+  opacity: .65;
 }
 
 .footer-about {
@@ -101,6 +110,7 @@
   font-weight: 600;
   padding-bottom: 5px;
 }
+
 .footer-meet-the-team ul {
   padding-top: 10px;
 }
