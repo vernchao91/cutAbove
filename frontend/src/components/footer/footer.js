@@ -18,15 +18,11 @@ function Footer() {
                     <ul>Privacy Policy</ul>
                 </div>
 
-                <div className="footer-technologies">
-                    <h3>Technologies</h3>
-                    <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>
-                    <a href="https://mongoosejs.com/" target="_blank">Mongoose</a>
-                    <a href="https://expressjs.com/" target="_blank">Express</a>
-                    <a href="https://reactjs.org/" target="_blank">React</a>
-                    <a href="https://redux.js.org/" target="_blank">Redux</a>
-                    <a href="https://nodejs.org/en/" target="_blank">Node</a>
-                    <a href="https://aws.amazon.com/" target="_blank">AWS</a>
+                <div className="footer-support">
+                    <h3>Support</h3>
+                    <a href="" target="_blank"></a>
+                    <ul>Help & Support</ul>
+                    <ul>Trust & Safety</ul>
                 </div>
 
                 <div className="footer-connect">
@@ -37,15 +33,15 @@ function Footer() {
                     <p>(if you are a customer seeking support)</p>
                 </div>
 
-                <div className="footer-support">
-                    <h3>Support</h3>
-                    <a href="" target="_blank"></a>
-
-                    <ul>Help & Support</ul>
-                    <ul>Trust & Safety</ul>
-                    <ul></ul>
-                    <ul></ul>
-
+                <div className="footer-technologies">
+                    <h3>Technologies</h3>
+                    <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>
+                    <a href="https://mongoosejs.com/" target="_blank">Mongoose</a>
+                    <a href="https://expressjs.com/" target="_blank">Express</a>
+                    <a href="https://reactjs.org/" target="_blank">React</a>
+                    <a href="https://redux.js.org/" target="_blank">Redux</a>
+                    <a href="https://nodejs.org/en/" target="_blank">Node</a>
+                    <a href="https://aws.amazon.com/" target="_blank">AWS</a>
                 </div>
 
                 <div className="footer-meet-the-team">
