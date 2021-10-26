@@ -37,6 +37,7 @@ const App = () => (
         {/* <AuthRoute exact path="/users/signup" component={SignupFormContainer} /> */}
         {/* <AuthRoute exact path="/stylists/signup" component={StylistSignupFormContainer} /> */}
         <Route exact path="/stylists/:stylistId/edit" component={StylistEditProfileContainer} />
+        <Route exact path="/stylists/:stylistId" component={StylistProfileContainer}/>
         <ProtectedRoute exact path="/appointments/:id" component={AppointmentsIndex}/>
         <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer}/>
         <Route exact path="/stylists/:stylistId" component={StylistProfileContainer}/>

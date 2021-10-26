@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => {
     return {
         // fetchReviewsFromStylist:(stylistId) => dispatch(fetchReviewsFromStylist(stylistId)),
         fetchStylist: stylistId => dispatch(fetchStylist(stylistId)),
-        updateSylist: stylist => dispatch(updateStylist(stylist))
+        updateStylist: stylist => dispatch(updateStylist(stylist))
     }
 }
 
