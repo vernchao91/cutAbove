@@ -5,7 +5,7 @@ import NavBarContainer from './nav/navbar_container';
 import MainPage from './main/main_page';
 import StylistProfileContainer from './stylist_profile/stylist_profile_container';
 import UserProfileContainer from './user_profile/user_profile_container'
-import BookAppointmentContainer from './book_appointment/book_appointment_container_form'
+import BookAppointmentContainer from './book_appointment/appointment_form_container'
 import AppointmentsIndex from './appointments/appointments_booked_container'
 import StylistsIndexContainer from './stylists_index/stylists_index_container'
 import Footer from '../components/footer/footer';
