@@ -21,7 +21,7 @@ class AppointmentItem extends React.Component {
     const { date } = this.state.appointment;
     const date2 = new Date(date)
     const day = date.slice(8,10)
-    const weekdayArray = new Array(7);
+    const weekdayArray = [];
     weekdayArray[0] = "Monday";
     weekdayArray[1] = "Tuesday";
     weekdayArray[2] = "Wednesday";
@@ -30,7 +30,7 @@ class AppointmentItem extends React.Component {
     weekdayArray[5] = "Saturday";
     weekdayArray[6] = "Sunday";
     const weekDay = weekdayArray[date2.getDay()]
-    const monthArray = new Array();
+    const monthArray = [];
     monthArray[0] = "Jan";
     monthArray[1] = "Feb";
     monthArray[2] = "Mar";
@@ -48,13 +48,6 @@ class AppointmentItem extends React.Component {
     return month + " " + day + ", " + weekDay
   }
 
-  renderTimeFrame() {
-    const { time } = this.state.appointment.timeFrame;
-    // const left = time.slice(0,5);
-    // const right = time.slice(9, 13)
-    // return left + "am" + " - " + right + "pm"
-  }
-
   render() {
     // console.log(this.props.stylist)
     if (this.state.appointment === null ) return null
@@ -66,8 +59,6 @@ class AppointmentItem extends React.Component {
         <div className='appointment-details-container'>
           <p>{this.state.appointment.styleType}</p>
           <p>{this.renderDate()}</p>
-          <p>{this.renderTimeFrame()}</p>
-          {/* <p>{this.state.appointment.date}</p> */}
           <p>{this.state.appointment.timeFrame}</p>
         </div>
         <button className='cancel-appointment' onClick={ () => this.props.deleteAppointment(this.state.appointment._id).then(this.setState({appointment: null}))}>Cancel Appointment</button>

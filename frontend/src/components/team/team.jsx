@@ -25,9 +25,9 @@ const TeamPage = () => {
                 <a href="https://github.com/acrks" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={faGithub} className="fontAwesome"/>
                 </a>
-                {/* <a href="" target="_blank" rel="noreferrer">
+                <a href="https://angel.co/u/alex-crooks" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={faAngellist} className="fontAwesome"/>
-                </a> */}
+                </a>
             </div>
         </div>
   
@@ -45,9 +45,9 @@ const TeamPage = () => {
                     <FontAwesomeIcon icon={faGithub} className="fontAwesome"/>
   
                 </a>
-                {/* <a href="" target="_blank" rel="noreferrer">
+                <a href="https://angel.co/u/hicham-elalam" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={faAngellist} className="fontAwesome"/>
-                </a> */}
+                </a>
             </div>
         </div>
   
