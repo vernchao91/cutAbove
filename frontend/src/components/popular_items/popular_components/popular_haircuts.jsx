@@ -10,7 +10,7 @@ class PopularItems extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            styles: this.props.styles
         }
     }
 
@@ -18,12 +18,41 @@ class PopularItems extends React.Component {
         this.props.fetchStyles();
     }
 
+    haircutArray() {
+        if (!this.props.styles) return null
+        const { styles } = this.props
+        let newArr = []
+        for(let i = 0; i < styles.length; i++) {
+            if(styles[i].styleType === "Haircut") {
+                newArr.push(styles[i])
+            }
+        }
+        return newArr
+    }
 
     getRandomInt(max) {
         return Math.floor(Math.random() * max);
     }
 
+    renderSixRandomStyles() {
+        let haircutArray = this.haircutArray()
+        
+        return (
+            <div className="style-item">
+                <div className="style-item-picture">
+                    <img src={} alt=""/>
+                    <div className="style-item-name">
+
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     render() {
+        if (!this.props.styles) return null
+
+
         return (
                 <div className = "style-item-container">
                <div className = "style-item">
