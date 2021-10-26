@@ -25,6 +25,7 @@ class StylistProfile extends React.Component {
         // this.props.fetchStylesfromStylist(this.props.match.params.stylistId)
         this.props.fetchStylist(this.props.match.params.stylistId)
         this.props.fetchReviewsFromStylist(this.props.match.params.stylistId)
+        this.props.fetchStylesFromStylist(this.props.match.params.stylistId)
         // console.log(this.props)
         // this.props.fetchStylists()
     }
@@ -48,6 +49,31 @@ class StylistProfile extends React.Component {
     //     this.props.fetchReviewsFromStylist(this.props.match.params.stylistId)
     // }
 
+    // displayStyles() {
+    //     if (Object.values(this.props.styles).length !== 0) {
+    //         return (
+    //         {this.props.styles.map((style, i) => (
+    //             <img className="stylist-work" src={style.imageUrl}/>
+    //         ))}
+    //         )
+    //     }
+
+    // }
+
+    avgRatingPerStylist(){
+        let stylistRatings = []
+        Object.values(this.props.reviews).map((review) => {
+            if (review.stylistId == this.props.match.params.stylistId) {
+                stylistRatings.push(review.rating)
+            }
+        })
+        let total = stylistRatings.reduce((a, b) => a + b, 0)
+        let avg = total / stylistRatings.length
+        avg = Math.round(avg * 10) / 10
+        if (!avg) return (<div className="splash-rating">Not yet rated</div>)
+        return (<><br /><img className="review-icon" src={reviewIcon}/><br />{avg}/5</>)
+    }
+
     render() {
         if (!this.props.stylist) return null
         return (
@@ -57,17 +83,21 @@ class StylistProfile extends React.Component {
             <div className="stylist-bookapt-container">
                 <Link to = {`/appointments/create/${this.props.match.params.stylistId}`} className="stylist-bookapt-button">Book Appointment with {this.props.stylist.firstName}</Link>
                 <div className="stylist-carousel-container">
-                    {this.props.stylist.firstName === "Vern da Goat" ? <img className="stylist-work" src={style1} alt = "Hich i have no clue why you did this"/> : <img className="stylist-work" src={style5} alt = "hairstyle1"/>}
+                    {Object.values(this.props.styles).length !== 0 ?  
+                    Object.values(this.props.styles).map((style, i) => (
+                        <img className="stylist-work" src={style.imageUrl}/>
+                    )) : <div>This Stylist has no posts yet, check back later! </div>}
+                    {/* {this.props.stylist.firstName === "Vern da Goat" ? <img className="stylist-work" src={style1} alt = "Hich i have no clue why you did this"/> : <img className="stylist-work" src={style5} alt = "hairstyle1"/>}
                     {this.props.stylist.firstName === "Vern da Goat" ? <img className="stylist-work" src={style2} alt = "Hich i have no clue why you did this"/> : <img className="stylist-work" src={style6} alt = "hairstyle1"/>}
                     {this.props.stylist.firstName === "Vern da Goat" ? <img className="stylist-work" src={style3} alt = "Hich i have no clue why you did this"/> : <img className="stylist-work" src={style7} alt = "hairstyle1"/>}
-                    {this.props.stylist.firstName === "Vern da Goat" ? <img className="stylist-work" src={style4} alt = "Hich i have no clue why you did this"/> : <img className="stylist-work" src={style8} alt = "hairstyle1"/>}
+                    {this.props.stylist.firstName === "Vern da Goat" ? <img className="stylist-work" src={style4} alt = "Hich i have no clue why you did this"/> : <img className="stylist-work" src={style8} alt = "hairstyle1"/>} */}
                 </div>
                 <div className="stylist-profile-container">
                     <div className="stylist-name">{this.props.stylist.handle}</div>
                     <div className="stylist-profile-info-container">
                     <img className="stylist-pic" src={this.props.stylist.imageUrl}/>
                     <div className="stylist-rating">
-                        {this.props.stylist.firstName === "Karrie" ? <><br /><img className="review-icon" src={reviewIcon}/><br />5/5</> : null}
+                        {this.avgRatingPerStylist()}
                     </div>
                     <div className="stylist-info">
                         <ul>

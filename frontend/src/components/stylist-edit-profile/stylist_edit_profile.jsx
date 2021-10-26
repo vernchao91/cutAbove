@@ -43,6 +43,20 @@ class StylistEditProfile extends React.Component {
             this.setState( {file: file} );
     }
 
+    async handleStyleSubmit(e) {
+        e.preventDefault()
+        const {file, description} = this.state
+        let result = null
+        let stylestate = {}
+
+        if (file) {
+            result = await uploadImage({image: file, description});
+            stylestate = {imageUrl: `/api/images/${result.imagePath}`}
+            const style = Object.assign({}, stylestate)
+            this.props.createStyle(style)
+        }
+    }
+
     render() {
         if (this.props.user === undefined) return null
         return (
@@ -56,6 +70,14 @@ class StylistEditProfile extends React.Component {
                         accept="image/*"
                         />
                         <button className="profile-pic-btn" type="submit"> Upload/Change Profile Image</button>
+                    </form>
+                    <form onSubmit={this.handleStyleSubmit}>
+                        <input
+                        type="file"
+                        onChange={this.fileSelected}
+                        accept="image/*"
+                        />
+                        <button className="profile-pic-btn" type="submit"> Upload/Change Style Images</button>
                     </form>
                     <div className="stylist-info">
                         <ul>
