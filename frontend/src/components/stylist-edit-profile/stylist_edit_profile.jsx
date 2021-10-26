@@ -17,9 +17,7 @@ class StylistEditProfile extends React.Component {
     }
 
     componentDidMount() {
-        // this.props.fetchReviewsFromStylist(this.props.user.id)
         this.props.fetchStylist(this.props.user.id)
-            // .then(this.setState({user: this.props.user, imageUrl: this.props.user.imageUrl}))
     }
 
     async handleImageSubmit(e) {
@@ -30,7 +28,6 @@ class StylistEditProfile extends React.Component {
         if (file) {
           result = await uploadImage({image: file, description});
           this.setState( {imageUrl: `/api/images/${result.imagePath}`} )
-        //   console.log("result.imagepath" + result.imagePath)
           this.state.imageUrl = `/api/images/${result.imagePath}`
           const stateUser = Object.assign({}, this.state)
           this.props.updateStylist(stateUser)
@@ -48,7 +45,7 @@ class StylistEditProfile extends React.Component {
         return (
             <div className="user-profile-page">
                 <div className="user-profile-container">
-                    <img className= "profile-pic" src={this.state.imageUrl} alt="Profile Picture"/>
+                    <img className= "stylist-profile-pic" src={this.state.imageUrl} alt="Profile Picture"/>
                     <form onSubmit={this.handleImageSubmit}>
                         <input
                         type="file"
@@ -64,17 +61,9 @@ class StylistEditProfile extends React.Component {
                             <li>Email: {this.props.user.email}</li>
                             <li><Link to={`/stylists/${this.props.user.id}`}>Profile Preview</Link></li>
                         </ul>
-                </div>
+                    </div>
 
                 <StyleIndexContainer/>
-                    {/* <div className="user-profile-titles">
-                        <div className="reviews-container">
-                            <div className="user-reviews-title">{this.props.user.firstName}'s Reviews</div>
-                                {Object.values(this.props.reviews).length !== 0 ?
-                                    <ReviewIndexContainer user={this.props.user} reviews={this.props.reviews}/> : <div>You haven't made any reviews yet!</div>}
-                            </div>
-                            <div className="user-appointments-title">{this.props.user.firstName}'s Appointments</div>
-                        </div> */}
 
                 </div>
                 
