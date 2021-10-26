@@ -66,15 +66,13 @@ class AppointmentForm extends React.Component {
         imageUrl: `/api/images/${result.imagePath}`
       }})
     }
-    this.props.removeErrors()
+    // this.props.removeErrors()
     const appointment = Object.assign({}, this.state.appointment)
     this.props.createAppointment(appointment)
     .then(() => {
-      if(!this.state.errors) {
-        debugger
-        this.props.history.push(`/appointments/${this.props.user._id}`)
+      if(this.state.appointment.timeFrame && this.state.appointment.date) {
+        this.props.history.push(`/appointments/${this.state.appointment.clientId}`)
       }
-      debugger
       this.setState({errors: this.props.errors})
     })
     // .then(() =>
