@@ -77,12 +77,6 @@ class StylistProfile extends React.Component {
                             <li>Store Address: {this.props.stylist.address}</li>
                         </ul>
                     </div>
-<<<<<<< HEAD
-                    {/* <h3> HELLO
-                    <AppointmentsBookedContainer stylist={this.props.stylist}/>
-                    </h3> */}
-=======
->>>>>>> frontend
                     </div>
                 </div>
                 <div className="stylist-reviews-title">{this.props.stylist.handle}'s Reviews</div>

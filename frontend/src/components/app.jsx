@@ -26,15 +26,9 @@ const App = () => (
     <Modal />
     <Switch>
         <Route exact path="/" component={MainPage} />
-        {/* <AuthRoute exact path='/login' component={LoginButtons}/> */}
         <Route exact path="/team" component={TeamPage} />
-        {/* <AuthRoute exact path="/users/login" component={LoginFormContainer} /> */}
-        {/* <AuthRoute exact path='/stylists/login' component={StylistLoginFormContainer}/> */}
         <Route exact path='/stylists/index' component={StylistsIndexContainer}/>
         <Route exact path='/search' component={Search} />
-        {/* <AuthRoute exact path="/signup" component={SignupButtons}/> */}
-        {/* <AuthRoute exact path="/users/signup" component={SignupFormContainer} /> */}
-        {/* <AuthRoute exact path="/stylists/signup" component={StylistSignupFormContainer} /> */}
         <Route exact path="/stylists/:stylistId/edit" component={StylistEditProfileContainer} />
         <ProtectedRoute exact path="/appointments/:id" component={AppointmentsIndex}/>
         <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer}/>

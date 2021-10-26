@@ -4,19 +4,6 @@ import { Link } from "react-router-dom";
 class AppointmentItem extends React.Component {
   constructor(props) {
     super(props)
-<<<<<<< HEAD
-
-    // this.state = this.props
-  }
-
-  componentDidMount() {
-    // this.props.clearStylists()
-    // this.props.fetchClient(this.props.appointment.clientId);
-    // this.props.fetchStylist(this.props.appointment.stylistId);
-    // console.log(this.props.stylist.firstName)
-    // console.log(this.props.appointment.stylistId)
-    // console.log(this.props.stylists)
-=======
     this.state = {
       appointment: this.props.appointment
     }
@@ -59,7 +46,6 @@ class AppointmentItem extends React.Component {
     let month = monthArray[date2.getMonth()];
 
     return month + " " + day + ", " + weekDay
->>>>>>> frontend
   }
 
   // shouldComponentUpdate(nextProps, nextState) {
@@ -79,29 +65,18 @@ class AppointmentItem extends React.Component {
 
   render() {
     // console.log(this.props.stylist)
-<<<<<<< HEAD
-    if (this.props.appointment === null ) return null
-    return(
-      <div className='appointment-item-container'>
-        <h3 className='appointment-with'>Appointment with {this.props.stylist.firstName}</h3>
-=======
     if (this.state.appointment === null ) return null
     return(
       <div className='appointment-item-container'>
         <h3 className='appointment-with'>Appointment with</h3>
         {this.renderLink()}
         {/* <Link className="appointment-stylist-name" to={`/stylists/${this.state.appointment.stylistId}`}>{this.state.appointment.stylistName}</Link> */}
->>>>>>> frontend
         <div className='appointment-details-container'>
           <p>{this.state.appointment.styleType}</p>
           <p>{this.renderDate()}</p>
           <p>{this.state.appointment.timeFrame}</p>
         </div>
-<<<<<<< HEAD
-        <button className='cancel-appointment' onClick={ () => this.props.deleteAppointment(this.props.appointment.id)}>Cancel Appointment</button>
-=======
         <button className='cancel-appointment' onClick={ () => this.props.deleteAppointment(this.state.appointment._id).then(this.setState({appointment: null}))}>Cancel Appointment</button>
->>>>>>> frontend
       </div>
     )
   }
