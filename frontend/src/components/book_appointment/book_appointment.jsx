@@ -41,18 +41,18 @@ class AppointmentForm extends React.Component {
     
   }
 
-  componentWillReceiveProps(nextProps) {
-    // debugger
-    // if(nextProps.isValid) {
-    //   debugger
-    //   this.props.history.push(`appointments/${this.props.clientId}`)
-    // }
-    // debugger
-    // this.setState({errors: nextProps.errors})
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   // debugger
+  //   // if(nextProps.isValid) {
+  //   //   debugger
+  //   //   this.props.history.push(`appointments/${this.props.clientId}`)
+  //   // }
+  //   // debugger
+  //   // this.setState({errors: nextProps.errors})
+  // }
 
   componentWillUnmount() {
-    // this.props.removeErrors();
+    this.props.removeErrors();
   }
 
   async handleSubmit(e) {
@@ -66,7 +66,6 @@ class AppointmentForm extends React.Component {
         imageUrl: `/api/images/${result.imagePath}`
       }})
     }
-    // this.props.removeErrors()
     const appointment = Object.assign({}, this.state.appointment)
     this.props.createAppointment(appointment)
     .then(() => {
@@ -75,11 +74,6 @@ class AppointmentForm extends React.Component {
       }
       this.setState({errors: this.props.errors})
     })
-    // .then(() =>
-    // {
-    //   debugger
-    //   
-    // })
   }
 
   handleChange(field) {
