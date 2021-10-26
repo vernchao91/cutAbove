@@ -65,7 +65,7 @@ class StyleIndex extends React.Component {
                         accept="image/*"
                         />
                         <button className="profile-pic-btn" type="submit"> Upload/Change Style Images</button>
-                    </form>
+        </form>
         <ul className='style-list'> 
           {
             this.props.styles.map((style, idx) => (
