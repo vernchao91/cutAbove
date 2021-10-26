@@ -6,7 +6,7 @@ import MainPage from './main/main_page';
 import StylistProfileContainer from './stylist_profile/stylist_profile_container';
 import UserProfileContainer from './user_profile/user_profile_container'
 // import LoginButtons from './session/log_in_buttons';
-import BookAppointmentContainer from './book_appointment/book_appointment_container_form_form'
+import BookAppointmentContainer from './book_appointment/book_appointment_container_form'
 import AppointmentsIndex from './appointments/appointments_booked_container'
 import StylistsIndexContainer from './stylists_index/stylists_index_container'
 import Footer from '../components/footer/footer';

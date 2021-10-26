@@ -79,9 +79,10 @@ router.post(
           })
           newAppointment.save()
             .then(appointment => res.json(appointment))
+            .catch((err) => res.json(err))
         }
       })
-  }
+      }
 )
 
 router.patch(

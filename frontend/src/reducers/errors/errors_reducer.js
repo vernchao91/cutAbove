@@ -12,6 +12,5 @@ export default combineReducers({
   review: reviewErrorsReducer,
   appointment: appointmentErrorsReducer,
   // message: messageErrorsReducer,
-  
   session: sessionErrorsReducer
 });

@@ -29,7 +29,6 @@ class LoginForm extends React.Component {
   // }
 
   update(field) {
-
     return e => this.setState({
       [field]: e.currentTarget.value
     });
@@ -42,7 +41,6 @@ class LoginForm extends React.Component {
     else {
       this.setState({'stylist': true})
     }
-    console.log(this.state.stylist)
   }
 
   handleSubmit(e) {

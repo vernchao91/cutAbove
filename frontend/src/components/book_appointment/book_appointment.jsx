@@ -19,16 +19,17 @@ class AppointmentForm extends React.Component {
         message: '',
       },
       file: '',
+      errors: {}
     }
     
     this.appointmentTimes = [
-      '9:00 - 10:00', 
-      '10:00 - 11:00',
-      '11:00 - 12:00',
-      '1:00 - 2:00',
-      '2:00 - 3:00',
-      '3:00 - 4:00',
-      '4:00 - 5:00' ]
+      '9:00am - 10:00am', 
+      '10:00am - 11:00am',
+      '11:00am - 12:00pm',
+      '1:00pm - 2:00pm',
+      '2:00pm - 3:00pm',
+      '3:00pm - 4:00pm',
+      '4:00pm - 5:00pm' ]
       this.handleChange = this.handleChange.bind(this)
       this.handleSubmit = this.handleSubmit.bind(this)
       this.fileSelected = this.fileSelected.bind(this)
@@ -38,6 +39,20 @@ class AppointmentForm extends React.Component {
     this.props.fetchStylist(this.props.match.params.stylistId)
     this.props.fetchStylesFromStylist(this.props.match.params.stylistId)
     
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // debugger
+    // if(nextProps.isValid) {
+    //   debugger
+    //   this.props.history.push(`appointments/${this.props.clientId}`)
+    // }
+    // debugger
+    // this.setState({errors: nextProps.errors})
+  }
+
+  componentWillUnmount() {
+    // this.props.removeErrors();
   }
 
   async handleSubmit(e) {
@@ -51,31 +66,25 @@ class AppointmentForm extends React.Component {
         imageUrl: `/api/images/${result.imagePath}`
       }})
     }
+    this.props.removeErrors()
     const appointment = Object.assign({}, this.state.appointment)
-    console.log(this.state)
-    // debugger
     this.props.createAppointment(appointment)
-    .then(() => this.props.history.push(`/appointments/${this.state.appointment.clientId}`))
-    // debugger
-    // .then(() => {
-    //   this.setState({
-    //     appointment: {
-    //       clientId: this.props.user.id,
-    //       stylistId: this.props.match.params.stylistId,
-    //       imageUrl: '',
-    //       timeFrame: '',
-    //       style: '',
-    //     }
-    //   })
-    // }
-    // )
+    .then(() => {
+      if(!this.state.errors) {
+        debugger
+        this.props.history.push(`/appointments/${this.props.user._id}`)
+      }
+      debugger
+      this.setState({errors: this.props.errors})
+    })
+    // .then(() =>
+    // {
+    //   debugger
+    //   
+    // })
   }
 
   handleChange(field) {
-    console.log(this.state)
-    // if(field === 'pictureUrl') {
-    //   return e => {this.setState({pictureUrl: e.currentTarget.files[0]})}
-    // }
     return e => {this.setState({appointment: {
       ...this.state.appointment,
       [field]: e.currentTarget.value
@@ -104,7 +113,7 @@ class AppointmentForm extends React.Component {
 
 
   render() {
-    if(!this.props.stylist) return null 
+    if(!this.props.stylist || !this.props.styles) return null 
     var today = new Date()
 
     var dd = today.getDate()
@@ -117,15 +126,37 @@ class AppointmentForm extends React.Component {
       mm = '0' + mm
     }
     today = yyyy + '-' + mm + '-' + dd;
+
+    let timeFrameErrorLabel, 
+        dateErrorLabel, 
+        notAvailableErrorLabel
+         = <></>;
+
+        let errorsArr = Object.values(this.state.errors)
+        if (errorsArr.length) {
+
+          errorsArr.forEach(error => {
+              if (error === 'Date field required') {
+              dateErrorLabel = <label className="error-message">Please select a date</label>
+              }
+              if (error === 'Time frame field required') {
+                  timeFrameErrorLabel = <label className="error-message">Please select a time frame</label>
+              }
+
+              if (error === 'Please book another time frame') {
+                  notAvailableErrorLabel = <label className="error-message">This stylist is booked for {this.state.appointment.date} at {this.state.appointment.timeFrame}.</label>
+              }
+          })
+      }
     return (
       <div>
         <form className = "appointment-form">
           <h3 className = "appointment-form-title">Book your appointment with {this.props.stylist.handle}</h3>
-          
+          {notAvailableErrorLabel}
           <label className = "appointment-form-date">Enter the date for your appointment
             <input type="date" className="appointment-input-date" min = {today} onChange = {this.handleChange('date')}/>
+            {dateErrorLabel}
           </label>
-          
           <label className = "appointment-form-time dropdown">Time
             <select value = {this.state.appointment.timeFrame} className = "appointment-input-timeFrame dropdown" onChange = {this.handleChange('timeFrame')}>
             <option value="" disabled defaultValue className = "appointment-time-option">Select a time frame</option>
@@ -133,13 +164,13 @@ class AppointmentForm extends React.Component {
               <option className = "appoinment-time-option" value = {time} key = {i}>{time}</option>
             )}
             </select>
+            {timeFrameErrorLabel}
             </label>
-            
             <label>Style
             <select value = {this.state.appointment.style} className = "appointment-input-style dropdown" text-align-last = "center" onChange = {this.handleChange('style')}>
             <option value="" disabled defaultValue className = "appoinment-style-option">Select the style you want</option>
             {this.props.styles.map((style, i) =>
-              <option className = "appoinment-style-option" value = {style} key = {i}>{style}</option>
+              <option className = "appointment-style-option" value = {style._id} key = {i}>{style._id}</option>
             )}
             </select>
             </label>
