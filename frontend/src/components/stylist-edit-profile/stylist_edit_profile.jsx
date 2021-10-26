@@ -9,8 +9,8 @@ class StylistEditProfile extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            imageUrl: "",
-            id: this.props.match.params.userId
+            imageUrl: this.props.user.imageUrl,
+            id: this.props.user.id
         }
         this.handleImageSubmit = this.handleImageSubmit.bind(this);
         this.fileSelected = this.fileSelected.bind(this);
@@ -62,7 +62,7 @@ class StylistEditProfile extends React.Component {
         return (
             <div className="user-profile-page">
                 <div className="user-profile-container">
-                    <img className= "profile-pic" src={this.props.user.imageUrl} alt="Profile Picture"/>
+                    <img className= "profile-pic" src={this.state.imageUrl} alt="Profile Picture"/>
                     <form onSubmit={this.handleImageSubmit}>
                         <input
                         type="file"
@@ -84,7 +84,7 @@ class StylistEditProfile extends React.Component {
                             <li>Name: {this.props.user.firstName} {this.props.user.lastName}</li>
                             <li>Handle: {this.props.user.handle}</li>
                             <li>Email: {this.props.user.email}</li>
-                            <li></li>
+                            <li><Link to={`/stylists/${this.props.user.id}`}>Profile Preview</Link></li>
                         </ul>
                 </div>
 

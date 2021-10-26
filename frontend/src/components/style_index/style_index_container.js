@@ -3,7 +3,7 @@ import { fetchStylesFromStylist, deleteStyle } from '../../actions/style_actions
 import StyleIndex from './style_index';
 
 const mapStateToProps = (state) => ({
-  stylist: state.session.user,
+  user: state.session.user,
   styles: Object.values(state.entities.styles)
 })
 

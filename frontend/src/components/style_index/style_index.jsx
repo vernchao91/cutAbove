@@ -5,30 +5,20 @@ class StyleIndex extends React.Component {
   constructor(props) {
     super(props)
 
-    this.props.fetchStylesFromStylist(this.props.stylist.id)
-    console.log(this.props)
+    this.props.fetchStylesFromStylist(this.props.user.id)
   }
-
-  // componentDidMount() {
-  //   if (!this.props.styles) {
-  //     this.props.fetchStylesFromStylist(this.props.stylist.id)
-  //   } else {
-  //     this.props.fetchStylesFromStylist(this.props.stylist.id)
-  //   }
-  //   console.log(this.props)
-  // }
 
   render() {
     if (!this.props.styles) {
       return null 
     } else  {
-      console.log(this.props)
       return (
-        <ul> HERE IT IS
+        <ul className='style-list'> 
           {
             this.props.styles.map( (style, idx) => (
               <StyleIndexItem
               key = {idx}
+              user = {this.props.user}
               style = { style }
               deleteStyle = {this.props.deleteStyle}
                />

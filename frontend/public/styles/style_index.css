@@ -1,0 +1,44 @@
+.style-list {
+  /* border: solid black; */
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.style-index-item {
+  /* border: solid black; */
+  width: 25%;
+  padding: 10px;
+}
+
+.style-photo {
+  border: solid black;
+  border-radius: 3px;
+  height: 200px;
+  width: 100%;
+}
+
+.style-index-item p {
+  padding: 5px;
+}
+
+.style-index-item button {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  background-color: rgb(202, 17, 17);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.style-index-item button:hover {
+  background-color: rgb(148, 11, 11);
+  cursor: pointer;
+}
+
+.style-index-item button:active {
+  background-color: rgb(173, 14, 14);  
+}
