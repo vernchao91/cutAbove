@@ -20,14 +20,14 @@ function Footer() {
 
                 <div className="footer-support">
                     <h3>Support</h3>
-                    <a href="" target="_blank"></a>
+                    {/* <a href="" target="_blank"></a> */}
                     <ul>Help & Support</ul>
                     <ul>Trust & Safety</ul>
                 </div>
 
                 <div className="footer-connect">
                     <h3>Connect</h3>
-                    <a href="" target="_blank"></a>
+                    {/* <a href="" target="_blank"></a> */}
                     <ul>Help Center</ul>
                     <ul>contact@cutabove.com</ul>
                     <p>(if you are a customer seeking support)</p>
@@ -35,13 +35,13 @@ function Footer() {
 
                 <div className="footer-technologies">
                     <h3>Technologies</h3>
-                    <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>
-                    <a href="https://mongoosejs.com/" target="_blank">Mongoose</a>
-                    <a href="https://expressjs.com/" target="_blank">Express</a>
-                    <a href="https://reactjs.org/" target="_blank">React</a>
-                    <a href="https://redux.js.org/" target="_blank">Redux</a>
-                    <a href="https://nodejs.org/en/" target="_blank">Node</a>
-                    <a href="https://aws.amazon.com/" target="_blank">AWS</a>
+                    <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer noopener">MongoDB</a>
+                    <a href="https://mongoosejs.com/" target="_blank" rel="noreferrer noopener">Mongoose</a>
+                    <a href="https://expressjs.com/" target="_blank" rel="noreferrer noopener">Express</a>
+                    <a href="https://reactjs.org/" target="_blank" rel="noreferrer noopener">React</a>
+                    <a href="https://redux.js.org/" target="_blank" rel="noreferrer noopener">Redux</a>
+                    <a href="https://nodejs.org/en/" target="_blank" rel="noreferrer noopener">Node</a>
+                    <a href="https://aws.amazon.com/" target="_blank" rel="noreferrer noopener">AWS</a>
                 </div>
 
                 <div className="footer-meet-the-team">
