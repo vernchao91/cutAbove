@@ -51,7 +51,8 @@ router.post(
       styleType: req.body.styleType,
       description: req.body.description,
       price: req.body.price,
-      stylistId: req.body.stylistId
+      stylistId: req.body.stylistId,
+      imageUrl: req.body.imageUrl
     });
     newStyle.save()
       .then(style => res.json(style));
