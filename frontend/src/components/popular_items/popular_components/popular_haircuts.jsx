@@ -36,32 +36,40 @@ class PopularItems extends React.Component {
 
     renderSixRandomStyles() {
         let haircutArray = this.haircutArray()
-        
+        let newArr = []
+        let randomNum = this.getRandomInt(haircutArray.length)
+        for(let i = 0; newArr.length < 6; i++) {
+            if(!newArr.includes(haircutArray[randomNum])) {
+                newArr.push(haircutArray[randomNum])
+            }
+        }
+        if(!newArr[0] || !newArr[1] || !newArr[2] || !newArr[3] || !newArr[4] || !newArr[5]) return null
         return (
             <div className="style-item">
                 <div className="style-item-picture">
-                    <img src={} alt=""/>
+                    <img src={newArr[0].imageUrl} alt=""/>
                     <div className="style-item-name">
-
+                        {newArr[0].description}
                     </div>
                 </div>
             </div>
+            
         )
     }
 
     render() {
         if (!this.props.styles) return null
 
-
         return (
-                <div className = "style-item-container">
-               <div className = "style-item">
+            <div className = "style-item-container">
+                {this.renderSixRandomStyles()}
+               {/* <div className = "style-item">
                 <div className = "style-item-picture">
                     <img src={baldFade}/>
                 </div>
                 <div className = "style-item-name">Medium Bald Fade</div>
-               </div>
-               <div className = "style-item">
+               </div> */}
+               {/* <div className = "style-item">
                 <div className = "style-item-picture">                    
                     <img src={coolFlowTapered}/>
                 </div>
@@ -90,8 +98,8 @@ class PopularItems extends React.Component {
                     <img src={undercut}/>
                 </div>
                 <div className = "style-item-name">Undercut<br/>Long Fringe</div>
-               </div>
-               </div>
+               </div> */}
+            </div>
         )
     }
 }
