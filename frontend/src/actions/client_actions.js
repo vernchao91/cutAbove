@@ -11,3 +11,10 @@ export const fetchClient = (clientId) => (dispatch) => (
   ClientApiUtil.fetchClient(clientId)
     .then(client => dispatch(receiveClient(client)))
 )
+
+export const updateClient = client => dispatch => {
+  return ClientApiUtil.updateClient(client)
+    .then(
+      client => dispatch(receiveClient(client))
+    )
+}

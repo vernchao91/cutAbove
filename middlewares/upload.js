@@ -10,7 +10,6 @@ const storage = multer.diskStorage({
     cb(null, 'cutabove' + '-' + Date.now() + path.extname(file.originalname))
   }
 })
-
 // add validation later
 const filerFilter = (req, file, cb) => {
   cb(null, true)

@@ -1,25 +1,60 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-// import { Link } from 'react-router-dom'
+import { uploadImage } from "../../actions/image_action";
 import ReviewIndexContainer from '../reviews/review_index_container'
-import demoProfilePic from '../popular_items/popular_components/hairstyles/3-brunette-shag-for-long-hair-CPusXsXjjgl.jpeg'
 
 class UserProfile extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            imageUrl: "",
+            id: this.props.match.params.userId
+        }
+        this.handleImageSubmit = this.handleImageSubmit.bind(this);
+        this.fileSelected = this.fileSelected.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchReviewsFromUser(this.props.match.params.userId)
+        this.props.fetchClient(this.props.match.params.userId)
+            // .then(this.setState({user: this.props.user, imageUrl: this.props.user.imageUrl}))
+    }
+
+    async handleImageSubmit(e) {
+        e.preventDefault();
+        const {file, description} = this.state;
+        let result = null;
+    
+        if (file) {
+          result = await uploadImage({image: file, description});
+          this.setState( {imageUrl: `/api/images/${result.imagePath}`} )
+        //   console.log("result.imagepath" + result.imagePath)
+          this.state.imageUrl = `/api/images/${result.imagePath}`
+          const stateUser = Object.assign({}, this.state)
+          this.props.updateClient(stateUser)
+        }
+      }
+
+    fileSelected(e) {
+        e.preventDefault();
+        const file = e.target.files[0];
+            this.setState( {file: file} );
     }
 
     render() {
+        if (this.props.user === undefined) return null
         return (
             <div className="user-profile-page">
                 <div className="user-profile-container">
-                    <img className= "profile-pic" src={demoProfilePic} />
-                    <button className="profile-pic-btn"> Upload/Change Profile Image</button>
+                    <img className= "profile-pic" src={this.props.user.imageUrl} alt=""/>
+                    <form onSubmit={this.handleImageSubmit}>
+                        <input
+                        type="file"
+                        onChange={this.fileSelected}
+                        accept="image/*"
+                        />
+                        <button className="profile-pic-btn" type="submit"> Upload/Change Profile Image</button>
+                    </form>
                     <div className="stylist-info">
                         <ul>
                             <li>Name: {this.props.user.firstName} {this.props.user.lastName}</li>

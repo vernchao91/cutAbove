@@ -3,10 +3,10 @@ import AppointmentsBooked from './appointments';
 import { fetchAppointmentsFromUser, 
         fetchAppointmentsFromStylist,
         deleteAppointment } from '../../actions/appointment_actions';
-import { clearStylists, fetchStylist } from '../../actions/stylist_actions';
-import {fetchClient} from '../../actions/client_actions'
+import { fetchStylist } from '../../actions/stylist_actions';
+import { fetchClient } from '../../actions/client_actions'
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   user: state.session.user,
   appointments: Object.values(state.entities.appointments)
 })
@@ -14,7 +14,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchStylist: (stylistId) => dispatch(fetchStylist(stylistId)),
   fetchClient: () => dispatch(fetchClient()),
-  clearStylists: () =>  dispatch(clearStylists),
   fetchAppointmentsFromStylist: (stylistId) => dispatch(fetchAppointmentsFromStylist(stylistId)),
   fetchAppointmentsFromUser: (clientId) => dispatch(fetchAppointmentsFromUser(clientId)),
   deleteAppointment: (appointmentId) => dispatch(deleteAppointment(appointmentId)),

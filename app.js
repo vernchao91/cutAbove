@@ -10,7 +10,7 @@ const appointments = require("./routes/api/appointments")
 const images = require("./routes/api/images")
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const fs = require("fs")
+const fs = require("fs");
 require('./config/passport')(passport);
 
 const db = require('./config/keys').mongoURI;

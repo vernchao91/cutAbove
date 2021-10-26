@@ -1,0 +1,92 @@
+.team-link {
+  padding: 10px;
+}
+
+.team-page-container {
+  text-align: center;
+  background-color: #dededf;
+  padding: 5rem 10%;
+  width: 100vw;
+}
+
+.team-page-container > h1 {
+  display: block;
+  font-size: 50px;
+  line-height: 70px;
+  padding: 20px 0 0;
+  color: #37719e;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.team-page-container > .members-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-evenly;
+  padding: 30px 0px;
+  margin: 1em 1em;
+}
+
+.members-container > .member-card {
+  border-radius: 10px;
+  padding: 40px 20px 50px;
+  height: 330px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 250ms;
+}
+
+.members-container > .member-card > h2 {
+  font-family: "Soleil", Helvetica, Arial,sans-serif;
+  font-size: 24px;
+}
+
+.members-container > .member-card > .social-links {
+  color:rgba(177,191,206,0.5);
+}
+
+.members-container > .member-card > .social-links {
+  transition: .2s color ease-in-out;
+}
+
+.members-container > .member-card > .image-cropper {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  border-radius: 5%;
+  align-self: center;
+}
+
+
+.member-pic {
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.members-container > .member-card:hover {
+  --translate-y: -3px;
+  transform: scale(1.15);
+}
+
+.members-container > * {
+  margin: 0.7em 0.5em;
+}
+
+.social-links > a > .fontAwesome {
+  font-size: 2.5rem;
+
+}
+
+.social-links > a {
+  padding: 5px;
+  color: rgb(196, 196, 196);
+}
+
+.social-links > a > .fontAwesome:hover {
+  color: #000000;
+}

@@ -60,7 +60,8 @@ router.post("/register", (req, res) => {
         handle: req.body.handle,
         email: req.body.email,
         password: req.body.password,
-        profileType: req.body.profileType
+        profileType: req.body.profileType,
+        imageUrl: "/api/images/cutabove-1634449093367.png"
       });
 
       bcrypt.genSalt(10, (err, salt) => {
@@ -105,7 +106,7 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, handle: user.handle };
+        const payload = { imageUrl: user.imageUrl, id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, handle: user.handle };
 
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
           res.json({
@@ -121,5 +122,15 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.patch(
+  "/:id",
+  // passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+
+    User.findByIdAndUpdate((req.params.id), req.body, { new: true })
+      .then(user => res.json(user))
+      .catch(err => res.status(404).json({ nouserfound: "No user found by that Id" }))
+  }
+)
 
 module.exports = router;
