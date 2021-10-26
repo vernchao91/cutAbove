@@ -8,7 +8,8 @@ import StylistProfile from './stylist_profile'
 const mapStateToProps = (state, ownProps) => {
     return {
         stylist: state.entities.stylists,
-        reviews: state.entities.reviews
+        reviews: state.entities.reviews,
+        styles: state.entities.styles
     }
 }
 
