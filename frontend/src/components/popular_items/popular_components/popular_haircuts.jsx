@@ -7,6 +7,22 @@ import sidePart from './haircut_images/side-part.jpg'
 import undercut from './haircut_images/undercut-long-fringe.jpg'
 
 class PopularItems extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+
+        }
+    }
+
+    componentDidMount() {
+        this.props.fetchStyles();
+    }
+
+
+    getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
     render() {
         return (
                 <div className = "style-item-container">
@@ -14,7 +30,7 @@ class PopularItems extends React.Component {
                 <div className = "style-item-picture">
                     <img src={baldFade}/>
                 </div>
-                <div className = "style-item-name">Medium<br/>Bald Fade</div>
+                <div className = "style-item-name">Medium Bald Fade</div>
                </div>
                <div className = "style-item">
                 <div className = "style-item-picture">                    

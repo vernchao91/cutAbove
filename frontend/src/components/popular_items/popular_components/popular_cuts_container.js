@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import PopularHaircuts from "./popular_haircuts"
 import { fetchStyles } from "../../../actions/style_actions"
 
-// const mapStateToProps = state => {
-//   return {
-
-//   }
-// }
+const mapStateToProps = state => {
+  return {
+    styles: Object.values(state.entities.styles)
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -14,4 +14,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(PopularHaircuts);
+export default connect(mapStateToProps, mapDispatchToProps)(PopularHaircuts);

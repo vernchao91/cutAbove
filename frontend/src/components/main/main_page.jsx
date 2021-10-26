@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FeaturedStylist from '../featured_stylist/featured_stylist_container';
-import PopularHaircuts from '../popular_items/popular_components/popular_haircuts'
+import PopularHaircuts from '../popular_items/popular_components/popular_cuts_container'
 import PopularHairstyles from '../popular_items/popular_components/popular_hairstyles'
 
 class MainPage extends React.Component {
