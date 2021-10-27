@@ -10,11 +10,11 @@ class StyleIndex extends React.Component {
       stylistId: this.props.user.id,
       description: "",
       styleType: "",
-      // styles: this.props.styles
     }
 
         this.handleStyleSubmit = this.handleStyleSubmit.bind(this);
         this.fileSelected = this.fileSelected.bind(this);
+        this.renderForm = this.renderForm.bind(this);
   }
 
   componentDidMount() {
@@ -40,14 +40,39 @@ class StyleIndex extends React.Component {
             const stateStyle = Object.assign({}, this.state)
             this.props.createStyle(stateStyle)
               .then(() => (this.props.fetchStylesFromStylist(this.props.user.id)))
+              .then(() => this.setState({
+                imageUrl: "",
+                stylistId: this.props.user.id,
+                description: "",
+                styleType: "",
+              }))
         }
     }
 
-    update(field) {
-        return e => this.setState({
-            [field]: e.currentTarget.value
-        })
+  renderForm() {
+    if (this.props.styles.length < 4) {
+      return (
+        <form className='style-form' onSubmit={this.handleStyleSubmit}>
+          {console.log(this.state)}
+          <input type="text" placeholder="describe your style" value={this.state.description} onChange={this.update('description')}/>
+          <input type="text" placeholder="haircut or hairstyle?" value={this.state.styleType} onChange={this.update('styleType')}/>
+        <label className='stylist-style-img-select'>
+          <input type="file" onChange={this.fileSelected} accept="image/*"/>
+          Choose a Reference Photo
+        </label>
+          <button className="profile-pic-btn" type="submit"> Upload/Change Style Images</button>
+        </form>
+      )
+    } else {
+      return null
     }
+  }
+
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    })
+  }
 
   render() {
     if (!this.props.styles) {
@@ -55,16 +80,7 @@ class StyleIndex extends React.Component {
     } else  {
       return (
         <div>
-        <form onSubmit={this.handleStyleSubmit}>
-                        <input type="text" placeholder="describe your style" value={this.state.description} onChange={this.update('description')}/>
-                        <input type="text" placeholder="haircut or hairstyle?" value={this.state.styleType} onChange={this.update('styleType')}/>
-                        <input
-                        type="file"
-                        onChange={this.fileSelected}
-                        accept="image/*"
-                        />
-                        <button className="profile-pic-btn" type="submit"> Upload/Change Style Images</button>
-        </form>
+          {this.renderForm()}
         <ul className='style-list'> 
           {
             this.props.styles.map((style, idx) => (

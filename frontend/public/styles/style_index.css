@@ -55,3 +55,76 @@
 .stylist-info ul {
   margin-bottom: 20px;
 }
+
+.style-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.style-form input {
+  padding: 10px;
+  margin-top: 10px;
+}
+.stylist-style-img-select input[type=file] {
+  display: none;
+}
+
+.stylist-style-img-select {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  font-weight: 700;
+  text-align: center;
+  background-color: rgb(223, 237, 247);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.stylist-style-img-select:hover {
+  cursor: pointer;
+}
+
+.upload-style-button {
+  background-color: #7ab5c5;
+}
+
+.select-profile-pic {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  font-weight: 700;
+  text-align: center;
+  background-color: rgb(223, 237, 247);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.select-profile-pic input[type=file] {
+  display: none;
+}
+
+.testing-this {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stylist-profile-page {
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+}
+
+.stylist-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.testing-this form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

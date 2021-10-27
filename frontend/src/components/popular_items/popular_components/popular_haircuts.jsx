@@ -14,9 +14,9 @@ class PopularItems extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.props.fetchStyles()
-    }
+    // componentDidMount() {
+    //     this.props.fetchStyles()
+    // }
 
     haircutArray() {
         if (!this.props.styles) return null
