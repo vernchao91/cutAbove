@@ -1,10 +1,10 @@
 import React from 'react'
-// import baldFade from './haircut_images/bald-fade.jpg'
-// import coolFlowTapered from './haircut_images/cool-flow-tapered.jpg'
-// import lowFade from './haircut_images/low-fade.jpg'
-// import mediumLengthLowFade from './haircut_images/medium-length-low-fade.jpg'
-// import sidePart from './haircut_images/side-part.jpg'
-// import undercut from './haircut_images/undercut-long-fringe.jpg'
+import baldFade from './haircut_images/bald-fade.jpg'
+import coolFlowTapered from './haircut_images/cool-flow-tapered.jpg'
+import lowFade from './haircut_images/low-fade.jpg'
+import mediumLengthLowFade from './haircut_images/medium-length-low-fade.jpg'
+import sidePart from './haircut_images/side-part.jpg'
+import undercut from './haircut_images/undercut-long-fringe.jpg'
 
 class PopularItems extends React.Component {
     constructor(props) {
@@ -66,8 +66,8 @@ class PopularItems extends React.Component {
 
         return (
             <div className = "style-item-container">
-                {this.renderSixRandomStyles()}
-               {/* <div className = "style-item">
+                {/* {this.renderSixRandomStyles()} */}
+               <div className = "style-item">
                 <div className = "style-item-picture">
                     <img src={baldFade}/>
                 </div>
@@ -102,7 +102,7 @@ class PopularItems extends React.Component {
                     <img src={undercut}/>
                 </div>
                 <div className = "style-item-name">Undercut<br/>Long Fringe</div>
-               </div> */}
+               </div>
             </div>
         )
     }
