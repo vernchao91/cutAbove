@@ -74,7 +74,6 @@ class AppointmentForm extends React.Component {
   }
 
   fileSelected(e) {
-    console.log(this.state)
     e.preventDefault();
     const file = e.target.files[0];
 		this.setState( {file: file} );

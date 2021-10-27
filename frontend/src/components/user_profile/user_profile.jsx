@@ -28,7 +28,6 @@ class UserProfile extends React.Component {
         if (file) {
           result = await uploadImage({image: file, description});
           this.setState( {imageUrl: `/api/images/${result.imagePath}`} )
-        //   console.log("result.imagepath" + result.imagePath)
           this.state.imageUrl = `/api/images/${result.imagePath}`
           const stateUser = Object.assign({}, this.state)
           this.props.updateClient(stateUser)

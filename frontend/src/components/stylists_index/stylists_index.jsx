@@ -8,17 +8,11 @@ class StylistsIndex extends React.Component {
   constructor(props){
     super(props)
     this.state = {search: ''}
-    // this.renderIndex = this.renderIndex.bind(this)
     this.updateSearch = this.updateSearch.bind(this)
   }
 
   componentDidMount() {
     this.props.fetchStylists()
-    // console.log(this.props)
-  }
-
-  componentWillUnmount() {
-    // this.props.stylists = Object.assign({})
   }
 
   updateSearch(e) {
@@ -27,7 +21,6 @@ class StylistsIndex extends React.Component {
 
   render() {
     const searchTerm = this.state.search
-    // debugger
     if (!this.props.stylists) {
       return null
     } else {

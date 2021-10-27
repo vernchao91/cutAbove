@@ -38,7 +38,6 @@ class StyleIndex extends React.Component {
             this.setState ({imageUrl: `/api/images/${result.imagePath}`})
             // this.state.imageUrl = `/api/images/${result.imagePath}`
             const stateStyle = Object.assign({}, this.state)
-            console.log(stateStyle)
             this.props.createStyle(stateStyle)
               .then(() => (this.props.fetchStylesFromStylist(this.props.user.id)))
         }

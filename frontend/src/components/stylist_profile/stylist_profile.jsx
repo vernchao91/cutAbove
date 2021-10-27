@@ -26,8 +26,6 @@ class StylistProfile extends React.Component {
         this.props.fetchStylist(this.props.match.params.stylistId)
         this.props.fetchReviewsFromStylist(this.props.match.params.stylistId)
         this.props.fetchStylesFromStylist(this.props.match.params.stylistId)
-        // console.log(this.props)
-        // this.props.fetchStylists()
     }
 
     sessionCheck() {
