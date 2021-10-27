@@ -45,6 +45,14 @@ export const fetchStylesFromStylist = stylistId => dispatch => {
     )
 } 
 
+export const fetchStyles = () => dispatch => {
+  return StyleApiUtil.fetchStyles()
+    .then(
+      style => dispatch(receiveStyles(style)),
+      err => dispatch(receiveStyleErrors(err.response.data))
+    )
+}
+
 export const fetchStyle = styleId => dispatch => {
   return StyleApiUtil.fetchStyle(styleId)
     .then(
