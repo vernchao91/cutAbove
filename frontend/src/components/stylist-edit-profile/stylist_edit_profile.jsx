@@ -1,7 +1,6 @@
 import React from 'react'
 import { uploadImage } from "../../actions/image_action";
 import { Link } from 'react-router-dom'
-import ReviewIndexContainer from '../reviews/review_index_container'
 import StyleIndexContainer from '../style_index/style_index_container';
 
 class StylistEditProfile extends React.Component {
@@ -43,17 +42,18 @@ class StylistEditProfile extends React.Component {
     render() {
         if (this.props.user === undefined) return null
         return (
-            <div className="user-profile-page">
-                <div className="user-profile-container">
+            <div className="stylist-profile-page">
+                <div className="stylist-profile-container">
+                  <div className='testing-this'>
                     <img className= "stylist-profile-pic" src={this.state.imageUrl} alt="Profile Picture"/>
                     <form onSubmit={this.handleImageSubmit}>
-                        <input
-                        type="file"
-                        onChange={this.fileSelected}
-                        accept="image/*"
-                        />
-                        <button className="profile-pic-btn" type="submit"> Upload/Change Profile Image</button>
+                      <label className="select-profile-pic">
+                        <input type="file" onChange={this.fileSelected} accept="image/*"/>
+                        Select a Profile Picture
+                      </label>
+                        <button className="stylist-profile-pic-btn" type="submit"> Upload/Change Profile Image</button>
                     </form>
+                  </div>
                     <div className="stylist-info">
                         <ul>
                             <li>Name: {this.props.user.firstName} {this.props.user.lastName}</li>
