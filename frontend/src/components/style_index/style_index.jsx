@@ -53,7 +53,6 @@ class StyleIndex extends React.Component {
     if (this.props.styles.length < 4) {
       return (
         <form className='style-form' onSubmit={this.handleStyleSubmit}>
-          {console.log(this.state)}
           <input type="text" placeholder="describe your style" value={this.state.description} onChange={this.update('description')}/>
           <input type="text" placeholder="haircut or hairstyle?" value={this.state.styleType} onChange={this.update('styleType')}/>
         <label className='stylist-style-img-select'>
