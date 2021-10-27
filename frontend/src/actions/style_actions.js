@@ -36,6 +36,11 @@ export const removeErrors = () => {
   }
 }
 
+export const fetchAllStyles = () => dispatch => {
+  return StyleApiUtil.fetchStyles()
+  .then(styles => dispatch(receiveStyles(styles)))
+}
+
 // fetches all styles the stylist has created
 export const fetchStylesFromStylist = stylistId => dispatch => {
   return StyleApiUtil.fetchStylesFromStylist(stylistId)
@@ -44,6 +49,14 @@ export const fetchStylesFromStylist = stylistId => dispatch => {
       err => dispatch(receiveStyleErrors(err.response.data))
     )
 } 
+
+export const fetchStyles = () => dispatch => {
+  return StyleApiUtil.fetchStyles()
+    .then(
+      style => dispatch(receiveStyles(style)),
+      err => dispatch(receiveStyleErrors(err.response.data))
+    )
+}
 
 export const fetchStyle = styleId => dispatch => {
   return StyleApiUtil.fetchStyle(styleId)

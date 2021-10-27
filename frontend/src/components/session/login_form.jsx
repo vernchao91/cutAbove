@@ -24,10 +24,6 @@ class LoginForm extends React.Component {
     this.setState({errors: nextProps.errors})
   }
 
-  // componentWillUnmount() {
-  //   this.props.clearErrors();
-  // }
-
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -45,7 +41,6 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.setState({errors : {}})
     let user = {
       email: this.state.email,
       password: this.state.password
@@ -111,7 +106,6 @@ class LoginForm extends React.Component {
         <>
         <div onClick={this.props.closeModal} className="close-x-left">X</div>
         <div className='session-form login'>
-
         <form onSubmit={this.handleSubmit}>
         <h3 className='session-form-title'>
         <br />
