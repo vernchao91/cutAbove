@@ -1,7 +1,8 @@
 import {
   RECEIVE_STYLISTS,
   RECEIVE_STYLIST,
-  REMOVE_STYLIST
+  REMOVE_STYLIST,
+  CLEAR_STYLISTS
 } from "../../actions/stylist_actions";
 
 const stylistsReducer = (oldState = {}, action) => {
@@ -18,7 +19,8 @@ const stylistsReducer = (oldState = {}, action) => {
     case REMOVE_STYLIST:
       delete newState[action.stylistId]
       return newState
-
+    case CLEAR_STYLISTS:
+      return {}
     default:
       return oldState
   }

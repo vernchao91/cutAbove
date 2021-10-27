@@ -13,7 +13,7 @@ import style5 from './stylist_hairstyles/download-1.jpg'
 import style6 from './stylist_hairstyles/download.jpg'
 import style7 from './stylist_hairstyles/Hairstyles-for-Women-Over-50-With-Highlights-37.jpg'
 import style8 from './stylist_hairstyles/lob-cut-with-copper-highlights-500x500.jpg'
-import karrie from './featured-stylist.jpg'
+import karrie from './featured-stylist.jpg';
 
 class StylistProfile extends React.Component {
 

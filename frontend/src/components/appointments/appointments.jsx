@@ -1,5 +1,6 @@
 import React from 'react';
 import AppointmentItemContainer from './appointment_item_container';
+import AppointmentItem from './appointment_item';
 
 class AppointmentsBooked extends React.Component{
   constructor(props){
@@ -24,6 +25,7 @@ class AppointmentsBooked extends React.Component{
   }
 
   render(){
+    // if (this.props.appointments == null) return null
     return (
       <div className='appointment-list-container'> 
         <div className='appointment-list'>

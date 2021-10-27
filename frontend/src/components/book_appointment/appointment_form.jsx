@@ -38,18 +38,8 @@ class AppointmentForm extends React.Component {
   componentDidMount() {
     this.props.fetchStylist(this.props.match.params.stylistId)
     this.props.fetchStylesFromStylist(this.props.match.params.stylistId)
-    
+    // this.props.fetchStyles()
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   // debugger
-  //   // if(nextProps.isValid) {
-  //   //   debugger
-  //   //   this.props.history.push(`appointments/${this.props.clientId}`)
-  //   // }
-  //   // debugger
-  //   // this.setState({errors: nextProps.errors})
-  // }
 
   componentWillUnmount() {
     this.props.removeErrors();
@@ -105,7 +95,7 @@ class AppointmentForm extends React.Component {
 
 
   render() {
-    if(!this.props.stylist || !this.props.styles) return null 
+    if(!this.props.stylist && !this.props.styles) return null 
     var today = new Date()
 
     var dd = today.getDate()
@@ -140,6 +130,7 @@ class AppointmentForm extends React.Component {
               }
           })
       }
+
     return (
       <div>
         <form className = "appointment-form">
@@ -153,16 +144,16 @@ class AppointmentForm extends React.Component {
             <select value = {this.state.appointment.timeFrame} className = "appointment-input-timeFrame dropdown" onChange = {this.handleChange('timeFrame')}>
             <option value="" disabled defaultValue className = "appointment-time-option">Select a time frame</option>
             {this.appointmentTimes.map((time, i) =>
-              <option className = "appoinment-time-option" value = {time} key = {i}>{time}</option>
+              <option className = "appointment-time-option" value = {time} key = {i}>{time}</option>
             )}
             </select>
             {timeFrameErrorLabel}
             </label>
             <label>Style
             <select value = {this.state.appointment.style} className = "appointment-input-style dropdown" text-align-last = "center" onChange = {this.handleChange('style')}>
-            <option value="" disabled defaultValue className = "appoinment-style-option">Select the style you want</option>
+            <option value="" disabled defaultValue className = "appointment-style-option">Select the style you want</option>
             {this.props.styles.map((style, i) =>
-              <option className = "appointment-style-option" value = {style._id} key = {i}>{style._id}</option>
+              <option className = "appointment-style-option" value = {style.description} key = {i}>{style.description}</option>
             )}
             </select>
             </label>

@@ -51,7 +51,6 @@ class ReviewForm extends React.Component {
       }
 
     CustomRatingBar() {
-        // console.log(ratingValue)
         return(
             <div>
                 {[...Array(5)].map((star, i) =>

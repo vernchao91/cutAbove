@@ -36,6 +36,11 @@ export const removeErrors = () => {
   }
 }
 
+export const fetchAllStyles = () => dispatch => {
+  return StyleApiUtil.fetchStyles()
+  .then(styles => dispatch(receiveStyles(styles)))
+}
+
 // fetches all styles the stylist has created
 export const fetchStylesFromStylist = stylistId => dispatch => {
   return StyleApiUtil.fetchStylesFromStylist(stylistId)
