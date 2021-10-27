@@ -37,8 +37,8 @@ class AppointmentForm extends React.Component {
 
   componentDidMount() {
     this.props.fetchStylist(this.props.match.params.stylistId)
-    // this.props.fetchStylesFromStylist(this.props.match.params.stylistId)
-    this.props.fetchStyles()
+    this.props.fetchStylesFromStylist(this.props.match.params.stylistId)
+    // this.props.fetchStyles()
   }
 
   componentWillUnmount() {
@@ -151,7 +151,7 @@ class AppointmentForm extends React.Component {
             </label>
             <label>Style
             <select value = {this.state.appointment.style} className = "appointment-input-style dropdown" text-align-last = "center" onChange = {this.handleChange('style')}>
-            <option value="" disabled defaultValue className = "appoinment-style-option">Select the style you want</option>
+            <option value="" disabled defaultValue className = "appointment-style-option">Select the style you want</option>
             {this.props.styles.map((style, i) =>
               <option className = "appointment-style-option" value = {style.description} key = {i}>{style.description}</option>
             )}
