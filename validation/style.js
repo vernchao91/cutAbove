@@ -15,7 +15,7 @@ module.exports = function validateStyle(data) {
   };
 
   if (Validator.isEmpty(data.description)) {
-    errors.description = "Descripion field required"
+    errors.description = "Description field required"
   };
 
   return {

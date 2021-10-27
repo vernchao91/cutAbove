@@ -2,7 +2,8 @@ import * as StylistApiUtil from "../util/stylist_api_util";
 
 export const RECEIVE_STYLISTS = "RECEIVE_STYLISTS";
 export const RECEIVE_STYLIST = "RECEIVE_STYLIST";
-export const REMOVE_STYLIST = "REMOVE_STYLIST";
+export const REMOVE_STYLIST = "REMOVE_STYLIST"
+export const CLEAR_STYLISTS = "CLEAR_STYLISTS";
 export const RECEIVE_STYLIST_ERRORS = "RECEIVE_STYLIST_ERRORS";
 export const REMOVE_ERRORS = "REMOVE_ERRORS";
 
@@ -18,6 +19,13 @@ export const receiveStylist = stylist => {
     stylist
   }
 }
+
+export const clearStylists = () => {
+  return {
+    type: CLEAR_STYLISTS
+  }
+}
+
 export const receiveStylistErrors = errors => {
   return {
     type: RECEIVE_STYLIST_ERRORS,
@@ -40,6 +48,14 @@ export const fetchStylists = () => dispatch => {
 
 export const fetchStylist = stylistId => dispatch => {
   return StylistApiUtil.fetchStylist(stylistId)
+    .then(
+      stylist => dispatch(receiveStylist(stylist)),
+      err => dispatch(receiveStylistErrors(err.response.data))
+    )
+}
+
+export const updateStylist = stylist => dispatch => {
+  return StylistApiUtil.updateStylist(stylist)
     .then(
       stylist => dispatch(receiveStylist(stylist)),
       err => dispatch(receiveStylistErrors(err.response.data))

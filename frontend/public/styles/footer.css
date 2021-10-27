@@ -1,0 +1,155 @@
+.footer-wrapper {
+  border-top: 3px solid #705338;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  height: auto;
+  background-color: inherit;
+}
+
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: auto;
+  padding-bottom: 24px;
+}
+
+.footer-technologies {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 200px; 
+}
+
+.footer-technologies h3 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 5px;
+  
+}
+
+.footer-technologies a {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.footer-connect {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 200px; 
+}
+
+.footer-connect h3 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+.footer-connect ul {
+  padding-top: 10px;
+}
+
+.footer-connect p {
+  padding-top: 5px;
+  font-size: 14px;
+  opacity: .65;
+}
+
+.footer-about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 200px; 
+}
+
+.footer-about h3 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+.footer-about ul {
+  padding-top: 10px;
+}
+
+.footer-support {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 200px; 
+}
+
+.footer-support h3 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 5px;
+
+}
+
+.footer-support ul {
+  padding-top: 10px;
+
+}
+
+.footer-meet-the-team {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: flex-start;
+  height: 200px; 
+}
+
+.footer-meet-the-team .team-link {
+  padding: 0;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+.footer-meet-the-team ul {
+  padding-top: 10px;
+}
+
+.under-footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  border-top: 1px solid rgb(173, 173, 173);
+}
+
+.under-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.under-footer-cutabove {
+  font-size: 20px;
+  font-weight: 600;
+  opacity: .75;
+}
+
+.under-footer-copyright {
+  padding-left: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: .5;
+}
+
+.footer-github {
+  padding-top: 5px;
+  font-size: 1.5em;
+  color: rgb(196, 196, 196);
+}
+
+.footer-github:hover {
+  color: #000000;
+}

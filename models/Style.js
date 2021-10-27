@@ -21,7 +21,7 @@ const StyleSchema = new Schema ({
     },
     imageUrl: {
         type: String,
-        required: false,
+        require: false,
     }
 }, {
     timestamps: true

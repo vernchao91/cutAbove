@@ -10,13 +10,18 @@ const appointmentsReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_APPOINTMENTS:
-      return Object.assign({}, oldState, action.appointments)
+      let updatedState = {};
+      action.appointments.data.forEach((appointment) => {
+        updatedState[appointment._id] = appointment;
+      });
+      return updatedState
 
     case RECEIVE_APPOINTMENT:
-      newState[action.appointment.id] = action.appointment
+      newState[action.appointment._id] = action.appointment.data
       return newState
 
     case REMOVE_APPOINTMENT:
+      
       delete newState[action.appointmentId]
       return newState
 

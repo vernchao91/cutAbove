@@ -85,5 +85,4 @@ export const deleteAppointment = appointmentId => dispatch => {
       () => dispatch(removeAppointment(appointmentId)),
       err => dispatch(receiveAppointmentErrors(err.response.data))
     )
-    // .catch(err => dispatch(receiveReviewErrors(err.response.data)))
 }

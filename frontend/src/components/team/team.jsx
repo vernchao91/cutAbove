@@ -5,7 +5,7 @@ import Connor from "./Connor2.png";
 import Vern from "./Vern2.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-// import { faAngellist } from '@fortawesome/free-brands-svg-icons';
+import { faAngellist } from '@fortawesome/free-brands-svg-icons';
 
 const TeamPage = () => {
   return (
@@ -16,7 +16,7 @@ const TeamPage = () => {
         <div className="member-card">
             <h2>Alex Crooks</h2>
             <div className="image-cropper">
-                <img src={Alex} alt="" className="profile-pic"/>
+                <img src={Alex} alt="" className="member-pic"/>
             </div>
             <div className="social-links">
                 <a href="https://www.linkedin.com/in/alex-crooks/" target="_blank" rel="noreferrer">
@@ -25,16 +25,16 @@ const TeamPage = () => {
                 <a href="https://github.com/acrks" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={faGithub} className="fontAwesome"/>
                 </a>
-                {/* <a href="" target="_blank" rel="noreferrer">
+                <a href="https://angel.co/u/alex-crooks" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={faAngellist} className="fontAwesome"/>
-                </a> */}
+                </a>
             </div>
         </div>
   
         <div className="member-card">
             <h2>Hicham Elalam</h2>
             <div className="image-cropper">
-                <img src={Hitch} alt="" className="profile-pic"/>
+                <img src={Hitch} alt="" className="member-pic"/>
             </div>
             <div className="social-links">
                 <a href="https://www.linkedin.com/in/hicham-elalam-06117a128/" target="_blank" rel="noreferrer">
@@ -45,16 +45,16 @@ const TeamPage = () => {
                     <FontAwesomeIcon icon={faGithub} className="fontAwesome"/>
   
                 </a>
-                {/* <a href="" target="_blank" rel="noreferrer">
+                <a href="https://angel.co/u/hicham-elalam" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={faAngellist} className="fontAwesome"/>
-                </a> */}
+                </a>
             </div>
         </div>
   
         <div className="member-card">
             <h2>Connor Germain</h2>
             <div className="image-cropper">
-                <img src={Connor} alt="" className="profile-pic"/>
+                <img src={Connor} alt="" className="member-pic"/>
             </div>
             <div className="social-links">
                 <a href="https://www.linkedin.com/in/connor-germain-04ab10188/" target="_blank" rel="noreferrer">
@@ -63,16 +63,16 @@ const TeamPage = () => {
                 <a href="https://github.com/Onaconnapuna" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={faGithub} className="fontAwesome"/>
                 </a>
-                {/* <a href="" target="_blank" rel="noreferrer">
+                <a href="https://angel.co/u/connor-germain" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={faAngellist} className="fontAwesome"/>
-                </a> */}
+                </a>
             </div>
         </div>
   
         <div className="member-card">
             <h2>Vern Chao</h2>
             <div className="image-cropper">
-                <img src={Vern} alt="" className="profile-pic"/>
+                <img src={Vern} alt="" className="member-pic"/>
             </div>
             <div className="social-links">
                 <a href="https://www.linkedin.com/in/vern-chao-a8201a1ba/" target="_blank" rel="noreferrer">
@@ -81,9 +81,9 @@ const TeamPage = () => {
                 <a href="https://github.com/vernchao91" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={faGithub} className="fontAwesome"/>
                 </a>
-                {/* <a href="" target="_blank" rel="noreferrer">
+                <a href="https://angel.co/u/vern-chien-chao" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={faAngellist} className="fontAwesome"/>
-                </a> */}
+                </a>
             </div>
         </div>
   
