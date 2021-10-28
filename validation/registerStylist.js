@@ -1,5 +1,6 @@
 const Validator = require('validator');
 const validText = require('./valid-text');
+const validPhoneNum = require('./valid_phone_num');
 
 module.exports = function validateRegisterInput(data) {
   let errors = {};
@@ -10,7 +11,7 @@ module.exports = function validateRegisterInput(data) {
   data.email = validText(data.email) ? data.email : '';
   data.password = validText(data.password) ? data.password : '';
   data.password2 = validText(data.password2) ? data.password2 : '';
-  data.phoneNumber = validText(data.phoneNumber) ? data.phoneNumber : '';
+  data.phoneNumber = validPhoneNum(data.phoneNumber) ? data.phoneNumber : '';
   data.address = validText(data.address) ? data.address : '';
   // data.phoneNumber = validNum(data.phoneNumber) ? data.phoneNumber : '';
 
@@ -53,6 +54,11 @@ module.exports = function validateRegisterInput(data) {
   if (!Validator.equals(data.password, data.password2)) {
     errors.password2 = 'Passwords must match';
   }
+  if(!validPhoneNum(data.phoneNumber)) {
+    errors.phoneNumber = "Invalid phone number"
+  }
+
+
 
   // if (Validator.isEmpty(data.phoneNumber)) {
   //   errors.phoneNumber = "Phone Number field is required"

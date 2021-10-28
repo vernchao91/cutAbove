@@ -69,7 +69,8 @@ class SignupForm extends React.Component {
     let emailErrorLabel, 
     handleErrorLabel, 
     passwordErrorLabel,
-    passwordConfirmErrorLabel, 
+    passwordConfirmErrorLabel,
+    validPhoneNumErrorLabel, 
     firstNameErrorLabel,
     lastNameErrorLabel,
     handleTakenLabel,
@@ -115,7 +116,12 @@ class SignupForm extends React.Component {
             if (error === 'Passwords must match') {
               passwordMatchLabel = <label  className="error-message">The password you entered does not much</label>
           }
-
+          if (error === 'Passwords must match') {
+            passwordMatchLabel = <label  className="error-message">The password you entered does not much</label>
+        }
+        if(error === 'Invalid phone number') {
+          validPhoneNumErrorLabel = <label  className="error-message">Please enter your phone number in the valid format -<br/>XXX-XXX-XXXX</label>
+        }
         })
     }
 
@@ -188,8 +194,9 @@ class SignupForm extends React.Component {
               <input type="text"
               value={this.state.phoneNumber}
               onChange={this.update('phoneNumber')}
-              placeholder="business phone number"
+              placeholder="business phone number - XXX-XXX-XXXX"
               />
+              {validPhoneNumErrorLabel}
               <br/>
               <input type="text"
               value={this.state.address}
