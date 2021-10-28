@@ -69,12 +69,12 @@ class SignupForm extends React.Component {
     let emailErrorLabel, 
     handleErrorLabel, 
     passwordErrorLabel,
-    passwordMatchLabel,
     passwordConfirmErrorLabel, 
     firstNameErrorLabel,
     lastNameErrorLabel,
     handleTakenLabel,
     passwordConfirmEmptyErrorLabel,
+    passwordMatchLabel,
     emailTakenLabel = <label></label>;
     
     let errorsArr = Object.values(this.state.errors)
@@ -112,6 +112,9 @@ class SignupForm extends React.Component {
             if (error === 'Password field is required') {
               passwordConfirmErrorLabel = <label className="error-message">You must enter the same password twice</label>
             }
+            if (error === 'Passwords must match') {
+              passwordMatchLabel = <label  className="error-message">The password you entered does not much</label>
+          }
 
         })
     }
@@ -178,10 +181,8 @@ class SignupForm extends React.Component {
                 placeholder="confirm password"
                 />
                 {passwordConfirmEmptyErrorLabel}
-                {passwordConfirmErrorLabel}
+                {passwordMatchLabel}
             <br/>
-            {passwordMatchLabel}
-              {/* <br/> */}
               {this.state.stylist ? 
               <>
               <input type="text"
