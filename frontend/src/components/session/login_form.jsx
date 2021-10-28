@@ -49,7 +49,6 @@ class LoginForm extends React.Component {
 
     if(this.state.stylist) {
       this.props.stylistLogin(user)
-      // <Redirect to={} />
     }
 
     else {
