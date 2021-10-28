@@ -58,7 +58,9 @@ module.exports = function validateRegisterInput(data) {
     errors.phoneNumber = "Invalid phone number"
   }
 
-
+  if (Validator.isEmpty(data.address)) {
+    errors.address = "Address field is required"
+  }
 
   // if (Validator.isEmpty(data.phoneNumber)) {
   //   errors.phoneNumber = "Phone Number field is required"
@@ -68,9 +70,6 @@ module.exports = function validateRegisterInput(data) {
   //   errors.phoneNumber = 'Phone Number is invalid';
   // }
 
-  // if (Validator.isEmpty(data.address)) {
-  //   errors.address = "Address field is required"
-  // }
 
   return {
     errors,

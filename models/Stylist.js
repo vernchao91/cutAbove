@@ -28,11 +28,11 @@ const StylistSchema = new Schema({
   },
   phoneNumber: {
     type: String, 
-    required: false
+    required: true
   },
   address: {
     type: String, 
-    required: false
+    required: true
   },
   averageRating: {
     type: Number,
