@@ -1,6 +1,7 @@
 .appointment-list-container {
   display: flex;
   width: 40%;
+  height: calc(100vh - 409px);
 }
 
 .appointment-list {

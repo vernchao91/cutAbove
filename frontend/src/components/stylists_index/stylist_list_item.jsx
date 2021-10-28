@@ -37,7 +37,7 @@ class StylistIndexItem  extends React.Component{
         {/* <div className="stylist-index-photo" style={{backgroundImage : `url(${this.props.stylist.imageUrl})`}} /> */}
         </div>
         <div className='stylist-index-info-container'>
-        <p className='stylist-index-item-info'>
+        <div className='stylist-index-item-info'>
         {this.props.stylist.handle}
         <br/>
         {this.props.stylist.firstName} {this.props.stylist.lastName}
@@ -45,7 +45,7 @@ class StylistIndexItem  extends React.Component{
         {this.addressSplitCity()}
         {this.props.stylist.phoneNumber}
         {this.props.stylist.rating}
-        </p>
+        </div>
         <div className='stylist-index-link'>
         <Link to={`/stylists/${this.props.stylist._id}`}> View {this.props.stylist.firstName}'s Work </Link>
         </div>

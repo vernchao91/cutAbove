@@ -114,10 +114,10 @@ class SignupForm extends React.Component {
               passwordConfirmErrorLabel = <label className="error-message">You must enter the same password twice</label>
             }
             if (error === 'Passwords must match') {
-              passwordMatchLabel = <label  className="error-message">The password you entered does not much</label>
+              passwordMatchLabel = <label  className="error-message">The password you entered does not match</label>
           }
           if (error === 'Passwords must match') {
-            passwordMatchLabel = <label  className="error-message">The password you entered does not much</label>
+            passwordMatchLabel = <label  className="error-message">The password you entered does not match</label>
         }
         if(error === 'Invalid phone number') {
           validPhoneNumErrorLabel = <label  className="error-message">Please enter your phone number in the valid format -<br/>XXX-XXX-XXXX</label>

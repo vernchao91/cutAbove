@@ -29,7 +29,7 @@ const App = () => (
         <Route exact path="/team" component={TeamPage} />
         <Route exact path='/stylists/index' component={StylistsIndexContainer}/>
         <Route exact path='/search' component={Search} />
-        <Route exact path="/stylists/:stylistId/edit" component={StylistEditProfileContainer} />
+        <ProtectedRoute exact path="/stylists/:stylistId/edit" component={StylistEditProfileContainer} />
         <Route exact path="/stylists/:stylistId" component={StylistProfileContainer}/>
         <ProtectedRoute exact path="/appointments/:id" component={AppointmentsIndex}/>
         <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer}/>

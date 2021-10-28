@@ -2,18 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { uploadImage } from "../../actions/image_action"
 import ReviewIndexContainer from '../reviews/review_index_container'
-// import ReviewFormContainer from '../review/review_form_container'
-import vern25 from './vern25.png'
 import reviewIcon from '../review/review_icon.png'
-import style1 from './stylist_haircuts/9f47865469d56f3a254e37e925cbd940.jpg'
-import style2 from './stylist_haircuts/download-1.jpg'
-import style3 from './stylist_haircuts/download.jpg'
-import style4 from './stylist_haircuts/images-1.jpg'
-import style5 from './stylist_hairstyles/download-1.jpg'
-import style6 from './stylist_hairstyles/download.jpg'
-import style7 from './stylist_hairstyles/Hairstyles-for-Women-Over-50-With-Highlights-37.jpg'
-import style8 from './stylist_hairstyles/lob-cut-with-copper-highlights-500x500.jpg'
-import karrie from './featured-stylist.jpg';
+// import ReviewFormContainer from '../review/review_form_container'
+// import vern25 from './vern25.png'
+// import style1 from './stylist_haircuts/9f47865469d56f3a254e37e925cbd940.jpg'
+// import style2 from './stylist_haircuts/download-1.jpg'
+// import style3 from './stylist_haircuts/download.jpg'
+// import style4 from './stylist_haircuts/images-1.jpg'
+// import style5 from './stylist_hairstyles/download-1.jpg'
+// import style6 from './stylist_hairstyles/download.jpg'
+// import style7 from './stylist_hairstyles/Hairstyles-for-Women-Over-50-With-Highlights-37.jpg'
+// import style8 from './stylist_hairstyles/lob-cut-with-copper-highlights-500x500.jpg'
+// import karrie from './featured-stylist.jpg';
 
 class StylistProfile extends React.Component {
 
@@ -85,7 +85,7 @@ class StylistProfile extends React.Component {
                 <div className="stylist-carousel-container">
                     {Object.values(this.props.styles).length !== 0 ?  
                     Object.values(this.props.styles).map((style, i) => (
-                        <img className="stylist-work" src={style.imageUrl}/>
+                        <img className="stylist-work" src={style.imageUrl} key={i}/>
                     )) : <div>This Stylist has no posts yet, check back later! </div>}
                     {/* {this.props.stylist.firstName === "Vern da Goat" ? <img className="stylist-work" src={style1} alt = "Hich i have no clue why you did this"/> : <img className="stylist-work" src={style5} alt = "hairstyle1"/>}
                     {this.props.stylist.firstName === "Vern da Goat" ? <img className="stylist-work" src={style2} alt = "Hich i have no clue why you did this"/> : <img className="stylist-work" src={style6} alt = "hairstyle1"/>}

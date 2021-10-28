@@ -4,7 +4,7 @@
 
 .team-page-container {
   text-align: center;
-  background-color: #dededf;
+  background-color: #fffaf1;
   padding: 5rem 10%;
   width: 100vw;
 }
@@ -14,9 +14,12 @@
   font-size: 50px;
   line-height: 70px;
   padding: 20px 0 0;
-  color: #37719e;
+  /* color: #37719e; */
+  color: #b8702d;
   font-family: 'Montserrat', sans-serif;
 }
+/* color: #493018 */
+/* color: #b8702d; */
 
 .team-page-container > .members-container {
   display: flex;
@@ -41,6 +44,7 @@
 
 .members-container > .member-card > h2 {
   font-family: "Soleil", Helvetica, Arial,sans-serif;
+  color: #493018;
   font-size: 24px;
 }
 
