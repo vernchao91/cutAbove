@@ -35,7 +35,6 @@ class StyleIndex extends React.Component {
         if (file) {
             result = await uploadImage({image: file, description});
             this.setState ({imageUrl: `/api/images/${result.imagePath}`})
-            // this.state.imageUrl = `/api/images/${result.imagePath}`
             const stateStyle = Object.assign({}, this.state)
             console.log(stateStyle)
             this.props.createStyle(stateStyle)
