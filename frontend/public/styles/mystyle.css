@@ -979,6 +979,41 @@ TODO: Put color on top of page to not have to scroll back and forth */
 
 /* User Profile */
 
+.user-input-file {
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #705338;
+  color: white;
+  padding: 2px;
+  /* width: 100px; */
+  height: 22px;
+}
+
+.user-input-file:hover {
+  cursor: pointer;
+}
+
+#user-profile-upload {
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #705338;
+  color: white;
+  width: 0px;
+}
+
+.user-profile-upload:hover {
+  cursor: pointer;
+}
+
+.user-profile-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+}
+
 .user-profile-container {
   display: flex;
   flex-direction: column;
@@ -986,15 +1021,37 @@ TODO: Put color on top of page to not have to scroll back and forth */
   align-items: center;
 }
 
-.profile-pic {
+.user-profile-pic {
   margin: 30px;
   width: 300px;
+  height: 300px;
   border-radius: 10px;
   border: 1px solid black
 }
 
 .profile-pic-btn {
-  margin-bottom: 30px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #705338;
+  color: white;
+  padding: 2px;
+}
+
+.profile-pic-btn:hover {
+  cursor: pointer;
+}
+
+.profile-reset-btn {
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #705338;
+  color: white;
+  padding: 2px;
+}
+.profile-reset-btn:hover {
+  cursor: pointer;
 }
 
 .user-reviews-title {

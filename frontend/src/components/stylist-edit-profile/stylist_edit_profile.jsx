@@ -37,6 +37,7 @@ class StylistEditProfile extends React.Component {
         e.preventDefault();
         const file = e.target.files[0];
             this.setState( {file: file} );
+        
     }
 
     render() {
