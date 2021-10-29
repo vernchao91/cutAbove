@@ -30,6 +30,10 @@ class StylistProfile extends React.Component {
         // this.props.fetchStylists()
     }
 
+    componentWillUnmount() {
+        this.props.clearStyles();
+    }
+
     sessionCheck() {
         
     }

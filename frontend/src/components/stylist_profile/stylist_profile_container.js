@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import { fetchStylesFromStylist } from '../../actions/style_actions'
+import { fetchStylesFromStylist, clearStyles } from '../../actions/style_actions'
 import {fetchStylist, fetchStylists } from '../../actions/stylist_actions'
 import { fetchReviewsFromStylist } from '../../actions/review_actions'
 import StylistProfile from './stylist_profile'
@@ -18,7 +18,8 @@ const mapDispatchToProps = dispatch => ({
     fetchStylists: () => dispatch(fetchStylists()),
     fetchStylist: (stylistId) => dispatch(fetchStylist(stylistId)),
     fetchReviewsFromStylist:(stylistId) => dispatch(fetchReviewsFromStylist(stylistId)),
-    fetchStylesFromStylist: (stylistId) => dispatch(fetchStylesFromStylist(stylistId))
+    fetchStylesFromStylist: (stylistId) => dispatch(fetchStylesFromStylist(stylistId)),
+    clearStyles: () => dispatch(clearStyles())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(StylistProfile)

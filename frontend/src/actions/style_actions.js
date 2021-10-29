@@ -3,8 +3,9 @@ import * as StyleApiUtil from "../util/style_api_util";
 export const RECEIVE_STYLES = "RECEIVE_STYLES";
 export const RECEIVE_STYLE = "RECEIVE_STYLE";
 export const REMOVE_STYLE = "REMOVE_STYLE";
+export const CLEAR_STYLES = "CLEAR_STYLES";
 export const RECEIVE_STYLE_ERRORS = "RECEIVE_STYLE_ERRORS";
-export const REMOVE_ERRORS = "REMOVE_ERRORS"
+export const REMOVE_ERRORS = "REMOVE_ERRORS";
 
 export const receiveStyles = styles => {
   return {
@@ -22,6 +23,11 @@ export const removeStyle = styleId => {
   return {
     type: REMOVE_STYLE,
     styleId
+  }
+}
+export const clearStyles = () => {
+  return {
+    type: CLEAR_STYLES
   }
 }
 export const receiveStyleErrors = errors => {
