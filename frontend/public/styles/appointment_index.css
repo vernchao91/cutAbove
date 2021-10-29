@@ -1,27 +1,48 @@
 .appointment-list-container {
   display: flex;
-  width: 40%;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .appointment-list {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
+  align-items: center;
+  /* justify-content: space-around; */
+  font-family: 'Crimson Pro', sans-serif;
+
+}
+
+.appointment-list > h3 {
+  font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .appointment-item-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   border: solid #493018;
+  background-color: rgb(255, 246, 233);
   border-radius: 5px;
   padding: 10px;
   margin-top: 10px;
-  min-width: 464px;
+  margin-bottom: 10px;
+  width: 95%;
+  font-family: 'Crimson Pro', sans-serif;
+  font-size: 20px;
+  /* align-items: center; */
 }
 
 .appointment-with {
   padding: 10px;
+}
+
+.appointment-stylist-name {
+  text-decoration: none;
 }
 
 .cancel-appointment {
@@ -31,8 +52,7 @@
   text-align: center;
   background-color: rgb(202, 17, 17);
   height: 45px;
-  min-width: 30%;
-  max-width: 30%;
+  width: 20%;
   border-radius: 10px;
 }
 
@@ -51,4 +71,11 @@
   align-items: center;
   padding: 10px;
   text-align: left;
+}
+
+.appointment-item-ref-pic > .featured-stylist-profile-pic {
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  width: 200px;
+  height: 200px;
 }

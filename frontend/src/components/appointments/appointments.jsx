@@ -1,13 +1,15 @@
 import React from 'react';
 import AppointmentItemContainer from './appointment_item_container';
-import AppointmentItem from './appointment_item';
 
 class AppointmentsBooked extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      appointments: this.props.appointments
+      appointments: this.props.appointments,
     }
+    this.pastArr = []
+    this.upcomingArr = []
+    this.timeDeterminer = this.timeDeterminer.bind(this)
   }
 
   componentDidMount() {
@@ -24,19 +26,46 @@ class AppointmentsBooked extends React.Component{
     this.setState({});
   }
 
+  timeDeterminer() {
+    let today = new Date()
+    
+    for(let i = 0; i < this.state.appointments.length; i++) {
+      let compDate = new Date(this.state.appointments[i].date)
+      if(compDate.getTime() < today.getTime()) {
+        this.pastArr.push(this.state.appointments[i])
+      }
+      else {
+        this.upcomingArr.push(this.state.appointments[i])
+      }
+    }
+  }
+
   render(){
-    // if (this.props.appointments == null) return null
+    if (this.props.appointments === null) return null
+    this.timeDeterminer()
     return (
       <div className='appointment-list-container'> 
         <div className='appointment-list'>
-          {
-            this.state.appointments.map((appointment, idx) => 
-              <AppointmentItemContainer key={idx}
-              deleteAppointment={this.props.deleteAppointment}
-              appointment={appointment}
-              userId={this.props.user.id}
-              />)
-            }
+          <h3>past appointments</h3>
+          {this.pastArr.map((appointment, idx) => 
+          <AppointmentItemContainer key={idx}
+          deleteAppointment={this.props.deleteAppointment}
+          appointment={appointment}
+          userId={this.props.user.id}
+          passed = {true}
+          />
+          )}
+        </div>
+        <div className='appointment-list'>
+          <h3>upcoming appointments</h3>
+          {this.upcomingArr.map((appointment, idx) => 
+          <AppointmentItemContainer key={idx}
+          deleteAppointment={this.props.deleteAppointment}
+          appointment={appointment}
+          userId={this.props.user.id}
+          passed = {false}
+          />
+          )}
         </div>
       </div>
     )
