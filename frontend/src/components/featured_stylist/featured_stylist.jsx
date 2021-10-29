@@ -25,14 +25,16 @@ class FeaturedStylist extends React.Component {
     //     )
     //   }
     
-      addressSplitCity(chosenStylist) {
+    addressSplitCity(chosenStylist) {
+        if(!chosenStylist.address) { return null }
         let splitString = chosenStylist.address.split(',')
         return (
           `${splitString.splice(1).join(', ')}`
         )
-      }
+    }
 
       addressSplitState(chosenStylist) {
+        if(!chosenStylist.address) { return null }
         let splitString = chosenStylist.address.split(',')
         return (
           `${splitString.splice(2).join(', ')}`

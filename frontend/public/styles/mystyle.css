@@ -201,6 +201,7 @@ body {
   justify-content: left;
   flex-wrap: wrap;
   align-items: center;
+  min-width: 1350px;
 }
 
 /* Master element for hero element */
@@ -755,7 +756,7 @@ TODO: Put color on top of page to not have to scroll back and forth */
   padding-left: 20px;
   padding-right: 20px;
   margin-bottom: 20px;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 250px;
 }
 
@@ -979,6 +980,42 @@ TODO: Put color on top of page to not have to scroll back and forth */
 
 /* User Profile */
 
+.user-input-file {
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #ED7D31;
+  color: white;
+  padding: 2px;
+  /* width: 100px; */
+  height: 22px;
+}
+
+.user-input-file:hover {
+  cursor: pointer;
+}
+
+#user-profile-upload {
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #ED7D31;
+  color: white;
+  width: 0px;
+}
+
+.user-profile-upload:hover {
+  cursor: pointer;
+}
+
+.user-profile-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  padding-bottom: 10px;
+}
+
 .user-profile-container {
   display: flex;
   flex-direction: column;
@@ -986,15 +1023,39 @@ TODO: Put color on top of page to not have to scroll back and forth */
   align-items: center;
 }
 
-.profile-pic {
+.user-profile-pic {
   margin: 30px;
   width: 300px;
+  height: 300px;
   border-radius: 10px;
   border: 1px solid black
 }
 
 .profile-pic-btn {
-  margin-bottom: 30px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #ED7D31;
+  color: white;
+  padding: 2px;
+}
+
+.profile-pic-btn:hover {
+  cursor: pointer;
+}
+
+.profile-reset-btn {
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #ED7D31;
+  color: white;
+  padding: 2px;
+  margin-bottom: 10px;
+}
+
+.profile-reset-btn:hover {
+  cursor: pointer;
 }
 
 .user-reviews-title {
@@ -1011,6 +1072,7 @@ TODO: Put color on top of page to not have to scroll back and forth */
 
 .user-profile-titles {
   display: flex;
+  width: 100%;
 }
 
 .cut-review-icon {

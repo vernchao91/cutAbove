@@ -1,6 +1,6 @@
 # cutAbove
 
-[Live Link](https://www.google.com/)
+[Live Link](https://pacific-sea-61217.herokuapp.com/#/)
 ## Overview
 As the COVID 19 pandemic starts to alleviate, people are entering a new normal. A big part of this normal? The lack of proper hair styling that people have had to endure during that time. 
 

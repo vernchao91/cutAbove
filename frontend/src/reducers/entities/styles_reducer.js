@@ -1,7 +1,8 @@
 import {
   RECEIVE_STYLES,
   RECEIVE_STYLE,
-  REMOVE_STYLE
+  REMOVE_STYLE,
+  CLEAR_STYLES
 } from "../../actions/style_actions"
 
 const stylesReducer = (oldState = {}, action) => {
@@ -23,6 +24,9 @@ const stylesReducer = (oldState = {}, action) => {
     case REMOVE_STYLE:
       delete newState[action.styleId]
       return newState
+
+    case CLEAR_STYLES:
+      return {};
       
     default:
       return oldState

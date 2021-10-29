@@ -69,12 +69,13 @@ class SignupForm extends React.Component {
     let emailErrorLabel, 
     handleErrorLabel, 
     passwordErrorLabel,
-    passwordMatchLabel,
-    passwordConfirmErrorLabel, 
+    passwordConfirmErrorLabel,
+    validPhoneNumErrorLabel, 
     firstNameErrorLabel,
     lastNameErrorLabel,
     handleTakenLabel,
     passwordConfirmEmptyErrorLabel,
+    passwordMatchLabel,
     emailTakenLabel = <label></label>;
     
     let errorsArr = Object.values(this.state.errors)
@@ -112,7 +113,15 @@ class SignupForm extends React.Component {
             if (error === 'Password field is required') {
               passwordConfirmErrorLabel = <label className="error-message">You must enter the same password twice</label>
             }
-
+            if (error === 'Passwords must match') {
+              passwordMatchLabel = <label  className="error-message">The password you entered does not match</label>
+          }
+          if (error === 'Passwords must match') {
+            passwordMatchLabel = <label  className="error-message">The password you entered does not match</label>
+        }
+        if(error === 'Invalid phone number') {
+          validPhoneNumErrorLabel = <label  className="error-message">Please enter your phone number in the valid format -<br/>XXX-XXX-XXXX</label>
+        }
         })
     }
 
@@ -178,17 +187,16 @@ class SignupForm extends React.Component {
                 placeholder="confirm password"
                 />
                 {passwordConfirmEmptyErrorLabel}
-                {passwordConfirmErrorLabel}
+                {passwordMatchLabel}
             <br/>
-            {passwordMatchLabel}
-              {/* <br/> */}
               {this.state.stylist ? 
               <>
               <input type="text"
               value={this.state.phoneNumber}
               onChange={this.update('phoneNumber')}
-              placeholder="business phone number"
+              placeholder="business phone number - XXX-XXX-XXXX"
               />
+              {validPhoneNumErrorLabel}
               <br/>
               <input type="text"
               value={this.state.address}

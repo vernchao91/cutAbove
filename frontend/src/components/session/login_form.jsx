@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
+
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -48,9 +49,8 @@ class LoginForm extends React.Component {
 
     if(this.state.stylist) {
       this.props.stylistLogin(user)
-    }
-
-    else {
+      // return <Redirect to="/user/" />
+    } else {
       this.props.login(user)
     } 
 

@@ -8,15 +8,17 @@ class StylistEditProfile extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            imageUrl: this.props.user.imageUrl,
-            id: this.props.user.id
+            imageUrl: '',
+            id: this.props.match.params.stylistId, 
+            file: ''
         }
         this.handleImageSubmit = this.handleImageSubmit.bind(this);
         this.fileSelected = this.fileSelected.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchStylist(this.props.user.id)
+        this.props.fetchStylist(this.props.match.params.stylistId)
+        .then( () => this.setState( {imageUrl: this.props.user.imageUrl}))
     }
 
     async handleImageSubmit(e) {
@@ -26,17 +28,39 @@ class StylistEditProfile extends React.Component {
     
         if (file) {
           result = await uploadImage({image: file, description});
-          this.setState( {imageUrl: `/api/images/${result.imagePath}`} )
-          this.state.imageUrl = `/api/images/${result.imagePath}`
+          this.setState( {imageUrl: `/api/images/${result.imagePath}`})
           const stateUser = Object.assign({}, this.state)
-          this.props.updateStylist(stateUser)
+          console.log(stateUser)
+          this.props.updateStylist(stateUser).then( this.setState({file:''}), this.props.fetchStylist(this.props.user.id))
         }
       }
 
     fileSelected(e) {
         e.preventDefault();
         const file = e.target.files[0];
-            this.setState( {file: file} );
+        this.setState( this.state.file = file );
+        const reader = new FileReader();
+        reader.onloadend = () => this.setState({imageUrl: reader.result })
+          if (file) {
+                reader.readAsDataURL(file);
+          } else {
+                this.setState({imageUrl: '' })
+          } 
+    }
+
+    renderUploadButton() {
+      if(this.state.file !== "") {
+          return  <button type='submit'> Save Profile Picture </button>
+      }
+    }
+    renderResetButton() {
+      if(this.state.file !== "") {
+          return (
+            // <label className="stylist-profile-pic-btn" > Reset Picture
+              <button type="submit" onClick={() => this.setState({imageUrl: this.props.user.imageUrl, file: ""})}>Reset Picture</button>
+            // </label>
+          )
+      }
     }
 
     render() {
@@ -44,15 +68,23 @@ class StylistEditProfile extends React.Component {
         return (
             <div className="stylist-profile-page">
                 <div className="stylist-profile-container">
-                  <div className='testing-this'>
+                  <div className='stylist-edit-form-container'>
                     <img className= "stylist-profile-pic" src={this.state.imageUrl} alt="Profile Picture"/>
                     <form onSubmit={this.handleImageSubmit}>
+
                       <label className="select-profile-pic">
-                        <input type="file" onChange={this.fileSelected} accept="image/*"/>
-                        Select a Profile Picture
+                        Change Profile Picture
+                        <input
+                        type="file"
+                         onChange={this.fileSelected} 
+                         accept="image/*"/>
                       </label>
-                        <button className="stylist-profile-pic-btn" type="submit"> Upload/Change Profile Image</button>
+                      {this.renderUploadButton()}
+                        {/* <label className="stylist-profile-pic-btn" > Upload/Change Profile Image
+                          <input type="submit"/>
+                        </label> */}
                     </form>
+                    {/* {this.renderResetButton()} */}
                   </div>
                     <div className="stylist-info">
                         <ul>

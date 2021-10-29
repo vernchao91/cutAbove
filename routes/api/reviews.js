@@ -36,6 +36,7 @@ router.get(
   }
 )
 
+// all reviews on user
 router.get(
   "/reviewer/:reviewerId",
   (req, res) => {

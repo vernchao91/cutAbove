@@ -45,7 +45,7 @@ function Footer() {
                 </div>
 
                 <div className="footer-meet-the-team">
-                    <Link className="team-link" to={`/team`}>Meet the team</Link>
+                    <Link className="team-link" to={`/team`} onClick={() => window.scrollTo(0, 0)}>Meet the team</Link>
                     <ul>Alex Crooks</ul>
                     <ul>Hicham Elalam</ul>
                     <ul>Connor Germain</ul>

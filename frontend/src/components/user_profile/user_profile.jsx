@@ -8,36 +8,54 @@ class UserProfile extends React.Component {
         super(props)
         this.state = {
             imageUrl: "",
-            id: this.props.match.params.userId
+            id: this.props.match.params.userId,
+            file: ""
         }
         this.handleImageSubmit = this.handleImageSubmit.bind(this);
         this.fileSelected = this.fileSelected.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchReviewsFromUser(this.props.match.params.userId)
         this.props.fetchClient(this.props.match.params.userId)
-            // .then(this.setState({user: this.props.user, imageUrl: this.props.user.imageUrl}))
+            .then(() => this.setState({imageUrl: this.props.user.imageUrl}))
+        this.props.fetchReviewsFromUser(this.props.match.params.userId)
     }
 
     async handleImageSubmit(e) {
         e.preventDefault();
         const {file, description} = this.state;
         let result = null;
-    
         if (file) {
           result = await uploadImage({image: file, description});
           this.setState( {imageUrl: `/api/images/${result.imagePath}`} )
           this.state.imageUrl = `/api/images/${result.imagePath}`
           const stateUser = Object.assign({}, this.state)
-          this.props.updateClient(stateUser)
+          this.props.updateClient(stateUser).then(this.setState({file: ""}))
         }
       }
 
     fileSelected(e) {
         e.preventDefault();
         const file = e.target.files[0];
-            this.setState( {file: file} );
+        this.setState( this.state.file = file );
+        const reader = new FileReader();
+        reader.onloadend = () => this.setState({imageUrl: reader.result })
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            this.setState({imageUrl: '' })
+        } 
+    }
+
+    renderUploadButton() {
+        if(this.state.file !== "") {
+            return <button className="profile-pic-btn" type="submit">Save Profile Picture</button>
+        }
+    }
+    renderResetButton() {
+        if(this.state.file !== "") {
+            return <button className="profile-reset-btn" onClick={() => this.setState({imageUrl: this.props.user.imageUrl, file: ""})}>Reset Picture</button>
+        }
     }
 
     render() {
@@ -45,15 +63,19 @@ class UserProfile extends React.Component {
         return (
             <div className="user-profile-page">
                 <div className="user-profile-container">
-                    <img className= "profile-pic" src={this.props.user.imageUrl} alt=""/>
-                    <form onSubmit={this.handleImageSubmit}>
+                    <img className= "user-profile-pic" src={this.state.imageUrl} alt=""/>
+                    <form className="user-profile-form" onSubmit={this.handleImageSubmit}>
+                        <label for="user-profile-upload" className="user-input-file">Change Profile Picture</label>
                         <input
+                        id="user-profile-upload"
                         type="file"
                         onChange={this.fileSelected}
                         accept="image/*"
+                        style={{visibility:"hidden"}}
                         />
-                        <button className="profile-pic-btn" type="submit"> Upload/Change Profile Image</button>
+                        {this.renderUploadButton()}
                     </form>
+                    {this.renderResetButton()}
                     <div className="stylist-info">
                         <ul>
                             <li>Name: {this.props.user.firstName} {this.props.user.lastName}</li>

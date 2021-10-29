@@ -2,6 +2,7 @@ import {
   RECEIVE_APPOINTMENTS,
   RECEIVE_APPOINTMENT,
   REMOVE_APPOINTMENT,
+  CLEAR_APPOINTMENTS
 } from "../../actions/appointment_actions"
 
 const appointmentsReducer = (oldState = {}, action) => {
@@ -24,6 +25,9 @@ const appointmentsReducer = (oldState = {}, action) => {
       
       delete newState[action.appointmentId]
       return newState
+
+    case CLEAR_APPOINTMENTS:
+      return {};
 
     default:
       return oldState

@@ -28,10 +28,10 @@ class StylistsIndex extends React.Component {
     return (
       <div className='stylists-index-container'>
         <div className="search-box">
-              <button class="btn-search"><FontAwesomeIcon className="fas fa-search" icon={faSearch}/></button>
+              <button className="btn-search"><FontAwesomeIcon className="fas fa-search" icon={faSearch}/></button>
         <input className = "input-search" type="text" placeholder="search by name/handle/address..." onChange={this.updateSearch}/>
         </div>
-        <div class="search"></div>
+        <div className="search"></div>
         <ul className='stylist-list'>
           {
             this.props.stylists.filter((val) => {

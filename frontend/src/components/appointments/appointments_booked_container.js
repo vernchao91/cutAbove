@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import AppointmentsBooked from './appointments';
 import { fetchAppointmentsFromUser, 
         fetchAppointmentsFromStylist,
-        deleteAppointment } from '../../actions/appointment_actions';
+        deleteAppointment,
+        clearAppointments } from '../../actions/appointment_actions';
 import { fetchStylist } from '../../actions/stylist_actions';
 import { fetchClient } from '../../actions/client_actions'
 
@@ -17,6 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchAppointmentsFromStylist: (stylistId) => dispatch(fetchAppointmentsFromStylist(stylistId)),
   fetchAppointmentsFromUser: (clientId) => dispatch(fetchAppointmentsFromUser(clientId)),
   deleteAppointment: (appointmentId) => dispatch(deleteAppointment(appointmentId)),
+  clearAppointments: () => dispatch(clearAppointments())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppointmentsBooked)
