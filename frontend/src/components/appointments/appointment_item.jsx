@@ -5,7 +5,8 @@ class AppointmentItem extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      appointment: this.props.appointment
+      appointment: this.props.appointment,
+      passed: this.props.passed
     }
   }
 
@@ -44,39 +45,25 @@ class AppointmentItem extends React.Component {
     monthArray[10] = "Nov";
     monthArray[11] = "Dec";
     let month = monthArray[date2.getMonth()];
-
-    return month + " " + day + ", " + weekDay
+    let year = date2.getFullYear()
+    return month + " " + day + ", " + weekDay + ", " + year
   }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   if (this.props.stylist !== nextProps.stylist) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-  // componentDidUpdate(prevProps, prevState){
-  //     if(prevProps.stylist !== this.props.stylist){
-  //       this.props.fetchStylist(prevProps.appointment.stylistId)
-  //       console.log(prevProps)
-  //       console.log(this.props)
-  //     }
-  // }
 
   render() {
     // console.log(this.props.stylist)
     if (this.state.appointment === null ) return null
     return(
       <div className='appointment-item-container'>
-        <h3 className='appointment-with'>Appointment with</h3>
-        {this.renderLink()}
+        <h3 className='appointment-with'>appointment with: {this.renderLink()}</h3>
         {/* <Link className="appointment-stylist-name" to={`/stylists/${this.state.appointment.stylistId}`}>{this.state.appointment.stylistName}</Link> */}
         <div className='appointment-details-container'>
           <p>{this.state.appointment.styleType}</p>
           <p>{this.renderDate()}</p>
           <p>{this.state.appointment.timeFrame}</p>
         </div>
-        <button className='cancel-appointment' onClick={ () => this.props.deleteAppointment(this.state.appointment._id).then(this.setState({appointment: null}))}>Cancel Appointment</button>
+          {this.state.appointment.imageUrl ? <div className = "appointment-item-ref-pic"><p>reference pic</p><div className = "featured-stylist-profile-pic" style = {{backgroundImage : `url(${this.state.appointment.imageUrl})`}} /></div> : null}
+          {this.state.appointment.message ? <p>message: <br/>{this.state.appointment.message}</p> : null}
+          {this.state.passed ? <p>We hoped you enjoyed your cut with {this.state.appointment.stylistName}!<br/>Let them know how they did by leaving a review on their profile!</p> : <button className='cancel-appointment' onClick={ () => this.props.deleteAppointment(this.state.appointment._id).then(this.setState({appointment: null}))}>cancel appointment</button>}
       </div>
     )
   }
