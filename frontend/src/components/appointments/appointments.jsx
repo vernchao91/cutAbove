@@ -13,6 +13,7 @@ class AppointmentsBooked extends React.Component{
   }
 
   componentDidMount() {
+    this.props.clearAppointments();
     if (this.props.user.address) {
       this.props.fetchAppointmentsFromStylist(this.props.user.id)
         .then(state => this.setState({appointments: this.props.appointments}))
@@ -20,6 +21,7 @@ class AppointmentsBooked extends React.Component{
       this.props.fetchAppointmentsFromUser(this.props.user.id)
         .then(state => this.setState({appointments: this.props.appointments}))
     }
+    
   }
 
   componentWillUnmount() {
