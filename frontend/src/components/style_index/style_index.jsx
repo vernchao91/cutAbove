@@ -53,14 +53,18 @@ class StyleIndex extends React.Component {
     if (this.props.styles.length < 4) {
       return (
         <form className='style-form' onSubmit={this.handleStyleSubmit}>
-          {console.log(this.state)}
+          <h3> Add A Style </h3>
           <input type="text" placeholder="describe your style" value={this.state.description} onChange={this.update('description')}/>
           <input type="text" placeholder="haircut or hairstyle?" value={this.state.styleType} onChange={this.update('styleType')}/>
+      <div className='style-images-edit-page'>
         <label className='stylist-style-img-select'>
           <input type="file" onChange={this.fileSelected} accept="image/*"/>
           Choose a Reference Photo
         </label>
-          <button className="style-pic-btn" type="submit"> Upload/Change Style Images</button>
+        <label className="style-pic-btn">Upload/Change Style Images
+          <input type="submit"/>
+        </label>
+      </div>
         </form>
       )
     } else {

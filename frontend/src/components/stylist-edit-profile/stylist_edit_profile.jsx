@@ -44,15 +44,17 @@ class StylistEditProfile extends React.Component {
         return (
             <div className="stylist-profile-page">
                 <div className="stylist-profile-container">
-                  <div className='testing-this'>
+                  <div className='stylist-edit-form-container'>
                     <img className= "stylist-profile-pic" src={this.state.imageUrl} alt="Profile Picture"/>
                     <form onSubmit={this.handleImageSubmit}>
-                      
+
                       <label className="select-profile-pic">
                         <input type="file" onChange={this.fileSelected} accept="image/*"/>
                         Select a Profile Picture
                       </label>
-                        <button className="stylist-profile-pic-btn" type="submit"> Upload/Change Profile Image</button>
+                        <label className="stylist-profile-pic-btn" > Upload/Change Profile Image
+                          <input type="submit"/>
+                        </label>
                     </form>
                   </div>
                     <div className="stylist-info">

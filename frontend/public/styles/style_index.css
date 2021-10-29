@@ -88,14 +88,17 @@
 }
 
 .select-profile-pic {
+  
   text-decoration: none;
   color: black;
+  height: 50px;
   width: 100%;
   font-weight: 700;
   text-align: center;
   background-color: rgb(223, 237, 247);
   border-radius: 10px;
   padding: 20px;
+  
 }
 .select-profile-pic {
   cursor: pointer;
@@ -105,7 +108,7 @@
   display: none;
 }
 
-.testing-this {
+.stylist-edit-form-container{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -127,21 +130,26 @@
   width: 100%;
 }
 
-.testing-this form {
+.stylist-edit-form-container form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .stylist-profile-pic-btn {
   background: none;
   color: black;
+  height: 50px;
   width: 100%;
   font-weight: 700;
   text-align: center;
   background-color: rgb(223, 237, 247);
   border-radius: 10px;
   padding: 20px;
+}
+
+.stylist-profile-pic-btn input[type=submit] {
+  display: none;
 }
 
 .stylist-profile-pic-btn:hover {
@@ -162,3 +170,12 @@
 .style-pic-btn:hover {
   cursor: pointer;
 }
+
+.style-pic-btn input[type=submit] {
+  display: none;
+}
+
+.style-images-edit-page {
+  display: flex;
+}
+ 
