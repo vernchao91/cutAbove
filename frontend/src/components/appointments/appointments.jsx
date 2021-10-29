@@ -24,6 +24,7 @@ class AppointmentsBooked extends React.Component{
 
   componentWillUnmount() {
     this.setState({});
+    this.props.clearAppointments();
   }
 
   timeDeterminer() {

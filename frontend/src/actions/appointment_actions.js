@@ -3,6 +3,7 @@ import * as AppointmentApiUtil from "../util/appointment_api_util"
 export const RECEIVE_APPOINTMENTS = "RECEIVE_APPOINTMENTS";
 export const RECEIVE_APPOINTMENT = "RECEIVE_APPOINTMENT";
 export const REMOVE_APPOINTMENT = "REMOVE_APPOINTMENT";
+export const CLEAR_APPOINTMENTS = "CLEAR_APPOINTMENTS";
 export const RECEIVE_APPOINTMENT_ERRORS = "RECEIVE_APPOINTMENT_ERRORS";
 export const REMOVE_ERRORS = "REMOVE_ERRORS"
 
@@ -22,6 +23,11 @@ export const removeAppointment = appointmentId => {
   return {
     type: REMOVE_APPOINTMENT,
     appointmentId
+  }
+}
+export const clearAppointments = () => {
+  return {
+    type: CLEAR_APPOINTMENTS
   }
 }
 export const receiveAppointmentErrors = errors => {
