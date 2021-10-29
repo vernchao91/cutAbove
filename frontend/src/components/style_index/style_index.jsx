@@ -19,7 +19,6 @@ class StyleIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchStylesFromStylist(this.props.user.id)
-
   }
 
     fileSelected(e) {
@@ -61,7 +60,7 @@ class StyleIndex extends React.Component {
           <input type="file" onChange={this.fileSelected} accept="image/*"/>
           Choose a Reference Photo
         </label>
-          <button className="profile-pic-btn" type="submit"> Upload/Change Style Images</button>
+          <button className="style-pic-btn" type="submit"> Upload/Change Style Images</button>
         </form>
       )
     } else {

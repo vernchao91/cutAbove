@@ -47,6 +47,7 @@ class StylistEditProfile extends React.Component {
                   <div className='testing-this'>
                     <img className= "stylist-profile-pic" src={this.state.imageUrl} alt="Profile Picture"/>
                     <form onSubmit={this.handleImageSubmit}>
+                      
                       <label className="select-profile-pic">
                         <input type="file" onChange={this.fileSelected} accept="image/*"/>
                         Select a Profile Picture
