@@ -1009,9 +1009,10 @@ TODO: Put color on top of page to not have to scroll back and forth */
 
 .user-profile-form {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 500px;
+  padding-bottom: 10px;
 }
 
 .user-profile-container {
@@ -1050,6 +1051,7 @@ TODO: Put color on top of page to not have to scroll back and forth */
   color: white;
   padding: 2px;
 }
+
 .profile-reset-btn:hover {
   cursor: pointer;
 }

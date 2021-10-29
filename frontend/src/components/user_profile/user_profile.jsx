@@ -32,14 +32,14 @@ class UserProfile extends React.Component {
           this.setState( {imageUrl: `/api/images/${result.imagePath}`} )
           this.state.imageUrl = `/api/images/${result.imagePath}`
           const stateUser = Object.assign({}, this.state)
-          this.props.updateClient(stateUser)
+          this.props.updateClient(stateUser).then(this.setState({file: ""}))
         }
       }
 
     fileSelected(e) {
         e.preventDefault();
         const file = e.target.files[0];
-        this.setState( {file: file} );
+        this.setState( this.state.file = file );
         const reader = new FileReader();
         reader.onloadend = () => this.setState({imageUrl: reader.result })
         if (file) {
@@ -52,6 +52,11 @@ class UserProfile extends React.Component {
     renderUploadButton() {
         if(this.state.file !== "") {
             return <button className="profile-pic-btn" type="submit">Save Profile Picture</button>
+        }
+    }
+    renderResetButton() {
+        if(this.state.file !== "") {
+            return <button className="profile-reset-btn" onClick={() => this.setState({imageUrl: this.props.user.imageUrl, file: ""})}>Reset Picture</button>
         }
     }
 
@@ -71,9 +76,8 @@ class UserProfile extends React.Component {
                         style={{visibility:"hidden"}}
                         />
                         {this.renderUploadButton()}
-                        {/* <button className="profile-pic-btn" type="submit">Save Profile Picture</button> */}
                     </form>
-                        <button className="profile-reset-btn" onClick={() => this.setState({imageUrl: this.props.user.imageUrl, file: ""})}>Reset Picture</button>
+                    {this.renderResetButton()}
                     <div className="stylist-info">
                         <ul>
                             <li>Name: {this.props.user.firstName} {this.props.user.lastName}</li>
