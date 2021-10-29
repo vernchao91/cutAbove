@@ -75,7 +75,8 @@ router.post(
             stylistHandle: req.body.stylistHandle,
             timeFrame: req.body.timeFrame,
             styleId: req.body.styleId,
-            imageUrl: req.body.imageUrl
+            imageUrl: req.body.imageUrl,
+            message: req.body.message
           })
           newAppointment.save()
             .then(appointment => res.json(appointment))

@@ -201,6 +201,7 @@ body {
   justify-content: left;
   flex-wrap: wrap;
   align-items: center;
+  min-width: 1350px;
 }
 
 /* Master element for hero element */
@@ -983,7 +984,7 @@ TODO: Put color on top of page to not have to scroll back and forth */
   font-size: 14px;
   border-radius: 5px;
   border: 1px solid black;
-  background-color: #705338;
+  background-color: #ED7D31;
   color: white;
   padding: 2px;
   /* width: 100px; */
@@ -998,7 +999,7 @@ TODO: Put color on top of page to not have to scroll back and forth */
   font-size: 14px;
   border-radius: 5px;
   border: 1px solid black;
-  background-color: #705338;
+  background-color: #ED7D31;
   color: white;
   width: 0px;
 }
@@ -1034,7 +1035,7 @@ TODO: Put color on top of page to not have to scroll back and forth */
   font-size: 14px;
   border-radius: 5px;
   border: 1px solid black;
-  background-color: #705338;
+  background-color: #ED7D31;
   color: white;
   padding: 2px;
 }
@@ -1047,9 +1048,10 @@ TODO: Put color on top of page to not have to scroll back and forth */
   font-size: 14px;
   border-radius: 5px;
   border: 1px solid black;
-  background-color: #705338;
+  background-color: #ED7D31;
   color: white;
   padding: 2px;
+  margin-bottom: 10px;
 }
 
 .profile-reset-btn:hover {
@@ -1070,6 +1072,7 @@ TODO: Put color on top of page to not have to scroll back and forth */
 
 .user-profile-titles {
   display: flex;
+  width: 100%;
 }
 
 .cut-review-icon {

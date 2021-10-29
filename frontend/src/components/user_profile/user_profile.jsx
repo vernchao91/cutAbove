@@ -16,11 +16,9 @@ class UserProfile extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchReviewsFromUser(this.props.match.params.userId)
         this.props.fetchClient(this.props.match.params.userId)
             .then(() => this.setState({imageUrl: this.props.user.imageUrl}))
-            console.log("componentMOUNT")
-        console.log(this.state)
+        this.props.fetchReviewsFromUser(this.props.match.params.userId)
     }
 
     async handleImageSubmit(e) {

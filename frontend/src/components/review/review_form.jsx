@@ -5,7 +5,7 @@ class ReviewForm extends React.Component {
         super(props)
 
         this.state = {
-            clientId: this.props.user.id,
+            reviewerId: this.props.user.id,
             stylistId: this.props.match.params.stylistId,
             // styleId: 0,
             title: '',
@@ -37,7 +37,7 @@ class ReviewForm extends React.Component {
         const appointment = Object.assign({}, this.state)
         this.props.createReview(appointment).then(() => {
           this.setState({
-            clientId: this.props.user,
+            reviewerId: this.props.user,
             stylistId: this.props.match.params.stylistId,
             title: '',
             body: '',
