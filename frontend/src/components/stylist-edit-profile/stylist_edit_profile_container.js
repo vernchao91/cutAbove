@@ -7,8 +7,7 @@ import StylistEditProfile from './stylist_edit_profile'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        user: state.session.user,
-        reviews: state.entities.reviews
+        user: state.entities.stylists 
     }
 }
 

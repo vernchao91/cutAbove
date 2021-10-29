@@ -14,7 +14,8 @@ const stylistsReducer = (oldState = {}, action) => {
       return action.stylists.data
       
     case RECEIVE_STYLIST:
-      return Object.assign({}, oldState, action.stylist.data)
+      // return Object.assign({}, oldState, action.stylist.data)
+      return action.stylist.data
 
     case REMOVE_STYLIST:
       delete newState[action.stylistId]
