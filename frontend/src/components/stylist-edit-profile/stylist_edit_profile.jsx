@@ -49,7 +49,7 @@ class StylistEditProfile extends React.Component {
 
     renderUploadButton() {
       if(this.state.file !== "") {
-          return  <button type='submit'> Save Profile Picture </button>
+          return  <button className="stylist-pic-upload" type='submit'> Save Profile Picture </button>
       }
     }
     renderResetButton() {

@@ -148,6 +148,18 @@
   padding: 20px;
 }
 
+.stylist-pic-upload {
+  background: none;
+  color: black;
+  height: 60px;
+  width: 100%;
+  font-weight: 700;
+  text-align: center;
+  background-color: rgb(223, 237, 247);
+  border-radius: 10px;
+  padding: 20px;
+}
+
 .stylist-profile-pic-btn input[type=submit] {
   display: none;
 }
