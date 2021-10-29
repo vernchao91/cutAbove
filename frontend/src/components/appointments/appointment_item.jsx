@@ -48,21 +48,6 @@ class AppointmentItem extends React.Component {
     return month + " " + day + ", " + weekDay
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   if (this.props.stylist !== nextProps.stylist) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-  // componentDidUpdate(prevProps, prevState){
-  //     if(prevProps.stylist !== this.props.stylist){
-  //       this.props.fetchStylist(prevProps.appointment.stylistId)
-  //       console.log(prevProps)
-  //       console.log(this.props)
-  //     }
-  // }
-
   render() {
     // console.log(this.props.stylist)
     if (this.state.appointment === null ) return null
@@ -75,6 +60,7 @@ class AppointmentItem extends React.Component {
           <p>{this.state.appointment.styleType}</p>
           <p>{this.renderDate()}</p>
           <p>{this.state.appointment.timeFrame}</p>
+          {/* <div className = "featured-stylist-profile-pic" style = {{backgroundImage : `url(${this.state.appointment.imageUrl})`}} /> */}
         </div>
         <button className='cancel-appointment' onClick={ () => this.props.deleteAppointment(this.state.appointment._id).then(this.setState({appointment: null}))}>Cancel Appointment</button>
       </div>
