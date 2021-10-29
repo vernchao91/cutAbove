@@ -36,7 +36,25 @@ class StylistEditProfile extends React.Component {
     fileSelected(e) {
         e.preventDefault();
         const file = e.target.files[0];
-            this.setState( {file: file} );
+        this.setState( {file: file} );
+        const reader = new FileReader();
+        reader.onloadend = () => this.setState({imageUrl: reader.result })
+          if (file) {
+                reader.readAsDataURL(file);
+          } else {
+                this.setState({imageUrl: '' })
+          } 
+    }
+
+    renderUploadButton() {
+      if(this.state.file !== "") {
+          return <button className="profile-pic-btn" type="submit">Save Profile Picture</button>
+      }
+      }
+    renderResetButton() {
+      if(this.state.file !== "") {
+          return <button className="profile-reset-btn" onClick={() => this.setState({imageUrl: this.props.user.imageUrl, file: ""})}>Reset Picture</button>
+      }
     }
 
     render() {
