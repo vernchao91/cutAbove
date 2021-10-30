@@ -76,6 +76,7 @@ class SignupForm extends React.Component {
     handleTakenLabel,
     passwordConfirmEmptyErrorLabel,
     passwordMatchLabel,
+    addressErrorLabel,
     emailTakenLabel = <label></label>;
     
     let errorsArr = Object.values(this.state.errors)
@@ -121,6 +122,9 @@ class SignupForm extends React.Component {
         }
         if(error === 'Invalid phone number') {
           validPhoneNumErrorLabel = <label  className="error-message">Please enter your phone number in the valid format -<br/>XXX-XXX-XXXX</label>
+        }
+        if(error === "Address field is required") {
+          addressErrorLabel = <label className="error-message">Please enter your place of work</label>
         }
         })
     }
@@ -204,6 +208,7 @@ class SignupForm extends React.Component {
               placeholder="place of work"
               />
               <br/>
+              {addressErrorLabel}
                 </>
               : 
               null}
