@@ -13,6 +13,8 @@ class AppointmentsBooked extends React.Component{
   }
 
   componentDidMount() {
+    console.log(this.state)
+
     this.props.clearAppointments();
     if (this.props.user.address) {
       this.props.fetchAppointmentsFromStylist(this.props.user.id)
@@ -31,14 +33,17 @@ class AppointmentsBooked extends React.Component{
 
   timeDeterminer() {
     let today = new Date()
-    
     for(let i = 0; i < this.state.appointments.length; i++) {
       let compDate = new Date(this.state.appointments[i].date)
       if(compDate.getTime() < today.getTime()) {
-        this.pastArr.push(this.state.appointments[i])
+        if(!this.pastArr.includes(this.state.appointments[i])) {
+          this.pastArr.push(this.state.appointments[i])
+        }
       }
       else {
-        this.upcomingArr.push(this.state.appointments[i])
+        if(!this.upcomingArr.includes(this.state.appointments[i])) {
+          this.upcomingArr.push(this.state.appointments[i])
+        }
       }
     }
   }

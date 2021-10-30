@@ -10,7 +10,7 @@ class StylistEditProfile extends React.Component {
         this.state = {
             imageUrl: '',
             id: this.props.match.params.stylistId, 
-            file: ''
+            file: '',
         }
         this.handleImageSubmit = this.handleImageSubmit.bind(this);
         this.fileSelected = this.fileSelected.bind(this);
@@ -18,7 +18,7 @@ class StylistEditProfile extends React.Component {
 
     componentDidMount() {
         this.props.fetchStylist(this.props.match.params.stylistId)
-        .then( () => this.setState( {imageUrl: this.props.user.imageUrl}))
+          .then( () => this.setState( {imageUrl: this.props.user.imageUrl}))
     }
 
     async handleImageSubmit(e) {
