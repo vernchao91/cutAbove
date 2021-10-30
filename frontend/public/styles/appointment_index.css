@@ -3,7 +3,6 @@
   width: 100%;
   flex-direction: row;
   justify-content: space-around;
-  min-width: 1675px;
 }
 
 .appointment-list {
@@ -13,6 +12,7 @@
   align-items: center;
   /* justify-content: space-around; */
   font-family: 'Crimson Pro', sans-serif;
+
 }
 
 .appointment-list > h3 {
