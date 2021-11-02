@@ -54,7 +54,6 @@ class AppointmentItem extends React.Component {
     return(
       <div className='appointment-item-container'>
         <h3 className='appointment-with'>appointment with: {this.renderLink()}</h3>
-        {/* <Link className="appointment-stylist-name" to={`/stylists/${this.state.appointment.stylistId}`}>{this.state.appointment.stylistName}</Link> */}
         <div className='appointment-details-container'>
           <p>{this.state.appointment.styleType}</p>
           <p>{this.renderDate()}</p>

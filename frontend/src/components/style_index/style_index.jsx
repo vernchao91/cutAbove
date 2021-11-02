@@ -55,7 +55,6 @@ class StyleIndex extends React.Component {
     }
 
   renderForm() {
-    console.log(this.props.errors)
     if (this.props.styles.length < 4) {
       return (
         <form className='style-form' onSubmit={this.handleStyleSubmit}>
