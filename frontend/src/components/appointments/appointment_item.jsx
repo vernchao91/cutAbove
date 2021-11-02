@@ -50,12 +50,10 @@ class AppointmentItem extends React.Component {
   }
 
   render() {
-    // console.log(this.props.stylist)
     if (this.state.appointment === null ) return null
     return(
       <div className='appointment-item-container'>
         <h3 className='appointment-with'>appointment with: {this.renderLink()}</h3>
-        {/* <Link className="appointment-stylist-name" to={`/stylists/${this.state.appointment.stylistId}`}>{this.state.appointment.stylistName}</Link> */}
         <div className='appointment-details-container'>
           <p>{this.state.appointment.styleType}</p>
           <p>{this.renderDate()}</p>

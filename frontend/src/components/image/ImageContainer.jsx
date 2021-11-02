@@ -20,7 +20,6 @@ class Image extends React.Component {
     if (file) {
       result = await uploadImage({image: file, description});
       this.setState( {imageUrl: `/api/images/${result.imagePath}`} )
-      console.log(result)
     }
   }
 

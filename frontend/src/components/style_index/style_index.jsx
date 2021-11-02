@@ -43,7 +43,6 @@ class StyleIndex extends React.Component {
             result = await uploadImage({image: file, description});
             this.setState ({imageUrl: `/api/images/${result.imagePath}`})
             const stateStyle = Object.assign({}, this.state)
-            console.log(stateStyle)
             this.props.createStyle(stateStyle)
               .then(() => (this.props.fetchStylesFromStylist(this.props.user.id)))
               .then(() => this.setState({
@@ -56,7 +55,6 @@ class StyleIndex extends React.Component {
     }
 
   renderForm() {
-    console.log(this.props.errors)
     if (this.props.styles.length < 4) {
       return (
         <form className='style-form' onSubmit={this.handleStyleSubmit}>

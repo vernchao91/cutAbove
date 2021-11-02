@@ -13,8 +13,6 @@ class AppointmentsBooked extends React.Component{
   }
 
   componentDidMount() {
-    console.log(this.state)
-
     this.props.clearAppointments();
     if (this.props.user.address) {
       this.props.fetchAppointmentsFromStylist(this.props.user.id)

@@ -14,11 +14,9 @@ class StylistsIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchStylists()
-    // console.log(this.props)
   }
 
   componentWillUnmount() {
-    // this.props.stylists = Object.assign({})
   }
 
   updateSearch(e) {

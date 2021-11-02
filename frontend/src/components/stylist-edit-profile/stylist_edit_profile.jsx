@@ -30,7 +30,6 @@ class StylistEditProfile extends React.Component {
           result = await uploadImage({image: file, description});
           this.setState( {imageUrl: `/api/images/${result.imagePath}`})
           const stateUser = Object.assign({}, this.state)
-          console.log(stateUser)
           this.props.updateStylist(stateUser).then( this.setState({file:''}), this.props.fetchStylist(this.props.user.id))
         }
       }

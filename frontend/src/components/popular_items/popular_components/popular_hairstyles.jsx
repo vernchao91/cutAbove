@@ -40,8 +40,6 @@ class PopularHairstyles extends React.Component {
                 if(!newArr.includes(haircut)) {
                     newArr.push(haircut)
                 }
-                console.log(newArr)
-                console.log(haircut)
             }
             let popularHairstyle = newArr.map((hairstyle,i) => 
                 <div className="style-item" key={i}>
