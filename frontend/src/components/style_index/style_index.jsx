@@ -24,7 +24,14 @@ class StyleIndex extends React.Component {
     fileSelected(e) {
         e.preventDefault();
         const file = e.target.files[0];
-            this.setState( {file: file} );
+        this.setState( {file: file} );
+        const reader = new FileReader();
+        reader.onloadend = () => this.setState({imageUrl: reader.result })
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            this.setState({imageUrl: '' })
+        } 
     }
 
     async handleStyleSubmit(e) {
@@ -48,21 +55,25 @@ class StyleIndex extends React.Component {
     }
 
   renderForm() {
+    console.log(this.props.errors)
     if (this.props.styles.length < 4) {
       return (
         <form className='style-form' onSubmit={this.handleStyleSubmit}>
-          <h3> Add A Style </h3>
-          <input type="text" placeholder="describe your style" value={this.state.description} onChange={this.update('description')}/>
-          <input type="text" placeholder="haircut or hairstyle?" value={this.state.styleType} onChange={this.update('styleType')}/>
-      <div className='style-images-edit-page'>
-        <label className='stylist-style-img-select'>
-          <input type="file" onChange={this.fileSelected} accept="image/*"/>
-          Choose a Reference Photo
-        </label>
-        <label className="style-pic-btn">Upload/Change Style Images
-          <input type="submit"/>
-        </label>
-      </div>
+          <div className="style-input-form">
+            <h3> Add A Style </h3>
+            <input type="text" placeholder={this.props.errors.styleType ? `${this.props.errors.styleType}` : "haircut or hairstyle?"} value={this.state.styleType} onChange={this.update('styleType')}/>
+            <input type="text" placeholder={this.props.errors.description ? `${this.props.errors.description}` : "describe your style"} value={this.state.description} onChange={this.update('description')}/>
+          </div>
+            <img className="style-upload-pic" src={this.state.imageUrl} alt="your style img"/>
+            <div className='style-images-edit-page'>
+            <label className='stylist-style-img-select'>
+            <input type="file" onChange={this.fileSelected} accept="image/*"/>
+            Choose a Reference Photo
+          </label>
+          <label className="style-pic-btn">Upload/Change Style Images
+            <input type="submit"/>
+          </label>
+          </div>
         </form>
       )
     } else {

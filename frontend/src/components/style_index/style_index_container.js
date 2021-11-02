@@ -4,6 +4,7 @@ import StyleIndex from './style_index';
 
 const mapStateToProps = (state) => ({
   user: state.session.user,
+  errors: state.errors.style,
   styles: Object.values(state.entities.styles)
 })
 

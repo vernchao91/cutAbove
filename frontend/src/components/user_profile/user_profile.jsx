@@ -37,7 +37,7 @@ class UserProfile extends React.Component {
     fileSelected(e) {
         e.preventDefault();
         const file = e.target.files[0];
-        this.setState( this.state.file = file );
+        this.setState({file: file });
         const reader = new FileReader();
         reader.onloadend = () => this.setState({imageUrl: reader.result })
         if (file) {
