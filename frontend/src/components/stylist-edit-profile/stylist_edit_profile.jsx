@@ -91,7 +91,7 @@ class StylistEditProfile extends React.Component {
                             <li>Name: {this.props.user.firstName} {this.props.user.lastName}</li>
                             <li>Handle: {this.props.user.handle}</li>
                             <li>Email: {this.props.user.email}</li>
-                            <li><Link to={`/stylists/${this.props.user.id}`}>Profile Preview</Link></li>
+                            <li><Link to={`/stylists/${this.props.user._id}`}>Profile Preview</Link></li>
                         </ul>
                     </div>
 
