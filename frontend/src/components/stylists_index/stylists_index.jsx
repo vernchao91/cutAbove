@@ -13,12 +13,6 @@ class StylistsIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchStylists()
-<<<<<<< HEAD
-=======
-  }
-
-  componentWillUnmount() {
->>>>>>> frontend
   }
 
   updateSearch(e) {
