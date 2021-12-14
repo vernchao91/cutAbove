@@ -41,7 +41,7 @@ class NavBar extends React.Component {
             <button onClick={() => this.props.openModal('signup')}>register</button>
             {/* <Link to={'/login'}>Login</Link> */}
             <button onClick={() => this.props.openModal('login')}>login</button>
-            <a href= "https://www.target.com/c/hair-care-beauty/-/N-5xu0k" target="_blank" rel="noreferrer noopener">care for<br/>your hair</a>
+            {/* <a href= "https://www.target.com/c/hair-care-beauty/-/N-5xu0k" target="_blank" rel="noreferrer noopener">care for<br/>your hair</a> */}
           </div>
         );
       }
